@@ -1,0 +1,25 @@
+select count(*)from (select distinct email from employees);
+
+select count(*)from (select distinct first_name from employees);
+
+select first_name as f_n,salary as sal from employees where sal=9000// not alowed 
+
+select first_name as f_n,salary as sal from employees where salary=9000;
+
+
+select first_name as f_n,salary as sal from employees where salary between 8000 and 9000;
+
+select first_name as f_n,salary as sal from employees where salary>=5000 and salary<=9000;
+
+select first_name as f_n,salary as sal from employees where salary not between 8000 and 9000;
+
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NOT NULL;
+
+select first_name fn, last_name as ln , salary as sal from employees where salary>9000 order by fn; // or column no i.e 1
+
+select first_name fn, last_name as ln , salary as sal from employees where salary>9000 order by ln; // or column no i.e 2
+
+select first_name fn, last_name as ln , salary as sal from employees where salary>9000 order by sal;  // or column no i.e 3
+

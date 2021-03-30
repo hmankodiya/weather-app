@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        html{
+            font-size:25px;
+        }
+        /*vh sets height according to the view port/area*/
+        /*vw sets width according to the view port/area*/
+        .container{
+            flex-wrap: wrap;
+            border:solid red 2px;
+            font-size:10px;
+            height: 97vh;
+            width:  97vw;
+            margin:10px;
+        }
+        h1{
+            text-align: center;
+        }
+        /*em unit parent size relative to parent container - 10em means
+        10 times parent */
+        #first{
+             /* 10 px of container so 30px is computed*/
+            font-size: 3em;
+            padding:3em; 
+            /* expected is 30px of padding but it takes
+            3 times of that of font*/
+        }
+        /*REM sizes relative to the font size of html ie the base html*/
+        #second{
+            font-size:3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id='first'>First</h1>
+        <h1 id='second'>Second</h1>
+        <h1 id='third'>third</h1>
+    </div>
+</body>
+</html>

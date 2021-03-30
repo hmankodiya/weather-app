@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+*{
+    box-sizing: border-box;
+}
+.obj1{
+    /* flex: 100%; */
+    padding: 30px;
+    margin-left: 500px;
+    margin-top: 200px;
+    width: 100px; height: 100px;
+    border:solid black 2px;
+    background:linear-gradient(80deg,red,yellow);
+    transition: 1s;
+}
+.dwn{
+    transform:rotate(360deg) translateY(200px) ;
+    
+}
+.up{
+    transform: rotate(360deg) translateY(-200px) ;
+
+}
+.lft{
+    transform: rotate(360deg) translateX(-200px);
+
+}
+.rit{
+    transform: rotate(360deg) translateX(200px) ;
+ 
+}
+.main{
+    color: blue;
+    margin-left:60%;
+    margin-bottom:0px;
+    /* padding:10px; */
+}
+
+</style>
+</head>
+<body>
+
+<div class="obj1" id="divid"></div>
+    
+<div class="dwn" id="dwn"></div>
+<div class="up" id="up"></div>
+<div class="lft" id="lft"></div>
+<div class="rit" id="rit"></div>
+<div class="main">
+    <button onclick="dwn()" >down</button>
+    <button onclick="up()">up</button>
+    <button onclick="lft()">left</button>
+    <button onclick="rit()">right</button>
+    <button type="text" >translation </button>
+
+</div>
+
+<script>
+function dwn(){
+    document.getElementById('divid').style.scale= '1.2';
+    var x=document.getElementById('divid');
+    x.classList.add('dwn');
+    x.classList.remove('up');
+    x.classList.remove('lft');
+    x.classList.remove('rit');
+  
+    }
+    
+    function up(){
+    document.getElementById('divid').style.scale= '1.2';
+    var x=document.getElementById('divid');
+    x.classList.add('up');
+    x.classList.remove('lft');
+    x.classList.remove('dwn');
+    x.classList.remove('rit');
+  
+    }
+
+    function lft(){
+        alert('aaa');
+    document.getElementById('divid').style.transform.scale = 2.1;
+    var x=document.getElementById('divid');
+    x.classList.add('lft');
+    x.classList.remove('up');
+    x.classList.remove('dwn');
+    x.classList.remove('rit');
+    }
+
+    function rit(){
+    document.getElementById('divid').style.scale= '1.2';
+    var x=document.getElementById('divid');
+    x.classList.add('rit');
+    x.classList.remove('up');
+    x.classList.remove('dwn');
+    x.classList.remove('lft');
+  
+    }
+
+
+</script>
+</body>
+</html>

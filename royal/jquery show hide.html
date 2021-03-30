@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery</title>
+    <script src="jquery.js"></script>
+</head>
+<body>
+<button id="btnshow" class="b1">show</button>
+<button id="togglebtn" class="b1">toggle</button>
+<button id="btn" class="b1">hide</button>
+<p id="abc" class="a">.nirma uni</p>
+<script>
+$(document).ready(function(){
+
+$('#btn').click(function(){
+    $('#abc').hide();
+})
+$('#btnshow').click(function(){
+    $('#abc').show();
+})
+$('#togglebtn').click(function(){
+    $('#abc').toggle();
+})
+
+})
+
+
+
+</script>
+    
+</body>
+</html>

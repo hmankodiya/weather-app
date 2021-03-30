@@ -1,0 +1,315 @@
+SQL> create table (stu_id number(2),first_name varchar2(8));
+create table (stu_id number(2),first_name varchar2(8))
+             *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> desc students;
+ERROR:
+ORA-04043: object students does not exist 
+
+
+SQL> insert into students values(1,'harsh');
+insert into students values(1,'harsh')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> insert into students values(2,'tony');
+insert into students values(2,'tony')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ste serveroutput on;
+SP2-0734: unknown command beginning "ste server..." - rest of line ignored.
+SQL> declare
+  2  name students.first_name%type;
+  3  begin
+  4  select first_name into name from students
+  5  where stu_id=1;
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /
+name students.first_name%type;
+     *
+ERROR at line 2:
+ORA-06550: line 2, column 6: 
+PLS-00201: identifier 'STUDENTS.FIRST_NAME' must be declared 
+ORA-06550: line 2, column 6: 
+PL/SQL: Item ignored 
+ORA-06550: line 4, column 34: 
+PL/SQL: ORA-00942: table or view does not exist 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 6, column 22: 
+PLS-00320: the declaration of the type of this expression is incomplete or 
+malformed 
+ORA-06550: line 6, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> create table (stu_id number(2),first_name varchar2(8));
+create table (stu_id number(2),first_name varchar2(8))
+             *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> desc students;
+ERROR:
+ORA-04043: object students does not exist 
+
+
+SQL> insert into students values(1,'harsh');
+insert into students values(1,'harsh')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> insert into students values(2,'tony');
+insert into students values(2,'tony')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ste serveroutput on;
+SP2-0734: unknown command beginning "ste server..." - rest of line ignored.
+SQL> declare
+  2  name students.first_name%type;
+  3  begin
+  4  select first_name into name from students
+  5  where stu_id=1;
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /
+name students.first_name%type;
+     *
+ERROR at line 2:
+ORA-06550: line 2, column 6: 
+PLS-00201: identifier 'STUDENTS.FIRST_NAME' must be declared 
+ORA-06550: line 2, column 6: 
+PL/SQL: Item ignored 
+ORA-06550: line 4, column 34: 
+PL/SQL: ORA-00942: table or view does not exist 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 6, column 22: 
+PLS-00320: the declaration of the type of this expression is incomplete or 
+malformed 
+ORA-06550: line 6, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> 
+SQL> create table (stu_id number(2),first_name varchar2(8));
+create table (stu_id number(2),first_name varchar2(8))
+             *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> insert into students values(1,'harsh');
+insert into students values(1,'harsh')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> insert into students values(2,'tony');
+insert into students values(2,'tony')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ste serveroutput on;
+SP2-0734: unknown command beginning "ste server..." - rest of line ignored.
+SQL> declare
+  2  name students.first_name%type;
+  3  begin
+  4  select first_name into name from students
+  5  where stu_id=1;
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /
+name students.first_name%type;
+     *
+ERROR at line 2:
+ORA-06550: line 2, column 6: 
+PLS-00201: identifier 'STUDENTS.FIRST_NAME' must be declared 
+ORA-06550: line 2, column 6: 
+PL/SQL: Item ignored 
+ORA-06550: line 4, column 34: 
+PL/SQL: ORA-00942: table or view does not exist 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 6, column 22: 
+PLS-00320: the declaration of the type of this expression is incomplete or 
+malformed 
+ORA-06550: line 6, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> create table (stu_id number(2),first_name varchar2(8));
+create table (stu_id number(2),first_name varchar2(8))
+             *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> insert into students values(1,'harsh');
+insert into students values(1,'harsh')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> insert into students values(2,'tony');
+insert into students values(2,'tony')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name students.first_name%type;
+  3  begin
+  4  select first_name into name from students
+  5  where stu_id=1;
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /
+name students.first_name%type;
+     *
+ERROR at line 2:
+ORA-06550: line 2, column 6: 
+PLS-00201: identifier 'STUDENTS.FIRST_NAME' must be declared 
+ORA-06550: line 2, column 6: 
+PL/SQL: Item ignored 
+ORA-06550: line 4, column 34: 
+PL/SQL: ORA-00942: table or view does not exist 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 6, column 22: 
+PLS-00320: the declaration of the type of this expression is incomplete or 
+malformed 
+ORA-06550: line 6, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> create table (stu_id number(2),first_name varchar2(8));
+create table (stu_id number(2),first_name varchar2(8))
+             *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> insert into students values(1,'harsh');
+insert into students values(1,'harsh')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> insert into students values(2,'tony');
+insert into students values(2,'tony')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> set serveroutput on;
+SQL> declare
+  2  name students.first_name%type;
+  3  begin
+  4  select first_name into name from students
+  5  where stu_id=1;
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /create table students (stu_id number(2),first_name varchar2(8));
+  9  insert into students values(1,'harsh');
+ 10  insert into students values(2,'tony');
+ 11  
+ 12  set serveroutput on;
+ 13  declare
+ 14  name students.first_name%type;
+ 15  begin
+ 16  select first_name into name from students
+ 17  where stu_id=1;
+ 18  dbms_output.put_line(name);
+ 19  end;
+ 20  /
+/create table students (stu_id number(2),first_name varchar2(8));
+*
+ERROR at line 8:
+ORA-06550: line 8, column 1: 
+PLS-00103: Encountered the symbol "/"  
+
+
+SQL> create table students (stu_id number(2),first_name varchar2(8));
+
+Table created.
+
+SQL> insert into students values(1,'harsh');
+
+1 row created.
+
+SQL> insert into students values(2,'tony');
+
+1 row created.
+
+SQL> 
+SQL> set serveroutput on;
+SQL> declare
+  2  name students.first_name%type;
+  3  begin
+  4  select first_name into name from students
+  5  where stu_id=1;
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /
+harsh                                                                           
+
+PL/SQL procedure successfully completed.
+
+SQL> create table students (stu_id number(2),first_name varchar2(8));
+create table students (stu_id number(2),first_name varchar2(8))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> insert into students values(1,'harsh');
+
+1 row created.
+
+SQL> insert into students values(2,'tony');
+
+1 row created.
+
+SQL> 
+SQL> set serveroutput on;
+SQL> declare
+  2  name students.first_name%type;
+  3  begin
+  4  select first_name into name from students
+  5  where stu_id=1;
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /
+declare
+*
+ERROR at line 1:
+ORA-01422: exact fetch returns more than requested number of rows 
+ORA-06512: at line 4 
+
+
+SQL> 		spool off

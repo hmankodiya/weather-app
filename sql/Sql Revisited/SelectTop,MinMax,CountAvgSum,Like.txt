@@ -1,0 +1,43 @@
+delete from superhero; 
+
+delete from superhero  where id=5 and name='Tony';
+
+select * from superhero where rownum<=3;
+
+select * from superhero where rownum<3;
+
+select id from superhero where rownum<=3;
+
+select * from superhero where id=3000 and rownum<=3; // with where clause
+
+select max(id) as smid from superhero;
+
+select min(name) as smid from superhero;
+
+select min (employee_id) from employees where rownum<=3 and rownum<=5;
+
+select max(employee_id) from employees where rownum<=3 and rownum<=5;
+
+select count(employee_id) as eid from employees;
+
+select sum(employee_id) as eid from employees where rownum<=1;
+
+select sum(employee_id) as eid from employees;
+
+select avg(employee_id) as eid from employees where rownum<=1;
+
+select sum(first_name) as esum from employees;  // invalid
+
+select * from superhero where id like '%8';
+
+select * from superhero where name like 's%e' or name like 'b%e';
+
+select * from superhero where name like '%ve%';
+
+select * from superhero where name like 's_%';
+
+select * from superhero where name like 'st%';
+
+select first_name from employees where first_name like 'A________%';
+
+

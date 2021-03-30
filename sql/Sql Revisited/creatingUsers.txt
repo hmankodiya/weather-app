@@ -1,0 +1,61 @@
+
+
+SQL> conn sys as sysdba
+Enter password:
+Connected.
+SQL> create user harsh
+  2  identified by benchwarmer;
+
+User created.
+
+Warning: You are no longer connected to ORACLE.
+SQL> conn harsh
+Enter password:
+ERROR:
+ORA-01045: user HARSH lacks CREATE SESSION privilege; logon denied
+
+SQL> grant create session,create table , create view, create synonym
+  2  to harsh;
+
+
+SQL> conn harsh
+Enter password:
+Connected.
+SQL> select * from employees;
+select * from employees
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+
+SQL> conn hr/hr
+Connected.
+SQL> grant select on employees to harsh;
+
+Grant succeeded.
+
+SQL> grant select on employees to harsh;
+
+SQL> grant insert on employees to harsh;
+
+
+SQL> grant insert on employees to harsh with grant option;
+
+SQL> grant select on employees to harsh with grant;
+
+
+SQL> select * from hr.employees;
+
+SQL> revoke create table from harsh
+
+SQL> create role manager; // in the sys as sysdba
+
+SQL> grant create table,create session ,create view to manager;
+
+SQL> grant create table,create session ,create view to manager;
+
+SQL> alter user practice identified by password;
+
+
+

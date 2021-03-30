@@ -1,0 +1,66 @@
+SQL> DECLARE
+  2     x number := 10;
+  3  BEGIN
+  4     LOOP
+  5        dbms_output.put_line(x);
+  6        x := x + 10;
+  7        IF x > 50 THEN
+  8           exit;
+  9        END IF;
+ 10     END LOOP;
+ 11     -- after exit, control resumes here
+ 12     dbms_output.put_line('After Exit x is: ' || x);
+ 13  END;
+ 14  /
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> DECLARE
+  2     x number := 10;
+  3  BEGIN
+  4     LOOP
+  5        dbms_output.put_line(x);
+  6        x := x + 10;
+  7        IF x > 50 THEN
+  8           exit;
+  9        END IF;
+ 10     END LOOP;
+ 11     -- after exit, control resumes here
+ 12     dbms_output.put_line('After Exit x is: ' || x);
+ 13  END;
+ 14  /
+10                                                                              
+20                                                                              
+30                                                                              
+40                                                                              
+50                                                                              
+After Exit x is: 60                                                             
+
+PL/SQL procedure successfully completed.
+
+SQL> spool "C:\Users\harsh\Desktop\royal sql and html\PL SQL\Loops.txt" append
+SQL> DECLARE
+  2     x number := 10;
+  3  BEGIN
+  4     LOOP
+  5        dbms_output.put_line(x);
+  6        x := x + 10;
+  7        IF x > 50 THEN
+  8           exit;
+  9        END IF;
+ 10     END LOOP;
+ 11     -- after exit, control resumes here
+ 12     dbms_output.put_line('After Exit x is: ' || x);
+ 13  END;
+ 14  /
+10                                                                              
+20                                                                              
+30                                                                              
+40                                                                              
+50                                                                              
+After Exit x is: 60                                                             
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off

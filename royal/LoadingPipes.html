@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .p1{
+        width: 5px;
+        height: 40px;
+        position:absolute;
+        top: 50%;
+        left:50%;
+        margin-left: 20px;
+        transform: translate(-50%,-50%);
+        /* transform:translateY(-70px) translateX(-70px); */
+        border-radius:3px;
+     }
+    .p1:nth-child(1){
+        position:absolute;
+        background: black;
+    
+        animation-name: updown;
+        animation-duration:0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    .p1:nth-child(2){
+        position:absolute;
+        background: black;
+       
+        margin-left:10px;
+        animation-name: updown;
+        animation-duration:0.5s;
+        animation-delay:.2s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      /* transform: translateX(-8px) ; */
+    }
+     .p1:nth-child(3){
+        position:absolute;
+        background: black;
+       
+        margin-left:30px;
+        animation-name: updown;
+        animation-duration:0.5s;
+        animation-delay:.3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        /* transform: translateX(-16px) ; */
+    }
+    .p1:nth-child(4){
+        position:absolute;
+        background: black;
+       
+        margin-left:40px;
+        animation-name: updown;
+        animation-duration:0.5s;
+        animation-delay:.4s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        /* transform: translateX(-24px) ; */
+    }
+    .p1:nth-child(5){
+        position:absolute;
+        background: black;
+        
+        margin-left:50px;
+        animation-name: updown;
+        animation-duration:.5s;
+        animation-delay:.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        /* transform: translateX(-32px) ; */
+    }
+    /*  */
+    
+    
+    @keyframes updown {
+       0%{
+        transform: translateY(0px);
+       } 
+       50%{ transform: translateY(-10px);}
+        100%{
+            transform:translateY(0px);
+
+        }       
+    }
+    </style>
+</head>
+<body>
+    <div class="p1"></div>
+    <div class="p1"></div>
+    <div class="p1"></div>
+    <div class="p1"></div>
+    <div class="p1"></div>
+    <div class="p1"></div>
+    <div class="p1"></div>  
+    <div class="p1"></div>  
+    <div class="p1"></div>  
+    <div class="p1"></div>  
+</body>
+</html>

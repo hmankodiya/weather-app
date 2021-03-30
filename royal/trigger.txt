@@ -1,0 +1,180 @@
+SQL> create table superheroes (sh_name varchar2(20));
+
+Table created.
+
+SQL> set serveroutput on;
+SQL> create or replace trigger bi_superheroes
+  2  before insert on superheroes
+  3  for each row
+  4  enable
+  5  declare
+  6  v_user varchar(20);
+  7  begin
+  8  select user into v_user from dual;
+  9  dbms_out.put_line('You just inserted a lin e MR.'||v_user);
+ 10  end;
+ 11  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> show error
+Errors for TRIGGER BI_SUPERHEROES:
+
+LINE/COL ERROR                                                                  
+-------- -----------------------------------------------------------------      
+5/1      PL/SQL: Statement ignored                                              
+5/1      PLS-00201: identifier 'DBMS_OUT.PUT_LINE' must be declared             
+SQL> create table superheroes (sh_name varchar2(20));
+create table superheroes (sh_name varchar2(20))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> set serveroutput on;
+SQL> create or replace trigger bi_superheroes
+  2  before insert on superheroes
+  3  for each row
+  4  enable
+  5  declare
+  6  v_user varchar(20);
+  7  begin
+  8  select user into v_user from dual;
+  9  dbms_output.put_line('You just inserted a lin e MR.'||v_user);
+ 10  end;
+ 11  /
+
+Trigger created.
+
+SQL> insert into superherows value('Ironman');
+insert into superherows value('Ironman')
+                              *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> insert into superheroes value('Ironman');
+insert into superheroes value('Ironman')
+                              *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> insert into superheroes values('Ironman');
+You just inserted a lin e MR.HR                                                 
+
+1 row created.
+
+SQL> create or replace trigger bu_superheroes
+  2  before update on superheroes
+  3  for each row
+  4  enable
+  5  declare
+  6  v_user varchar(20);
+  7  begin
+  8  select user into v_user from dual;
+  9  dbms_output.put_line('You just updated a lin e MR.'||v_user);
+ 10  end;
+ 11  /
+
+Trigger created.
+
+SQL> update superheroes set sh_name='superman' where sh_name='Ironman';
+You just updated a lin e MR.HR                                                  
+
+1 row updated.
+
+SQL> create or replace trigger tr_superheroes
+  2  before update on superheroes
+  3  for each row
+  4  enable
+  5  declare
+  6  v_user varchar(20);
+  7  begin
+  8  select user into v_user from dual;
+  9  if INSERTING then
+ 10  dbms_output.put_line('You just inserted a line MR.'||v_user);
+ 11  if UPDATING then
+ 12  dbms_output.put_line('You just updated a line MR.'||v_user);
+ 13  if DELETING then
+ 14  dbms_output.put_line('You just deleted a line MR.'||v_user);
+ 15  end;
+ 16  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> show error
+Errors for TRIGGER TR_SUPERHEROES:
+
+LINE/COL ERROR                                                                  
+-------- -----------------------------------------------------------------      
+11/4     PLS-00103: Encountered the symbol ";" when expecting one of the        
+         following:                                                             
+         if                                                                     
+                                                                                
+SQL> create or replace trigger tr_superheroes
+  2  before update on superheroes
+  3  for each row
+  4  enable
+  5  declare
+  6  v_user varchar(20);
+  7  begin
+  8  select user into v_user from dual;
+  9  if INSERTING then
+ 10  dbms_output.put_line('You just inserted a line MR.'||v_user);
+ 11  if UPDATING then
+ 12  dbms_output.put_line('You just updated a line MR.'||v_user);
+ 13  if DELETING then
+ 14  dbms_output.put_line('You just deleted a line MR.'||v_user);
+ 15  END IF;
+ 16  end;
+ 17  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> show error
+Errors for TRIGGER TR_SUPERHEROES:
+
+LINE/COL ERROR                                                                  
+-------- -----------------------------------------------------------------      
+12/4     PLS-00103: Encountered the symbol ";" when expecting one of the        
+         following:                                                             
+         if                                                                     
+                                                                                
+SQL> create or replace trigger tr_superheroes
+  2  before update on superheroes
+  3  for each row
+  4  enable
+  5  declare
+  6  v_user varchar(20);
+  7  begin
+  8  select user into v_user from dual;
+  9  if INSERTING then
+ 10  dbms_output.put_line('You just inserted a line MR.'||v_user);
+ 11  elsif UPDATING then
+ 12  dbms_output.put_line('You just updated a line MR.'||v_user);
+ 13  elsif DELETING then
+ 14  dbms_output.put_line('You just deleted a line MR.'||v_user);
+ 15  END IF;
+ 16  end;
+ 17  /
+
+Trigger created.
+
+SQL> insert into superheroes values('Ironman');
+You just inserted a lin e MR.HR                                                 
+
+1 row created.
+
+SQL> delete into superheroes values('Ironman');
+delete into superheroes values('Ironman')
+       *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> delete from superheroes where sh_name='Ironman';
+
+1 row deleted.
+
+SQL> spool off

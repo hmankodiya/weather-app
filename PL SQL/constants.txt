@@ -1,0 +1,18 @@
+SQL> rem constants must be initialized during declaration
+SQL> declare
+  2  const constant number(7,6):=3.141592;
+  3  begin
+  4  const:=2.045812;
+  5  dbms_output.put_line(const);
+  6  end;
+  7  /
+const:=2.045812;
+*
+ERROR at line 4:
+ORA-06550: line 4, column 1: 
+PLS-00363: expression 'CONST' cannot be used as an assignment target 
+ORA-06550: line 4, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> spool off

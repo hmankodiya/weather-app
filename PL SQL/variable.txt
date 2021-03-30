@@ -1,0 +1,322 @@
+SQL> set server output on;
+SP2-0158: unknown SET option "server"
+SQL> set serveroutput on;
+SQL> DECLARE
+  2  v_test varchar2(45);
+  3  BEGIN
+  4  v_test:='Harsh'
+  5  DBMS_OUTPUT.PUT_LINE(v_test);
+  6  END;
+  7  /
+DBMS_OUTPUT.PUT_LINE(v_test);
+*
+ERROR at line 5:
+ORA-06550: line 5, column 1: 
+PLS-00103: Encountered the symbol "DBMS_OUTPUT" when expecting one of the 
+following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol "*" was substituted for "DBMS_OUTPUT" to continue. 
+
+
+SQL> DECLARE
+  2  set serveroutput on;
+  3  
+  4  
+  5  
+  6  end
+  7  
+  8  
+  9  
+ 10  
+ 11  
+ 12  sadfhgjkl
+ 13  
+ 14  /
+set serveroutput on;
+                 *
+ERROR at line 2:
+ORA-06550: line 2, column 18: 
+PLS-00103: Encountered the symbol "ON" when expecting one of the following: 
+:= . ( @ % ; not null range default character 
+
+
+SQL> set serveroutput on;
+SQL> DECLARE
+  2  v_test varchar2(45);
+  3  BEGIN
+  4  v_test:='Harsh'
+  5  DBMS_OUTPUT.PUT_LINE(v_test);
+  6  END;
+  7  /
+DBMS_OUTPUT.PUT_LINE(v_test);
+*
+ERROR at line 5:
+ORA-06550: line 5, column 1: 
+PLS-00103: Encountered the symbol "DBMS_OUTPUT" when expecting one of the 
+following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol "*" was substituted for "DBMS_OUTPUT" to continue. 
+
+
+SQL> set serveroutput on;
+SQL> DECLARE
+  2  v_test:='Harsh'
+  3  ;
+  4  BEGIN
+  5  v_test:='Harsh';
+  6  
+  7  dfghjk
+  8  /
+v_test:='Harsh'
+      *
+ERROR at line 2:
+ORA-06550: line 2, column 7: 
+PLS-00103: Encountered the symbol "=" when expecting one of the following: 
+constant exception <an identifier> 
+<a double-quoted delimited-identifier> table long double ref 
+char time timestamp interval date binary national character 
+nchar 
+The symbol "<an identifier>" was substituted for "=" to continue. 
+ORA-06550: line 7, column 6: 
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the 
+following: 
+:= . ( @ % ; 
+
+
+SQL> set serveroutput on;
+SQL> DECLARE
+  2  V_TEST VARCHAR2(45);
+  3  BEGIN
+  4  V_TEST:='HARSH';
+  5  DBMS_OUTPUT.PUT_LINE(V_TEST);
+  6  END;
+  7  /
+HARSH                                                                           
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveropuput on;
+SP2-0735: unknown SET option beginning "serveropup..."
+SQL> declare
+  2  name varchar2(10)
+  3  ;
+  4  no varnum();
+  5  begin
+  6  name:='harsh';
+  7  no:=9876541223
+  8  dbms_output.put_line(name,no);
+  9  end;
+ 10  /
+no varnum();
+          *
+ERROR at line 4:
+ORA-06550: line 4, column 11: 
+PLS-00103: Encountered the symbol ")" when expecting one of the following: 
+( - + case mod new not null <an identifier> 
+<a double-quoted delimited-identifier> <a bind variable> 
+continue avg count current exists max min prior sql stddev 
+sum variance execute forall merge time timestamp interval 
+date <a string literal with character set specification> 
+<a number> <a single-quoted SQL string> pipe 
+<an alternatively-quoted string literal with character set specification> 
+<an alternatively 
+
+
+SQL> declare
+  2  name varchar2(45);
+  3  no number;
+  4  begin
+  5  name:='harsh'
+  6  no:=1234567890
+  7  dbms_output.put_line(name ||' ' || no);
+  8  end;
+  9  /
+no:=1234567890
+*
+ERROR at line 6:
+ORA-06550: line 6, column 1: 
+PLS-00103: Encountered the symbol "NO" when expecting one of the following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+
+
+SQL> declare
+  2  name varchar2(45);
+  3  no number;
+  4  begin
+  5  name:='harsh'
+  6  no:=1234567890
+  7  dbms_output.put_line(name ||' ' || no);
+  8  end;
+  9  dbms_output.put_line(name ||' ' || no);
+ 10  /
+no:=1234567890
+*
+ERROR at line 6:
+ORA-06550: line 6, column 1: 
+PLS-00103: Encountered the symbol "NO" when expecting one of the following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+
+
+SQL> declare
+  2  name varchar2(45);
+  3  no number;
+  4  begin
+  5  name:='harsh'
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /
+dbms_output.put_line(name);
+*
+ERROR at line 6:
+ORA-06550: line 6, column 1: 
+PLS-00103: Encountered the symbol "DBMS_OUTPUT" when expecting one of the 
+following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol "*" was substituted for "DBMS_OUTPUT" to continue. 
+
+
+SQL> declare
+  2  name varchar2(45);
+  3  no number;
+  4  begin
+  5  name:='harsh';
+  6  dbms_output.put_line(name);
+  7  end;
+  8  /
+harsh                                                                           
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  name varchar2(45);
+  3  no number;
+  4  begin
+  5  name:='harsh';
+  6  no:=1234567890
+  7  dbms_output.put_line(name);
+  8  dbms_output.put_line(no);
+  9  end;
+ 10  /
+dbms_output.put_line(name);
+*
+ERROR at line 7:
+ORA-06550: line 7, column 1: 
+PLS-00103: Encountered the symbol "DBMS_OUTPUT" when expecting one of the 
+following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol "*" was substituted for "DBMS_OUTPUT" to continue. 
+
+
+SQL> declare
+  2  name varchar2(45);
+  3  no number(10);
+  4  begin
+  5  name:='harsh';
+  6  no:=1234567890
+  7  dbms_output.put_line(name);
+  8  dbms_output.put_line(no);
+  9  end;
+ 10  /
+dbms_output.put_line(name);
+*
+ERROR at line 7:
+ORA-06550: line 7, column 1: 
+PLS-00103: Encountered the symbol "DBMS_OUTPUT" when expecting one of the 
+following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol "*" was substituted for "DBMS_OUTPUT" to continue. 
+
+
+SQL> xdeclare
+SP2-0042: unknown command "xdeclare" - rest of line ignored.
+SQL> name varchar2(45);
+SP2-0734: unknown command beginning "name varch..." - rest of line ignored.
+SQL> no number(10);
+SP2-0734: unknown command beginning "no number(..." - rest of line ignored.
+SQL> begin
+  2  name:='harsh';
+  3  no:=1234567890;
+  4  dbms_output.put_line(name);
+  5  dbms_output.put_line(no);
+  6  end;
+  7  /
+name:='harsh';
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1: 
+PLS-00201: identifier 'NAME' must be declared 
+ORA-06550: line 2, column 1: 
+PL/SQL: Statement ignored 
+ORA-06550: line 3, column 1: 
+PLS-00201: identifier 'NO' must be declared 
+ORA-06550: line 3, column 1: 
+PL/SQL: Statement ignored 
+ORA-06550: line 4, column 22: 
+PLS-00201: identifier 'NAME' must be declared 
+ORA-06550: line 4, column 1: 
+PL/SQL: Statement ignored 
+ORA-06550: line 5, column 22: 
+PLS-00201: identifier 'NO' must be declared 
+ORA-06550: line 5, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> declare
+  2  name varchar2(45);
+  3  no number(10);
+  4  begin
+  5  name:='harsh';
+  6  no:=1234567890;
+  7  dbms_output.put_line(name);
+  8  dbms_output.put_line(no);
+  9  end;
+ 10  /
+harsh                                                                           
+1234567890                                                                      
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  name varchar2(45);
+  3  no number(10);
+  4  begin
+  5  name:='harsh';
+  6  no:=1234567890;
+  7  dbms_output.put_line(name || '' ||no);
+  8  
+  9  end;
+ 10  /
+harsh1234567890                                                                 
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> declare
+  2  name varchar2(45);
+  3  no number(10);
+  4  begin
+  5  name:='harsh';
+  6  no:=1234567890;
+  7  dbms_output.put_line(name || ' ' ||no);
+  8  
+  9  end;
+ 10  /
+harsh 1234567890                                                                
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off

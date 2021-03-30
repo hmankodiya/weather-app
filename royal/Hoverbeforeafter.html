@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu</title>
+<style>
+    body{
+        background:burlywood;
+    }
+span{
+    position: absolute;
+    top: 45%;
+    left:25%;
+    color: white;
+    font-size: 50px;
+    font-family: sans-serif;
+    /* transform: transl0px;ate(-50%,-50%); */
+ 
+
+}
+.a{
+    margin-left:300px;
+}
+
+.l{
+    margin-left:600px;
+}
+.h:before{
+    content:'';  /*compulsory to w*/
+    height: 100px;
+    width: 100px;
+    background: brown;
+    position:absolute;
+    z-index: -1;
+    transition: 1s;
+    opacity: 0;
+
+}
+
+.h:hover::before{
+    background: chartreuse;
+    opacity: 1;
+    
+}
+.a:before{
+    content:'';
+    height: 100px;
+    width: 100px;
+    background: coral;
+    position:absolute;
+    z-index: -1;
+    transition: 1s;
+    opacity: 0;
+
+
+}
+.a:hover::before{
+    background: rgb(142, 197, 12);
+    color:black;
+    opacity: 1;
+}
+.l:before{
+    content:'';
+    height: 100px;
+    width: 100px;
+    background: greenyellow;
+    position:absolute;
+    z-index: -1;
+    transition: 1s;
+    opacity: 0;
+
+
+}
+.l:hover::before{
+    background: cyan;
+    opacity: 1; 
+}
+</style>
+
+</head>
+<body>
+ <span class="h">Home</span>
+ <span class="a">About</span>   
+ <span class="l">Login</span>
+</body>
+</html>

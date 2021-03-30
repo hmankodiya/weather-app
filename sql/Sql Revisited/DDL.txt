@@ -1,0 +1,254 @@
+DDL:- Data Definition Language
+
+Statments 
+
+create
+alter
+drop 
+truncate
+rename
+
+--------------------
+
+CREATE : TABLE -> data dict and user tables
+
+data dict stores meta data i.e the column name and system tables
+where as user tables store the relavent tables for the user
+
+create table TestTab(
+  2  ID number
+  3  ,First_Name varchar2(20),
+  4  last_name varchar2(20),
+  5  EmailId varchar2(20),
+  6  gender char(1),
+  7  MobileNo char(10),
+  8  DateOfJoining date default sysdate,
+  9  deptId int);
+
+alter table TestTab add DOB date ;
+
+alter table TestTab add(salary number(10,2),col1 number) ;
+
+alter table TestTab add(salary number(10,2),col1 number) ;
+
+alter table TestTab add(salary number(10,2),col1 number) ; 
+// on droping mem is released time can be consumed
+
+// solution 
+
+alter table TestTab set unused column col1; // wont drop the column  will just make it disappear it there in the memory. Also we cannt  get back these columns
+
+alter table TestTab drop unused column;
+
+// once the table is droped we also delete the structure along the data
+
+
+
+// truncate will only delete the data but will keep the structure of the data as it is
+
+//constratints 
+this will check the validity of the input data based on the column
+
+TYPES: NOT NULL, UNIQUE , PRIMARY KEY , FOREIGN KEY , CHECK . 
+
+// NOT NULL -> at column level 
+at create time -> create table sample1(
+  2  col1 number constraint sample1_col1_nn not null,
+  3  col2 number not null);
+
+on existing table -> alter table TestTab modify First_name varchar2(20) constraint conname not null;
+
+// UNIQUE can be applied at column level, at table level.
+
+create table sample2 ( col1 number constraint c1_u unique,col2 number, col3 number , constraint cs unique(col2,col3));
+
+alter table TestTab add constraint mbno unique(mobileno);
+
+
+alter table TestTab add constraint emid unique(EMAILID);
+
+
+// PRIMARY KEY only single column can be primary key
+
+
+alter table TestTab add constraint eidpk primary key(id);
+
+create table sample3(
+  2  col1 number constraint pks3 primary key,
+  3  col2 number);
+
+
+// CHECK  
+
+create table sample3(
+  2  col1 number constraint pks3 primary key,
+  3  col2 number);
+
+
+//  Foreign KEY referential integrity
+
+// managing constraints;
+
+desc user_constraints
+
+select constraint_name,constraint_type from user_constraints where table_name='TESTTAB';
+
+ desc user_cons_columns;
+
+select constraint_name from user_cons_columns where table_name='TESTTAB';
+
+ select constraint_name,column_name from user_cons_columns where table_name='TESTTAB';
+
+alter table testtab disable constraint gender_check;
+
+alter table testtab enable constraint gender_check;
+
+alter table testtab drop constraint gender_check;
+
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+
+SQL> select constraint_name,constraint_type from user_constraints where table_name='TABLE_1';
+
+ alter table table_1 disable constraint dept_cons;
+	
+ALTER TABLE "table_name" Change "column 1" "column 2" ["Data Type"];
+
+
+SQL> rename stu to stus;
+
+SQL> drop table stus;
+
+---------------------------------------------------------------------------------
+save point.
+roll back only affects insert,update,delete.
+
+savepoint s2
+
+SQL> rollback to s2;
+
+---------------------------------------------------------------------------------
+
+SQL> create tablespace newspace datafile 'C:\Users\harsh\Desktop\sql and html\sql\Sql Revisited\newspace.dbf' size 50M;
+
+SQL> create user BenchWarmer1007 identified by harsh default tablespace NEWSPACE
+  2  Temporary tablespace temp
+  3  quota unlimited on newspace;
+
+SQL> create role GM;
+
+SQL> grant create table,create session to GM;
+// without session one cannot login
+Grant GM to BenchWarmer1007
+
+SQL> create table tb1 (id number(2),name varchar2(5));;
+
+-> to drop these( we first connect to system)
+SQL> drop user username;
+SQL> drop role rolename;
+
+select TABLESPACE_NAME FROM DBA_DATA_FILES;
+
+drop tablespace name including contents and datafiles;
+
+----------------------------------------------------------
+SQL> create user ironman
+  2  identified by ironman
+  3  default tablespace system
+  4  temporary tablespace temp
+  5  quota unlimited on system;
+
+User created.
+
+SQL> create user steve
+  2  identified by steve
+  3  default tablespace system
+  4  temporary tablespace temp
+  5  quota unlimited on system;
+
+User created.
+
+SQL> create role assistant;
+
+Role created.
+
+SQL> grant create table , create session to assistant;
+
+Grant succeeded.
+
+SQL> grant assistant to ironman;
+
+Grant succeeded.
+
+SQL> grant assistant to steve;
+
+Grant succeeded.
+
+SQL> connect ironman/ironman
+
+SQL> create table tb1 (id number(2) ,name varchar2(10));
+
+Table created.
+
+SQL> insert into tb1 values(10,'tony');
+
+1 row created.
+
+SQL> insert into tb1 values(20,'happy');
+
+1 row created.
+
+SQL> select * from ironman.tb1;
+
+SQL> connect ironman/ironman
+Connected.
+SQL> grant select on tb1 to steve;
+
+Grant succeeded.
+
+SQL> connect steve/steve
+Connected.
+SQL> select * from ironman.tb1;
+
+        ID NAME
+---------- ----------
+        10 tony
+        20 happy
+
+
+SQL> connect ironman/ironman
+Connected.
+SQL> revoke select on tb1 from steve;
+
+Revoke succeeded.
+
+
+SQL> connect ironman/ironman
+Connected.
+SQL> revoke select on tb1 from steve;
+
+Revoke succeeded.
+
+
+
+SQL> drop role assistant cascade;
+drop role assistant cascade
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+
+SQL> drop role assistant cascade;
+
+Role dropped.
+
+
+drop user username cascade //cascade for dropping all the inner structures
+
+alter table salesman rename column salsemanno to salesmanno;
+
+> select * from global_name;
+

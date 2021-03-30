@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery_ani_css</title>
+<script src="jquery.js"></script>
+<style>
+.red{
+    height: 200px;
+    width: 200px;
+    background: red;
+}
+.blue{
+    height: 200px;
+    width: 200px;
+    background: blue;
+}
+.green{
+    height: 200px;
+    width: 200px;
+    background: green;
+}
+.black{
+    height: 200px;
+    width: 200px;
+    background: black;
+}
+.a{
+/* position: absolute;
+top: 50%;
+left:50%; */
+width:100px;
+border-radius: 20px;
+background: whitesmoke;
+
+}
+.btnall{
+    position: absolute;
+    top: 300px;
+    
+}
+</style>
+
+<body>
+    <div class="btnall">
+<button id="red" class="a">Red</button>
+<button id="blue" class="a">blue</button>
+<button id="green" class="a">green</button>
+<button id="black" class="a">black</button>
+</div>
+
+<div id="main"></div>
+ <script>
+ $(document).ready(function() {
+     $('#red').click(function() {
+       $('#main').addClass('red');
+       $('#main').animate({
+        left:'250px',
+        height:'+=100px',
+        width:'+=100px'
+
+    })
+     // $('#main').toggleClass('red');  
+     })
+     $('#blue').click(function() {
+       $('#main').addClass('blue');
+    // $('#main').toggleClass('blue');  
+    $('#main').animate({
+        left:'250px',
+        height:'+=100px',
+        width:'+=100px'
+    })
+        
+     })
+     $('#green').click(function() {
+       $('#main').addClass('green');
+       $('#main').animate({
+        left:'250px',
+        height:'+=100px',
+        width:'+=100px'
+    })
+        
+    // $('#mai  n').toggleClass('green');
+     })
+     $('#black').click(function() {
+       $('#main').addClass('black');
+       $('#main').animate({
+        left:'250px',
+        height:'+=100px',
+        width:'+=100px'
+    })
+        
+    // $('#main').toggleClass('black');  
+     })
+ })
+ </script>   
+
+
+</body>
+</html>

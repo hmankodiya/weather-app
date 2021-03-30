@@ -1,0 +1,124 @@
+SQL> create or replace function area(rad num)
+  2  return num
+  3  is
+  4  pi constant number(7,3):=3.141;
+  5  carea number(7,3);
+  6  begin
+  7  carea:=pi*(rad*rad);
+  8  return area;
+  9  end;
+ 10  /
+
+Warning: Function created with compilation errors.
+
+SQL> create or replace function area(rad number)
+  2  return number
+  3  is
+  4  pi constant number(7,3):=3.141;
+  5  carea number(7,3);
+  6  begin
+  7  carea:=pi*(rad*rad);
+  8  return area;
+  9  end;
+ 10  /
+
+Warning: Function created with compilation errors.
+
+SQL> create or replace function area(rad number)
+  2  return number
+  3  is
+  4  pi constant number(7,3):=3.141;
+  5  carea number(7,3);
+  6  begin
+  7  carea:=pi*(rad*rad);
+  8  return carea;
+  9  end;
+ 10  /
+
+Function created.
+
+SQL> begin
+  2  ;
+  3  begin
+  4  dbms_output.put_line(area(25));
+  5  end;
+  6  /
+;
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1: 
+PLS-00103: Encountered the symbol ";" when expecting one of the following: 
+( begin case declare exit for goto if loop mod null pragma 
+raise return select update while with <an identifier> 
+<a double-quoted delimited-identifier> <a bind variable> << 
+continue close current delete fetch lock insert open rollback 
+savepoint set sql execute commit forall merge pipe purge 
+The symbol "exit" was substituted for ";" to continue. 
+ORA-06550: line 5, column 4: 
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the 
+following: 
+( begin case declare end exception exit for goto if loop mod 
+null pragma raise return select update while with 
+<an identifier> <a double-quoted  
+
+
+SQL> 
+SQL> begin
+  2  dbms_output.put_line(area(25));
+  3  end;
+  4  /
+1963.125                                                                        
+
+PL/SQL procedure successfully completed.
+
+SQL> delete function area
+  2  ;
+delete function area
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> drop function area;
+
+Function dropped.
+
+SQL> roll back;
+Rollback complete.
+SQL> begin
+  2  dbms_output.put_line(area(25));
+  3  end;
+  4  /
+dbms_output.put_line(area(25));
+                     *
+ERROR at line 2:
+ORA-06550: line 2, column 22: 
+PLS-00306: wrong number or types of arguments in call to 'AREA' 
+ORA-06550: line 2, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> 
+SQL> create or replace function area(rad number)
+  2  return number
+  3  is
+  4  pi constant number(7,3):=3.141;
+  5  carea number(7,3);
+  6  begin
+  7  carea:=pi*(rad*rad);
+  8  return carea;
+  9  end;
+ 10  /
+
+Function created.
+
+SQL> begin
+  2  dbms_output.put_line(area(25));
+  3  end;
+  4  /
+1963.125                                                                        
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> spool off

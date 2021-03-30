@@ -1,0 +1,158 @@
+SQL> declare
+  2  sal number(8);
+  3  begin
+  4  select salary into sal from employees
+  5  dbms_output.put_line('Monthly Salary'||sal);
+  6  end;
+  7  /
+dbms_output.put_line('Monthly Salary'||sal);
+           *
+ERROR at line 5:
+ORA-06550: line 5, column 12: 
+PL/SQL: ORA-00933: SQL command not properly ended 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+
+
+SQL> declare
+  2  sal number(8);
+  3  begin
+  4  select salary into sal from employees
+  5  where employee_id:=100;
+  6  dbms_output.put_line('Monthly Salary'||sal);
+  7  end;
+  8  /
+where employee_id:=100;
+                 *
+ERROR at line 5:
+ORA-06550: line 5, column 18: 
+PL/SQL: ORA-00920: invalid relational operator 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+
+
+SQL> declare
+  2  sal number(8);
+  3  begin
+  4  select salary into sal from employees;
+  5  where employee_id:=100;
+  6  dbms_output.put_line('Monthly Salary'||sal);
+  7  end;
+  8  /
+where employee_id:=100;
+*
+ERROR at line 5:
+ORA-06550: line 5, column 1: 
+PLS-00103: Encountered the symbol "WHERE" when expecting one of the following: 
+( begin case declare end exception exit for goto if loop mod 
+null pragma raise return select update while with 
+<an identifier> <a double-quoted delimited-identifier> 
+<a bind variable> << continue close current delete fetch lock 
+insert open rollback savepoint set sql execute commit forall 
+merge pipe purge 
+The symbol "WHERE" was ignored. 
+
+
+SQL> declare
+  2  sal number(8);
+  3  begin
+  4  select salary into sal from employees
+  5  where employee_id:=100;
+  6  dbms_output.put_line('Monthly Salary'||sal);
+  7  end;
+  8  /
+where employee_id:=100;
+                 *
+ERROR at line 5:
+ORA-06550: line 5, column 18: 
+PL/SQL: ORA-00920: invalid relational operator 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+
+
+SQL> /
+where employee_id:=100;
+                 *
+ERROR at line 5:
+ORA-06550: line 5, column 18: 
+PL/SQL: ORA-00920: invalid relational operator 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+
+
+SQL> con hr/hr
+SP2-0042: unknown command "con hr/hr" - rest of line ignored.
+SQL> conn hr/hr
+Connected.
+SQL> declare
+  2  sal number(8);
+  3  begin
+  4  select salary into sal from employees
+  5  where employee_id:=100;
+  6  dbms_output.put_line('Monthly Salary'||sal);
+  7  end;
+  8  /
+where employee_id:=100;
+                 *
+ERROR at line 5:
+ORA-06550: line 5, column 18: 
+PL/SQL: ORA-00920: invalid relational operator 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+
+
+SQL> declare
+  2  sal number(8);
+  3  begin
+  4  select salary into sal from employees
+  5  where employee_id:=100;
+  6  dbms_output.put_line('Monthly Salary'||sal);
+  7  end;
+  8  /
+where employee_id:=100;
+                 *
+ERROR at line 5:
+ORA-06550: line 5, column 18: 
+PL/SQL: ORA-00920: invalid relational operator 
+ORA-06550: line 4, column 1: 
+PL/SQL: SQL Statement ignored 
+
+
+SQL> declare
+  2  sal number(8);
+  3  begin
+  4  select salary into sal from employees
+  5  where employee_id=100;
+  6  dbms_output.put_line('Monthly Salary'||sal);
+  7  end;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> declare
+  2  sal number(8);
+  3  begin
+  4  select salary into sal from employees
+  5  where employee_id=100;
+  6  dbms_output.put_line('Monthly Salary'||sal);
+  7  end;
+  8  /
+Monthly Salary24000                                                             
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  sal number(8);
+  3  name varchar2(45);
+  4  begin
+  5  select salary,first_name into sal,name from employees
+  6  where employee_id=100;
+  7  dbms_output.put_line('Monthly Salary'||sal||' '||'First name'||name);
+  8  end;
+  9  /
+Monthly Salary24000 First nameSteven                                            
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off

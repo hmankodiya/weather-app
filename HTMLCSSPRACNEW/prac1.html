@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* @media(min-width: 468px) { */
+            .container1 {
+                /* Arranges the boxes inside the container side by side */
+                display:flex;  
+                justify-content:space-evenly;
+                /*  
+                    
+                    by default all the boxes are of same height, Hence to manage height, 
+                    boxes will be manages according to the content in them
+                    default is center
+                */
+                /* align-items:flex-start; 
+                align-items:flex-end; 
+                align-items:center;  */
+                
+                /* Default dir is horizontal */
+                /* flex-direction:row-reverse; */
+                /* flex-direction:column; */
+                /* flex-direction:column-reverse; */
+
+                
+                /**/
+
+            }
+            .container2{
+                display: flex;
+                /* justify-content:flex-start;   */
+                /* justify-content:flex-end;     */
+                justify-content:space-between;
+                justify-content:space-evenly;
+            }
+        /* } */
+        .container3{
+            display: flex;
+            /*To Wrap*/
+            flex-wrap: wrap;
+            /* justify-content:space-between; */
+
+        }
+        .container1 div,.container2 div,.container3 div{
+            border: 1px red solid;
+            padding: 10px; 
+        }
+        .b1{
+            flex:3; /*RelativeProportion of the children of the container1 (display:flex; shoudld be on)*/
+            order: 2; /* order of the arrangement*/
+        }
+        .b2{
+            flex:1;  /*RelativeProportion of the children of the container1 (display:flex; shoudld be on*/
+            order: 1;/* order of the arrangement*/
+        }
+        .b3{
+            flex:1;/**RelativeProportion of the children of the container1 (display:flex; shoudld be on*/
+            order: 3; /* order of the arrangement*/
+        }
+        .container2_boxes{
+            width:20%; /*setting width may leave room on sides hence we need to put margins between the boxes hence we put
+            justify content in the container 2 */
+            
+            /* we use width or flex basis*/
+            /* flex-basis: 30%; */
+        }
+        /* if we donot restrict shrink size of the window things can go dirty*/
+        
+        .container3_boxes{
+            flex-basis: 10%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="b1">
+            <h1>BOX1</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div class="b2">
+            <h1>BOX2</h1>
+            
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div class="b3">
+            <h1>BOX3</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+    </div>
+    
+    <div class="container2">
+        <div class="container2_boxes">
+            <h1>BOX4</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div>BOXXWW</div>
+        <div class="container2_boxes">
+            <h1>BOX5</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div class="container2_boxes">
+            <h1>BOX6</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+    </div>
+
+    <div class="container3">
+        <div class="container3_boxes">
+            <h1>BOX7</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div class="container3_boxes">
+            <h1>BOX8</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div class="container3_boxes">
+            <h1>BOX9</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div class="container3_boxes">
+            <h1>BOX10</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div class="container3_boxes">
+            <h1>BOX11</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+        <div class="container3_boxes">
+            <h1>BOX12</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, odit.</p>
+        </div>
+    </div>
+
+</body>
+</html>

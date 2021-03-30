@@ -1,0 +1,5 @@
+SQL> rem data defination language
+SQL> rem create alter drop truncate rename
+SQL> rem dml--insert upadate delete
+SQL> rem ddl is auto comit
+SQL>  spool off

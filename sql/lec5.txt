@@ -1,0 +1,1629 @@
+SQL> rem meta data is the table structure
+SQL> select employee_id from employees where  employee_id=7;
+
+no rows selected
+
+SQL> select first_name from employees where salary in(12000,3000,5600);
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Alberto                                                                         
+Anthony                                                                         
+Kevin                                                                           
+
+SQL> select first_name,salary from employees where salary in(12000,3000,5600);
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Alberto                   12000                                                 
+Anthony                    3000                                                 
+Kevin                      3000                                                 
+
+SQL>  select department_id,sum(salary),max(salary),min(salary) from employees where department_id in (30,90) group by department_id having max(salary)>7000;
+
+DEPARTMENT_ID SUM(SALARY) MAX(SALARY) MIN(SALARY)                               
+------------- ----------- ----------- -----------                               
+           30       24900       11000        2500                               
+           90       58000       24000       17000                               
+
+SQL> select first_name from employees where first_name like 'A%';
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Amit                                                                            
+Alexis                                                                          
+Anthony                                                                         
+Alberto                                                                         
+Adam                                                                            
+Alexander                                                                       
+Alyssa                                                                          
+Alexander                                                                       
+Allan                                                                           
+Alana                                                                           
+
+10 rows selected.
+
+SQL> select first_name from employees where first_name like '%A';
+
+no rows selected
+
+SQL> select first_name from employees where first_name like '%o%';
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Mozhe                                                                           
+Harrison                                                                        
+Anthony                                                                         
+John                                                                            
+Louise                                                                          
+Alberto                                                                         
+Timothy                                                                         
+Douglas                                                                         
+Jason                                                                           
+Donald                                                                          
+Christopher                                                                     
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Joshua                                                                          
+John                                                                            
+John                                                                            
+Jonathon                                                                        
+Winston                                                                         
+Jose Manuel                                                                     
+
+17 rows selected.
+
+SQL> select first_name from employees where first_name like '_o%';
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Mozhe                                                                           
+John                                                                            
+Louise                                                                          
+Douglas                                                                         
+Donald                                                                          
+Joshua                                                                          
+John                                                                            
+John                                                                            
+Jonathon                                                                        
+Jose Manuel                                                                     
+
+10 rows selected.
+
+SQL> select first_name from employees where first_name like '__o%';
+
+no rows selected
+
+SQL> select first_name from employees where first_name like '__h%';
+
+FIRST_NAME                                                                      
+--------------------                                                            
+John                                                                            
+John                                                                            
+John                                                                            
+
+SQL> select first_name from employees hire_date like'DEC' ;
+select first_name from employees hire_date like'DEC' 
+                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select first_name from employees hire_date like'%DEC%' ;
+select first_name from employees hire_date like'%DEC%' 
+                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select first_name from employees where hire_date like'%DEC%' ;
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Luis                                                                            
+Den                                                                             
+Shelli                                                                          
+Ki                                                                              
+Nanette                                                                         
+Louise                                                                          
+Randall                                                                         
+
+7 rows selected.
+
+SQL> select first_name from employees where hire_date like'05%' ;
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Valli                                                                           
+Karen                                                                           
+
+SQL> select first_name from employees where hire_date like'%05' ;
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Pat                                                                             
+Neena                                                                           
+David                                                                           
+John                                                                            
+Ismael                                                                          
+Shelli                                                                          
+Sigal                                                                           
+Adam                                                                            
+Shanta                                                                          
+Julia                                                                           
+Laura                                                                           
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Mozhe                                                                           
+James                                                                           
+Stephen                                                                         
+Curtis                                                                          
+Karen                                                                           
+Alberto                                                                         
+Peter                                                                           
+David                                                                           
+Peter                                                                           
+Lindsey                                                                         
+Louise                                                                          
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Clara                                                                           
+Lisa                                                                            
+Alyssa                                                                          
+Alexis                                                                          
+Kelly                                                                           
+Jennifer                                                                        
+Britney                                                                         
+
+29 rows selected.
+
+SQL> select first_name from employees where hire_date like'____DEC%' ;
+
+no rows selected
+
+SQL> select first_name from employees where hire_date like'___DEC%' ;
+
+FIRST_NAME                                                                      
+--------------------                                                            
+Luis                                                                            
+Den                                                                             
+Shelli                                                                          
+Ki                                                                              
+Nanette                                                                         
+Louise                                                                          
+Randall                                                                         
+
+7 rows selected.
+
+SQL> select first_name from employees where trim(1,3)=MAR ;
+select first_name from employees where trim(1,3)=MAR 
+                                             *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select first_name from employees where trim(4,3)=MAR ;
+select first_name from employees where trim(4,3)=MAR 
+                                             *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> select first_name from employees where ltrim(4,3)=MAR ;
+select first_name from employees where ltrim(4,3)=MAR 
+                                                  *
+ERROR at line 1:
+ORA-00904: "MAR": invalid identifier 
+
+
+SQL> select first_name from employees where ltrim(4,3)=MAR;
+select first_name from employees where ltrim(4,3)=MAR
+                                                  *
+ERROR at line 1:
+ORA-00904: "MAR": invalid identifier 
+
+
+SQL> select first_name from employees where ltrim select department_id,sum(salary),max(salary),min(salary) from employees where department_id in (30,90) group by department_id having max(salary)>7000;(4,3)=MAR;
+select first_name from employees where ltrim select department_id,sum(salary),max(salary),min(salary) from employees where department_id in (30,90) group by department_id having max(salary)>7000;(4,3)=MAR
+                                             *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> select first_name||' ' ||last_name FULLNAME  from employees;
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Ellen Abel                                                                      
+Sundar Ande                                                                     
+Mozhe Atkinson                                                                  
+David Austin                                                                    
+Hermann Baer                                                                    
+Shelli Baida                                                                    
+Amit Banda                                                                      
+Elizabeth Bates                                                                 
+Sarah Bell                                                                      
+David Bernstein                                                                 
+Laura Bissot                                                                    
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Harrison Bloom                                                                  
+Alexis Bull                                                                     
+Anthony Cabrio                                                                  
+Gerald Cambrault                                                                
+Nanette Cambrault                                                               
+John Chen                                                                       
+Kelly Chung                                                                     
+Karen Colmenares                                                                
+Curtis Davies                                                                   
+Lex De Haan                                                                     
+Julia Dellinger                                                                 
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Jennifer Dilly                                                                  
+Louise Doran                                                                    
+Bruce Ernst                                                                     
+Alberto Errazuriz                                                               
+Britney Everett                                                                 
+Daniel Faviet                                                                   
+Pat Fay                                                                         
+Kevin Feeney                                                                    
+Jean Fleaur                                                                     
+Tayler Fox                                                                      
+Adam Fripp                                                                      
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Timothy Gates                                                                   
+Ki Gee                                                                          
+Girard Geoni                                                                    
+William Gietz                                                                   
+Douglas Grant                                                                   
+Kimberely Grant                                                                 
+Nancy Greenberg                                                                 
+Danielle Greene                                                                 
+Peter Hall                                                                      
+Michael Hartstein                                                               
+Shelley Higgins                                                                 
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Guy Himuro                                                                      
+Alexander Hunold                                                                
+Alyssa Hutton                                                                   
+Charles Johnson                                                                 
+Vance Jones                                                                     
+Payam Kaufling                                                                  
+Alexander Khoo                                                                  
+Janette King                                                                    
+Steven King                                                                     
+Neena Kochhar                                                                   
+Sundita Kumar                                                                   
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Renske Ladwig                                                                   
+James Landry                                                                    
+David Lee                                                                       
+Jack Livingston                                                                 
+Diana Lorentz                                                                   
+Jason Mallin                                                                    
+Steven Markle                                                                   
+James Marlow                                                                    
+Mattea Marvins                                                                  
+Randall Matos                                                                   
+Susan Mavris                                                                    
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Samuel McCain                                                                   
+Allan McEwen                                                                    
+Irene Mikkilineni                                                               
+Kevin Mourgos                                                                   
+Julia Nayer                                                                     
+Donald OConnell                                                                 
+Christopher Olsen                                                               
+TJ Olson                                                                        
+Lisa Ozer                                                                       
+Karen Partners                                                                  
+Valli Pataballa                                                                 
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Joshua Patel                                                                    
+Randall Perkins                                                                 
+Hazel Philtanker                                                                
+Luis Popp                                                                       
+Trenna Rajs                                                                     
+Den Raphaely                                                                    
+Michael Rogers                                                                  
+John Russell                                                                    
+Nandita Sarchand                                                                
+Ismael Sciarra                                                                  
+John Seo                                                                        
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Sarath Sewall                                                                   
+Lindsey Smith                                                                   
+William Smith                                                                   
+Stephen Stiles                                                                  
+Martha Sullivan                                                                 
+Patrick Sully                                                                   
+Jonathon Taylor                                                                 
+Winston Taylor                                                                  
+Sigal Tobias                                                                    
+Peter Tucker                                                                    
+Oliver Tuvault                                                                  
+
+FULLNAME                                                                        
+----------------------------------------------                                  
+Jose Manuel Urman                                                               
+Peter Vargas                                                                    
+Clara Vishney                                                                   
+Shanta Vollman                                                                  
+Alana Walsh                                                                     
+Matthew Weiss                                                                   
+Jennifer Whalen                                                                 
+Eleni Zlotkey                                                                   
+
+107 rows selected.
+
+SQL> select first_name||' ' ||last_name FULLNAME fN  from employees;
+select first_name||' ' ||last_name FULLNAME fN  from employees
+                                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select first_name||' ' ||last_name FN  from employees;
+
+FN                                                                              
+----------------------------------------------                                  
+Ellen Abel                                                                      
+Sundar Ande                                                                     
+Mozhe Atkinson                                                                  
+David Austin                                                                    
+Hermann Baer                                                                    
+Shelli Baida                                                                    
+Amit Banda                                                                      
+Elizabeth Bates                                                                 
+Sarah Bell                                                                      
+David Bernstein                                                                 
+Laura Bissot                                                                    
+
+FN                                                                              
+----------------------------------------------                                  
+Harrison Bloom                                                                  
+Alexis Bull                                                                     
+Anthony Cabrio                                                                  
+Gerald Cambrault                                                                
+Nanette Cambrault                                                               
+John Chen                                                                       
+Kelly Chung                                                                     
+Karen Colmenares                                                                
+Curtis Davies                                                                   
+Lex De Haan                                                                     
+Julia Dellinger                                                                 
+
+FN                                                                              
+----------------------------------------------                                  
+Jennifer Dilly                                                                  
+Louise Doran                                                                    
+Bruce Ernst                                                                     
+Alberto Errazuriz                                                               
+Britney Everett                                                                 
+Daniel Faviet                                                                   
+Pat Fay                                                                         
+Kevin Feeney                                                                    
+Jean Fleaur                                                                     
+Tayler Fox                                                                      
+Adam Fripp                                                                      
+
+FN                                                                              
+----------------------------------------------                                  
+Timothy Gates                                                                   
+Ki Gee                                                                          
+Girard Geoni                                                                    
+William Gietz                                                                   
+Douglas Grant                                                                   
+Kimberely Grant                                                                 
+Nancy Greenberg                                                                 
+Danielle Greene                                                                 
+Peter Hall                                                                      
+Michael Hartstein                                                               
+Shelley Higgins                                                                 
+
+FN                                                                              
+----------------------------------------------                                  
+Guy Himuro                                                                      
+Alexander Hunold                                                                
+Alyssa Hutton                                                                   
+Charles Johnson                                                                 
+Vance Jones                                                                     
+Payam Kaufling                                                                  
+Alexander Khoo                                                                  
+Janette King                                                                    
+Steven King                                                                     
+Neena Kochhar                                                                   
+Sundita Kumar                                                                   
+
+FN                                                                              
+----------------------------------------------                                  
+Renske Ladwig                                                                   
+James Landry                                                                    
+David Lee                                                                       
+Jack Livingston                                                                 
+Diana Lorentz                                                                   
+Jason Mallin                                                                    
+Steven Markle                                                                   
+James Marlow                                                                    
+Mattea Marvins                                                                  
+Randall Matos                                                                   
+Susan Mavris                                                                    
+
+FN                                                                              
+----------------------------------------------                                  
+Samuel McCain                                                                   
+Allan McEwen                                                                    
+Irene Mikkilineni                                                               
+Kevin Mourgos                                                                   
+Julia Nayer                                                                     
+Donald OConnell                                                                 
+Christopher Olsen                                                               
+TJ Olson                                                                        
+Lisa Ozer                                                                       
+Karen Partners                                                                  
+Valli Pataballa                                                                 
+
+FN                                                                              
+----------------------------------------------                                  
+Joshua Patel                                                                    
+Randall Perkins                                                                 
+Hazel Philtanker                                                                
+Luis Popp                                                                       
+Trenna Rajs                                                                     
+Den Raphaely                                                                    
+Michael Rogers                                                                  
+John Russell                                                                    
+Nandita Sarchand                                                                
+Ismael Sciarra                                                                  
+John Seo                                                                        
+
+FN                                                                              
+----------------------------------------------                                  
+Sarath Sewall                                                                   
+Lindsey Smith                                                                   
+William Smith                                                                   
+Stephen Stiles                                                                  
+Martha Sullivan                                                                 
+Patrick Sully                                                                   
+Jonathon Taylor                                                                 
+Winston Taylor                                                                  
+Sigal Tobias                                                                    
+Peter Tucker                                                                    
+Oliver Tuvault                                                                  
+
+FN                                                                              
+----------------------------------------------                                  
+Jose Manuel Urman                                                               
+Peter Vargas                                                                    
+Clara Vishney                                                                   
+Shanta Vollman                                                                  
+Alana Walsh                                                                     
+Matthew Weiss                                                                   
+Jennifer Whalen                                                                 
+Eleni Zlotkey                                                                   
+
+107 rows selected.
+
+SQL> select first_name||Q'[ 's]' ||last_name FN  from employees;
+
+FN                                                                              
+------------------------------------------------                                
+Ellen 'sAbel                                                                    
+Sundar 'sAnde                                                                   
+Mozhe 'sAtkinson                                                                
+David 'sAustin                                                                  
+Hermann 'sBaer                                                                  
+Shelli 'sBaida                                                                  
+Amit 'sBanda                                                                    
+Elizabeth 'sBates                                                               
+Sarah 'sBell                                                                    
+David 'sBernstein                                                               
+Laura 'sBissot                                                                  
+
+FN                                                                              
+------------------------------------------------                                
+Harrison 'sBloom                                                                
+Alexis 'sBull                                                                   
+Anthony 'sCabrio                                                                
+Gerald 'sCambrault                                                              
+Nanette 'sCambrault                                                             
+John 'sChen                                                                     
+Kelly 'sChung                                                                   
+Karen 'sColmenares                                                              
+Curtis 'sDavies                                                                 
+Lex 'sDe Haan                                                                   
+Julia 'sDellinger                                                               
+
+FN                                                                              
+------------------------------------------------                                
+Jennifer 'sDilly                                                                
+Louise 'sDoran                                                                  
+Bruce 'sErnst                                                                   
+Alberto 'sErrazuriz                                                             
+Britney 'sEverett                                                               
+Daniel 'sFaviet                                                                 
+Pat 'sFay                                                                       
+Kevin 'sFeeney                                                                  
+Jean 'sFleaur                                                                   
+Tayler 'sFox                                                                    
+Adam 'sFripp                                                                    
+
+FN                                                                              
+------------------------------------------------                                
+Timothy 'sGates                                                                 
+Ki 'sGee                                                                        
+Girard 'sGeoni                                                                  
+William 'sGietz                                                                 
+Douglas 'sGrant                                                                 
+Kimberely 'sGrant                                                               
+Nancy 'sGreenberg                                                               
+Danielle 'sGreene                                                               
+Peter 'sHall                                                                    
+Michael 'sHartstein                                                             
+Shelley 'sHiggins                                                               
+
+FN                                                                              
+------------------------------------------------                                
+Guy 'sHimuro                                                                    
+Alexander 'sHunold                                                              
+Alyssa 'sHutton                                                                 
+Charles 'sJohnson                                                               
+Vance 'sJones                                                                   
+Payam 'sKaufling                                                                
+Alexander 'sKhoo                                                                
+Janette 'sKing                                                                  
+Steven 'sKing                                                                   
+Neena 'sKochhar                                                                 
+Sundita 'sKumar                                                                 
+
+FN                                                                              
+------------------------------------------------                                
+Renske 'sLadwig                                                                 
+James 'sLandry                                                                  
+David 'sLee                                                                     
+Jack 'sLivingston                                                               
+Diana 'sLorentz                                                                 
+Jason 'sMallin                                                                  
+Steven 'sMarkle                                                                 
+James 'sMarlow                                                                  
+Mattea 'sMarvins                                                                
+Randall 'sMatos                                                                 
+Susan 'sMavris                                                                  
+
+FN                                                                              
+------------------------------------------------                                
+Samuel 'sMcCain                                                                 
+Allan 'sMcEwen                                                                  
+Irene 'sMikkilineni                                                             
+Kevin 'sMourgos                                                                 
+Julia 'sNayer                                                                   
+Donald 'sOConnell                                                               
+Christopher 'sOlsen                                                             
+TJ 'sOlson                                                                      
+Lisa 'sOzer                                                                     
+Karen 'sPartners                                                                
+Valli 'sPataballa                                                               
+
+FN                                                                              
+------------------------------------------------                                
+Joshua 'sPatel                                                                  
+Randall 'sPerkins                                                               
+Hazel 'sPhiltanker                                                              
+Luis 'sPopp                                                                     
+Trenna 'sRajs                                                                   
+Den 'sRaphaely                                                                  
+Michael 'sRogers                                                                
+John 'sRussell                                                                  
+Nandita 'sSarchand                                                              
+Ismael 'sSciarra                                                                
+John 'sSeo                                                                      
+
+FN                                                                              
+------------------------------------------------                                
+Sarath 'sSewall                                                                 
+Lindsey 'sSmith                                                                 
+William 'sSmith                                                                 
+Stephen 'sStiles                                                                
+Martha 'sSullivan                                                               
+Patrick 'sSully                                                                 
+Jonathon 'sTaylor                                                               
+Winston 'sTaylor                                                                
+Sigal 'sTobias                                                                  
+Peter 'sTucker                                                                  
+Oliver 'sTuvault                                                                
+
+FN                                                                              
+------------------------------------------------                                
+Jose Manuel 'sUrman                                                             
+Peter 'sVargas                                                                  
+Clara 'sVishney                                                                 
+Shanta 'sVollman                                                                
+Alana 'sWalsh                                                                   
+Matthew 'sWeiss                                                                 
+Jennifer 'sWhalen                                                               
+Eleni 'sZlotkey                                                                 
+
+107 rows selected.
+
+SQL> select first_name||Q'{ 's}' ||last_name FN  from employees;
+
+FN                                                                              
+------------------------------------------------                                
+Ellen 'sAbel                                                                    
+Sundar 'sAnde                                                                   
+Mozhe 'sAtkinson                                                                
+David 'sAustin                                                                  
+Hermann 'sBaer                                                                  
+Shelli 'sBaida                                                                  
+Amit 'sBanda                                                                    
+Elizabeth 'sBates                                                               
+Sarah 'sBell                                                                    
+David 'sBernstein                                                               
+Laura 'sBissot                                                                  
+
+FN                                                                              
+------------------------------------------------                                
+Harrison 'sBloom                                                                
+Alexis 'sBull                                                                   
+Anthony 'sCabrio                                                                
+Gerald 'sCambrault                                                              
+Nanette 'sCambrault                                                             
+John 'sChen                                                                     
+Kelly 'sChung                                                                   
+Karen 'sColmenares                                                              
+Curtis 'sDavies                                                                 
+Lex 'sDe Haan                                                                   
+Julia 'sDellinger                                                               
+
+FN                                                                              
+------------------------------------------------                                
+Jennifer 'sDilly                                                                
+Louise 'sDoran                                                                  
+Bruce 'sErnst                                                                   
+Alberto 'sErrazuriz                                                             
+Britney 'sEverett                                                               
+Daniel 'sFaviet                                                                 
+Pat 'sFay                                                                       
+Kevin 'sFeeney                                                                  
+Jean 'sFleaur                                                                   
+Tayler 'sFox                                                                    
+Adam 'sFripp                                                                    
+
+FN                                                                              
+------------------------------------------------                                
+Timothy 'sGates                                                                 
+Ki 'sGee                                                                        
+Girard 'sGeoni                                                                  
+William 'sGietz                                                                 
+Douglas 'sGrant                                                                 
+Kimberely 'sGrant                                                               
+Nancy 'sGreenberg                                                               
+Danielle 'sGreene                                                               
+Peter 'sHall                                                                    
+Michael 'sHartstein                                                             
+Shelley 'sHiggins                                                               
+
+FN                                                                              
+------------------------------------------------                                
+Guy 'sHimuro                                                                    
+Alexander 'sHunold                                                              
+Alyssa 'sHutton                                                                 
+Charles 'sJohnson                                                               
+Vance 'sJones                                                                   
+Payam 'sKaufling                                                                
+Alexander 'sKhoo                                                                
+Janette 'sKing                                                                  
+Steven 'sKing                                                                   
+Neena 'sKochhar                                                                 
+Sundita 'sKumar                                                                 
+
+FN                                                                              
+------------------------------------------------                                
+Renske 'sLadwig                                                                 
+James 'sLandry                                                                  
+David 'sLee                                                                     
+Jack 'sLivingston                                                               
+Diana 'sLorentz                                                                 
+Jason 'sMallin                                                                  
+Steven 'sMarkle                                                                 
+James 'sMarlow                                                                  
+Mattea 'sMarvins                                                                
+Randall 'sMatos                                                                 
+Susan 'sMavris                                                                  
+
+FN                                                                              
+------------------------------------------------                                
+Samuel 'sMcCain                                                                 
+Allan 'sMcEwen                                                                  
+Irene 'sMikkilineni                                                             
+Kevin 'sMourgos                                                                 
+Julia 'sNayer                                                                   
+Donald 'sOConnell                                                               
+Christopher 'sOlsen                                                             
+TJ 'sOlson                                                                      
+Lisa 'sOzer                                                                     
+Karen 'sPartners                                                                
+Valli 'sPataballa                                                               
+
+FN                                                                              
+------------------------------------------------                                
+Joshua 'sPatel                                                                  
+Randall 'sPerkins                                                               
+Hazel 'sPhiltanker                                                              
+Luis 'sPopp                                                                     
+Trenna 'sRajs                                                                   
+Den 'sRaphaely                                                                  
+Michael 'sRogers                                                                
+John 'sRussell                                                                  
+Nandita 'sSarchand                                                              
+Ismael 'sSciarra                                                                
+John 'sSeo                                                                      
+
+FN                                                                              
+------------------------------------------------                                
+Sarath 'sSewall                                                                 
+Lindsey 'sSmith                                                                 
+William 'sSmith                                                                 
+Stephen 'sStiles                                                                
+Martha 'sSullivan                                                               
+Patrick 'sSully                                                                 
+Jonathon 'sTaylor                                                               
+Winston 'sTaylor                                                                
+Sigal 'sTobias                                                                  
+Peter 'sTucker                                                                  
+Oliver 'sTuvault                                                                
+
+FN                                                                              
+------------------------------------------------                                
+Jose Manuel 'sUrman                                                             
+Peter 'sVargas                                                                  
+Clara 'sVishney                                                                 
+Shanta 'sVollman                                                                
+Alana 'sWalsh                                                                   
+Matthew 'sWeiss                                                                 
+Jennifer 'sWhalen                                                               
+Eleni 'sZlotkey                                                                 
+
+107 rows selected.
+
+SQL> select first_name||Q'5 's4' ||last_name FN  from employees;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> select first_name||Q'4's4' ||last_name FN  from employees;
+
+FN                                                                              
+-----------------------------------------------                                 
+Ellen'sAbel                                                                     
+Sundar'sAnde                                                                    
+Mozhe'sAtkinson                                                                 
+David'sAustin                                                                   
+Hermann'sBaer                                                                   
+Shelli'sBaida                                                                   
+Amit'sBanda                                                                     
+Elizabeth'sBates                                                                
+Sarah'sBell                                                                     
+David'sBernstein                                                                
+Laura'sBissot                                                                   
+
+FN                                                                              
+-----------------------------------------------                                 
+Harrison'sBloom                                                                 
+Alexis'sBull                                                                    
+Anthony'sCabrio                                                                 
+Gerald'sCambrault                                                               
+Nanette'sCambrault                                                              
+John'sChen                                                                      
+Kelly'sChung                                                                    
+Karen'sColmenares                                                               
+Curtis'sDavies                                                                  
+Lex'sDe Haan                                                                    
+Julia'sDellinger                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Jennifer'sDilly                                                                 
+Louise'sDoran                                                                   
+Bruce'sErnst                                                                    
+Alberto'sErrazuriz                                                              
+Britney'sEverett                                                                
+Daniel'sFaviet                                                                  
+Pat'sFay                                                                        
+Kevin'sFeeney                                                                   
+Jean'sFleaur                                                                    
+Tayler'sFox                                                                     
+Adam'sFripp                                                                     
+
+FN                                                                              
+-----------------------------------------------                                 
+Timothy'sGates                                                                  
+Ki'sGee                                                                         
+Girard'sGeoni                                                                   
+William'sGietz                                                                  
+Douglas'sGrant                                                                  
+Kimberely'sGrant                                                                
+Nancy'sGreenberg                                                                
+Danielle'sGreene                                                                
+Peter'sHall                                                                     
+Michael'sHartstein                                                              
+Shelley'sHiggins                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Guy'sHimuro                                                                     
+Alexander'sHunold                                                               
+Alyssa'sHutton                                                                  
+Charles'sJohnson                                                                
+Vance'sJones                                                                    
+Payam'sKaufling                                                                 
+Alexander'sKhoo                                                                 
+Janette'sKing                                                                   
+Steven'sKing                                                                    
+Neena'sKochhar                                                                  
+Sundita'sKumar                                                                  
+
+FN                                                                              
+-----------------------------------------------                                 
+Renske'sLadwig                                                                  
+James'sLandry                                                                   
+David'sLee                                                                      
+Jack'sLivingston                                                                
+Diana'sLorentz                                                                  
+Jason'sMallin                                                                   
+Steven'sMarkle                                                                  
+James'sMarlow                                                                   
+Mattea'sMarvins                                                                 
+Randall'sMatos                                                                  
+Susan'sMavris                                                                   
+
+FN                                                                              
+-----------------------------------------------                                 
+Samuel'sMcCain                                                                  
+Allan'sMcEwen                                                                   
+Irene'sMikkilineni                                                              
+Kevin'sMourgos                                                                  
+Julia'sNayer                                                                    
+Donald'sOConnell                                                                
+Christopher'sOlsen                                                              
+TJ'sOlson                                                                       
+Lisa'sOzer                                                                      
+Karen'sPartners                                                                 
+Valli'sPataballa                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Joshua'sPatel                                                                   
+Randall'sPerkins                                                                
+Hazel'sPhiltanker                                                               
+Luis'sPopp                                                                      
+Trenna'sRajs                                                                    
+Den'sRaphaely                                                                   
+Michael'sRogers                                                                 
+John'sRussell                                                                   
+Nandita'sSarchand                                                               
+Ismael'sSciarra                                                                 
+John'sSeo                                                                       
+
+FN                                                                              
+-----------------------------------------------                                 
+Sarath'sSewall                                                                  
+Lindsey'sSmith                                                                  
+William'sSmith                                                                  
+Stephen'sStiles                                                                 
+Martha'sSullivan                                                                
+Patrick'sSully                                                                  
+Jonathon'sTaylor                                                                
+Winston'sTaylor                                                                 
+Sigal'sTobias                                                                   
+Peter'sTucker                                                                   
+Oliver'sTuvault                                                                 
+
+FN                                                                              
+-----------------------------------------------                                 
+Jose Manuel'sUrman                                                              
+Peter'sVargas                                                                   
+Clara'sVishney                                                                  
+Shanta'sVollman                                                                 
+Alana'sWalsh                                                                    
+Matthew'sWeiss                                                                  
+Jennifer'sWhalen                                                                
+Eleni'sZlotkey                                                                  
+
+107 rows selected.
+
+SQL> select first_name||Q'4 s4' ||last_name FN  from employees;
+
+FN                                                                              
+-----------------------------------------------                                 
+Ellen sAbel                                                                     
+Sundar sAnde                                                                    
+Mozhe sAtkinson                                                                 
+David sAustin                                                                   
+Hermann sBaer                                                                   
+Shelli sBaida                                                                   
+Amit sBanda                                                                     
+Elizabeth sBates                                                                
+Sarah sBell                                                                     
+David sBernstein                                                                
+Laura sBissot                                                                   
+
+FN                                                                              
+-----------------------------------------------                                 
+Harrison sBloom                                                                 
+Alexis sBull                                                                    
+Anthony sCabrio                                                                 
+Gerald sCambrault                                                               
+Nanette sCambrault                                                              
+John sChen                                                                      
+Kelly sChung                                                                    
+Karen sColmenares                                                               
+Curtis sDavies                                                                  
+Lex sDe Haan                                                                    
+Julia sDellinger                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Jennifer sDilly                                                                 
+Louise sDoran                                                                   
+Bruce sErnst                                                                    
+Alberto sErrazuriz                                                              
+Britney sEverett                                                                
+Daniel sFaviet                                                                  
+Pat sFay                                                                        
+Kevin sFeeney                                                                   
+Jean sFleaur                                                                    
+Tayler sFox                                                                     
+Adam sFripp                                                                     
+
+FN                                                                              
+-----------------------------------------------                                 
+Timothy sGates                                                                  
+Ki sGee                                                                         
+Girard sGeoni                                                                   
+William sGietz                                                                  
+Douglas sGrant                                                                  
+Kimberely sGrant                                                                
+Nancy sGreenberg                                                                
+Danielle sGreene                                                                
+Peter sHall                                                                     
+Michael sHartstein                                                              
+Shelley sHiggins                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Guy sHimuro                                                                     
+Alexander sHunold                                                               
+Alyssa sHutton                                                                  
+Charles sJohnson                                                                
+Vance sJones                                                                    
+Payam sKaufling                                                                 
+Alexander sKhoo                                                                 
+Janette sKing                                                                   
+Steven sKing                                                                    
+Neena sKochhar                                                                  
+Sundita sKumar                                                                  
+
+FN                                                                              
+-----------------------------------------------                                 
+Renske sLadwig                                                                  
+James sLandry                                                                   
+David sLee                                                                      
+Jack sLivingston                                                                
+Diana sLorentz                                                                  
+Jason sMallin                                                                   
+Steven sMarkle                                                                  
+James sMarlow                                                                   
+Mattea sMarvins                                                                 
+Randall sMatos                                                                  
+Susan sMavris                                                                   
+
+FN                                                                              
+-----------------------------------------------                                 
+Samuel sMcCain                                                                  
+Allan sMcEwen                                                                   
+Irene sMikkilineni                                                              
+Kevin sMourgos                                                                  
+Julia sNayer                                                                    
+Donald sOConnell                                                                
+Christopher sOlsen                                                              
+TJ sOlson                                                                       
+Lisa sOzer                                                                      
+Karen sPartners                                                                 
+Valli sPataballa                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Joshua sPatel                                                                   
+Randall sPerkins                                                                
+Hazel sPhiltanker                                                               
+Luis sPopp                                                                      
+Trenna sRajs                                                                    
+Den sRaphaely                                                                   
+Michael sRogers                                                                 
+John sRussell                                                                   
+Nandita sSarchand                                                               
+Ismael sSciarra                                                                 
+John sSeo                                                                       
+
+FN                                                                              
+-----------------------------------------------                                 
+Sarath sSewall                                                                  
+Lindsey sSmith                                                                  
+William sSmith                                                                  
+Stephen sStiles                                                                 
+Martha sSullivan                                                                
+Patrick sSully                                                                  
+Jonathon sTaylor                                                                
+Winston sTaylor                                                                 
+Sigal sTobias                                                                   
+Peter sTucker                                                                   
+Oliver sTuvault                                                                 
+
+FN                                                                              
+-----------------------------------------------                                 
+Jose Manuel sUrman                                                              
+Peter sVargas                                                                   
+Clara sVishney                                                                  
+Shanta sVollman                                                                 
+Alana sWalsh                                                                    
+Matthew sWeiss                                                                  
+Jennifer sWhalen                                                                
+Eleni sZlotkey                                                                  
+
+107 rows selected.
+
+SQL> select first_name||Q'4 H4' ||last_name FN  from employees;
+
+FN                                                                              
+-----------------------------------------------                                 
+Ellen HAbel                                                                     
+Sundar HAnde                                                                    
+Mozhe HAtkinson                                                                 
+David HAustin                                                                   
+Hermann HBaer                                                                   
+Shelli HBaida                                                                   
+Amit HBanda                                                                     
+Elizabeth HBates                                                                
+Sarah HBell                                                                     
+David HBernstein                                                                
+Laura HBissot                                                                   
+
+FN                                                                              
+-----------------------------------------------                                 
+Harrison HBloom                                                                 
+Alexis HBull                                                                    
+Anthony HCabrio                                                                 
+Gerald HCambrault                                                               
+Nanette HCambrault                                                              
+John HChen                                                                      
+Kelly HChung                                                                    
+Karen HColmenares                                                               
+Curtis HDavies                                                                  
+Lex HDe Haan                                                                    
+Julia HDellinger                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Jennifer HDilly                                                                 
+Louise HDoran                                                                   
+Bruce HErnst                                                                    
+Alberto HErrazuriz                                                              
+Britney HEverett                                                                
+Daniel HFaviet                                                                  
+Pat HFay                                                                        
+Kevin HFeeney                                                                   
+Jean HFleaur                                                                    
+Tayler HFox                                                                     
+Adam HFripp                                                                     
+
+FN                                                                              
+-----------------------------------------------                                 
+Timothy HGates                                                                  
+Ki HGee                                                                         
+Girard HGeoni                                                                   
+William HGietz                                                                  
+Douglas HGrant                                                                  
+Kimberely HGrant                                                                
+Nancy HGreenberg                                                                
+Danielle HGreene                                                                
+Peter HHall                                                                     
+Michael HHartstein                                                              
+Shelley HHiggins                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Guy HHimuro                                                                     
+Alexander HHunold                                                               
+Alyssa HHutton                                                                  
+Charles HJohnson                                                                
+Vance HJones                                                                    
+Payam HKaufling                                                                 
+Alexander HKhoo                                                                 
+Janette HKing                                                                   
+Steven HKing                                                                    
+Neena HKochhar                                                                  
+Sundita HKumar                                                                  
+
+FN                                                                              
+-----------------------------------------------                                 
+Renske HLadwig                                                                  
+James HLandry                                                                   
+David HLee                                                                      
+Jack HLivingston                                                                
+Diana HLorentz                                                                  
+Jason HMallin                                                                   
+Steven HMarkle                                                                  
+James HMarlow                                                                   
+Mattea HMarvins                                                                 
+Randall HMatos                                                                  
+Susan HMavris                                                                   
+
+FN                                                                              
+-----------------------------------------------                                 
+Samuel HMcCain                                                                  
+Allan HMcEwen                                                                   
+Irene HMikkilineni                                                              
+Kevin HMourgos                                                                  
+Julia HNayer                                                                    
+Donald HOConnell                                                                
+Christopher HOlsen                                                              
+TJ HOlson                                                                       
+Lisa HOzer                                                                      
+Karen HPartners                                                                 
+Valli HPataballa                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Joshua HPatel                                                                   
+Randall HPerkins                                                                
+Hazel HPhiltanker                                                               
+Luis HPopp                                                                      
+Trenna HRajs                                                                    
+Den HRaphaely                                                                   
+Michael HRogers                                                                 
+John HRussell                                                                   
+Nandita HSarchand                                                               
+Ismael HSciarra                                                                 
+John HSeo                                                                       
+
+FN                                                                              
+-----------------------------------------------                                 
+Sarath HSewall                                                                  
+Lindsey HSmith                                                                  
+William HSmith                                                                  
+Stephen HStiles                                                                 
+Martha HSullivan                                                                
+Patrick HSully                                                                  
+Jonathon HTaylor                                                                
+Winston HTaylor                                                                 
+Sigal HTobias                                                                   
+Peter HTucker                                                                   
+Oliver HTuvault                                                                 
+
+FN                                                                              
+-----------------------------------------------                                 
+Jose Manuel HUrman                                                              
+Peter HVargas                                                                   
+Clara HVishney                                                                  
+Shanta HVollman                                                                 
+Alana HWalsh                                                                    
+Matthew HWeiss                                                                  
+Jennifer HWhalen                                                                
+Eleni HZlotkey                                                                  
+
+107 rows selected.
+
+SQL> select first_name||'4 H4' ||last_name FN  from employees;
+
+FN                                                                              
+-------------------------------------------------                               
+Ellen4 H4Abel                                                                   
+Sundar4 H4Ande                                                                  
+Mozhe4 H4Atkinson                                                               
+David4 H4Austin                                                                 
+Hermann4 H4Baer                                                                 
+Shelli4 H4Baida                                                                 
+Amit4 H4Banda                                                                   
+Elizabeth4 H4Bates                                                              
+Sarah4 H4Bell                                                                   
+David4 H4Bernstein                                                              
+Laura4 H4Bissot                                                                 
+
+FN                                                                              
+-------------------------------------------------                               
+Harrison4 H4Bloom                                                               
+Alexis4 H4Bull                                                                  
+Anthony4 H4Cabrio                                                               
+Gerald4 H4Cambrault                                                             
+Nanette4 H4Cambrault                                                            
+John4 H4Chen                                                                    
+Kelly4 H4Chung                                                                  
+Karen4 H4Colmenares                                                             
+Curtis4 H4Davies                                                                
+Lex4 H4De Haan                                                                  
+Julia4 H4Dellinger                                                              
+
+FN                                                                              
+-------------------------------------------------                               
+Jennifer4 H4Dilly                                                               
+Louise4 H4Doran                                                                 
+Bruce4 H4Ernst                                                                  
+Alberto4 H4Errazuriz                                                            
+Britney4 H4Everett                                                              
+Daniel4 H4Faviet                                                                
+Pat4 H4Fay                                                                      
+Kevin4 H4Feeney                                                                 
+Jean4 H4Fleaur                                                                  
+Tayler4 H4Fox                                                                   
+Adam4 H4Fripp                                                                   
+
+FN                                                                              
+-------------------------------------------------                               
+Timothy4 H4Gates                                                                
+Ki4 H4Gee                                                                       
+Girard4 H4Geoni                                                                 
+William4 H4Gietz                                                                
+Douglas4 H4Grant                                                                
+Kimberely4 H4Grant                                                              
+Nancy4 H4Greenberg                                                              
+Danielle4 H4Greene                                                              
+Peter4 H4Hall                                                                   
+Michael4 H4Hartstein                                                            
+Shelley4 H4Higgins                                                              
+
+FN                                                                              
+-------------------------------------------------                               
+Guy4 H4Himuro                                                                   
+Alexander4 H4Hunold                                                             
+Alyssa4 H4Hutton                                                                
+Charles4 H4Johnson                                                              
+Vance4 H4Jones                                                                  
+Payam4 H4Kaufling                                                               
+Alexander4 H4Khoo                                                               
+Janette4 H4King                                                                 
+Steven4 H4King                                                                  
+Neena4 H4Kochhar                                                                
+Sundita4 H4Kumar                                                                
+
+FN                                                                              
+-------------------------------------------------                               
+Renske4 H4Ladwig                                                                
+James4 H4Landry                                                                 
+David4 H4Lee                                                                    
+Jack4 H4Livingston                                                              
+Diana4 H4Lorentz                                                                
+Jason4 H4Mallin                                                                 
+Steven4 H4Markle                                                                
+James4 H4Marlow                                                                 
+Mattea4 H4Marvins                                                               
+Randall4 H4Matos                                                                
+Susan4 H4Mavris                                                                 
+
+FN                                                                              
+-------------------------------------------------                               
+Samuel4 H4McCain                                                                
+Allan4 H4McEwen                                                                 
+Irene4 H4Mikkilineni                                                            
+Kevin4 H4Mourgos                                                                
+Julia4 H4Nayer                                                                  
+Donald4 H4OConnell                                                              
+Christopher4 H4Olsen                                                            
+TJ4 H4Olson                                                                     
+Lisa4 H4Ozer                                                                    
+Karen4 H4Partners                                                               
+Valli4 H4Pataballa                                                              
+
+FN                                                                              
+-------------------------------------------------                               
+Joshua4 H4Patel                                                                 
+Randall4 H4Perkins                                                              
+Hazel4 H4Philtanker                                                             
+Luis4 H4Popp                                                                    
+Trenna4 H4Rajs                                                                  
+Den4 H4Raphaely                                                                 
+Michael4 H4Rogers                                                               
+John4 H4Russell                                                                 
+Nandita4 H4Sarchand                                                             
+Ismael4 H4Sciarra                                                               
+John4 H4Seo                                                                     
+
+FN                                                                              
+-------------------------------------------------                               
+Sarath4 H4Sewall                                                                
+Lindsey4 H4Smith                                                                
+William4 H4Smith                                                                
+Stephen4 H4Stiles                                                               
+Martha4 H4Sullivan                                                              
+Patrick4 H4Sully                                                                
+Jonathon4 H4Taylor                                                              
+Winston4 H4Taylor                                                               
+Sigal4 H4Tobias                                                                 
+Peter4 H4Tucker                                                                 
+Oliver4 H4Tuvault                                                               
+
+FN                                                                              
+-------------------------------------------------                               
+Jose Manuel4 H4Urman                                                            
+Peter4 H4Vargas                                                                 
+Clara4 H4Vishney                                                                
+Shanta4 H4Vollman                                                               
+Alana4 H4Walsh                                                                  
+Matthew4 H4Weiss                                                                
+Jennifer4 H4Whalen                                                              
+Eleni4 H4Zlotkey                                                                
+
+107 rows selected.
+
+SQL> 
+SQL> select first_name||Q'4 H4' ||last_name FN  from employees;
+
+FN                                                                              
+-----------------------------------------------                                 
+Ellen HAbel                                                                     
+Sundar HAnde                                                                    
+Mozhe HAtkinson                                                                 
+David HAustin                                                                   
+Hermann HBaer                                                                   
+Shelli HBaida                                                                   
+Amit HBanda                                                                     
+Elizabeth HBates                                                                
+Sarah HBell                                                                     
+David HBernstein                                                                
+Laura HBissot                                                                   
+
+FN                                                                              
+-----------------------------------------------                                 
+Harrison HBloom                                                                 
+Alexis HBull                                                                    
+Anthony HCabrio                                                                 
+Gerald HCambrault                                                               
+Nanette HCambrault                                                              
+John HChen                                                                      
+Kelly HChung                                                                    
+Karen HColmenares                                                               
+Curtis HDavies                                                                  
+Lex HDe Haan                                                                    
+Julia HDellinger                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Jennifer HDilly                                                                 
+Louise HDoran                                                                   
+Bruce HErnst                                                                    
+Alberto HErrazuriz                                                              
+Britney HEverett                                                                
+Daniel HFaviet                                                                  
+Pat HFay                                                                        
+Kevin HFeeney                                                                   
+Jean HFleaur                                                                    
+Tayler HFox                                                                     
+Adam HFripp                                                                     
+
+FN                                                                              
+-----------------------------------------------                                 
+Timothy HGates                                                                  
+Ki HGee                                                                         
+Girard HGeoni                                                                   
+William HGietz                                                                  
+Douglas HGrant                                                                  
+Kimberely HGrant                                                                
+Nancy HGreenberg                                                                
+Danielle HGreene                                                                
+Peter HHall                                                                     
+Michael HHartstein                                                              
+Shelley HHiggins                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Guy HHimuro                                                                     
+Alexander HHunold                                                               
+Alyssa HHutton                                                                  
+Charles HJohnson                                                                
+Vance HJones                                                                    
+Payam HKaufling                                                                 
+Alexander HKhoo                                                                 
+Janette HKing                                                                   
+Steven HKing                                                                    
+Neena HKochhar                                                                  
+Sundita HKumar                                                                  
+
+FN                                                                              
+-----------------------------------------------                                 
+Renske HLadwig                                                                  
+James HLandry                                                                   
+David HLee                                                                      
+Jack HLivingston                                                                
+Diana HLorentz                                                                  
+Jason HMallin                                                                   
+Steven HMarkle                                                                  
+James HMarlow                                                                   
+Mattea HMarvins                                                                 
+Randall HMatos                                                                  
+Susan HMavris                                                                   
+
+FN                                                                              
+-----------------------------------------------                                 
+Samuel HMcCain                                                                  
+Allan HMcEwen                                                                   
+Irene HMikkilineni                                                              
+Kevin HMourgos                                                                  
+Julia HNayer                                                                    
+Donald HOConnell                                                                
+Christopher HOlsen                                                              
+TJ HOlson                                                                       
+Lisa HOzer                                                                      
+Karen HPartners                                                                 
+Valli HPataballa                                                                
+
+FN                                                                              
+-----------------------------------------------                                 
+Joshua HPatel                                                                   
+Randall HPerkins                                                                
+Hazel HPhiltanker                                                               
+Luis HPopp                                                                      
+Trenna HRajs                                                                    
+Den HRaphaely                                                                   
+Michael HRogers                                                                 
+John HRussell                                                                   
+Nandita HSarchand                                                               
+Ismael HSciarra                                                                 
+John HSeo                                                                       
+
+FN                                                                              
+-----------------------------------------------                                 
+Sarath HSewall                                                                  
+Lindsey HSmith                                                                  
+William HSmith                                                                  
+Stephen HStiles                                                                 
+Martha HSullivan                                                                
+Patrick HSully                                                                  
+Jonathon HTaylor                                                                
+Winston HTaylor                                                                 
+Sigal HTobias                                                                   
+Peter HTucker                                                                   
+Oliver HTuvault                                                                 
+
+FN                                                                              
+-----------------------------------------------                                 
+Jose Manuel HUrman                                                              
+Peter HVargas                                                                   
+Clara HVishney                                                                  
+Shanta HVollman                                                                 
+Alana HWalsh                                                                    
+Matthew HWeiss                                                                  
+Jennifer HWhalen                                                                
+Eleni HZlotkey                                                                  
+
+107 rows selected.
+
+SQL> select first_name,hire_date from employees where substr(hire_date,4,3)='DEC';
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Luis                 07-DEC-07                                                  
+Den                  07-DEC-02                                                  
+Shelli               24-DEC-05                                                  
+Ki                   12-DEC-07                                                  
+Nanette              09-DEC-06                                                  
+Louise               15-DEC-05                                                  
+Randall              19-DEC-07                                                  
+
+7 rows selected.
+
+SQL>  select first_name,hire_date from employees where hire_date like'%DEC%' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Luis                 07-DEC-07                                                  
+Den                  07-DEC-02                                                  
+Shelli               24-DEC-05                                                  
+Ki                   12-DEC-07                                                  
+Nanette              09-DEC-06                                                  
+Louise               15-DEC-05                                                  
+Randall              19-DEC-07                                                  
+
+7 rows selected.
+
+SQL>  select first_name,hire_date from employees where hire_date like'05%' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Valli                05-FEB-06                                                  
+Karen                05-JAN-05                                                  
+
+SQL>  select first_name,hire_date from employees where hire_date like'%05' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Pat                  17-AUG-05                                                  
+Neena                21-SEP-05                                                  
+David                25-JUN-05                                                  
+John                 28-SEP-05                                                  
+Ismael               30-SEP-05                                                  
+Shelli               24-DEC-05                                                  
+Sigal                24-JUL-05                                                  
+Adam                 10-APR-05                                                  
+Shanta               10-OCT-05                                                  
+Julia                16-JUL-05                                                  
+Laura                20-AUG-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Mozhe                30-OCT-05                                                  
+James                16-FEB-05                                                  
+Stephen              26-OCT-05                                                  
+Curtis               29-JAN-05                                                  
+Karen                05-JAN-05                                                  
+Alberto              10-MAR-05                                                  
+Peter                30-JAN-05                                                  
+David                24-MAR-05                                                  
+Peter                20-AUG-05                                                  
+Lindsey              10-MAR-05                                                  
+Louise               15-DEC-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Clara                11-NOV-05                                                  
+Lisa                 11-MAR-05                                                  
+Alyssa               19-MAR-05                                                  
+Alexis               20-FEB-05                                                  
+Kelly                14-JUN-05                                                  
+Jennifer             13-AUG-05                                                  
+Britney              03-MAR-05                                                  
+
+29 rows selected.
+
+SQL>  select first_name,hire_date from employees where hire_date like'20%' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Laura                20-AUG-05                                                  
+Peter                20-AUG-05                                                  
+Alexis               20-FEB-05                                                  
+
+SQL>  select first_name,hire_date from employees where hire_date like'20%05' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Laura                20-AUG-05                                                  
+Peter                20-AUG-05                                                  
+Alexis               20-FEB-05                                                  
+
+SQL> select sysdate+2 from dual;
+
+SYSDATE+2                                                                       
+---------                                                                       
+07-OCT-19                                                                       
+
+SQL> select sysdate,add_months(sysdate,5) from dual;
+
+SYSDATE   ADD_MONTH                                                             
+--------- ---------                                                             
+05-OCT-19 05-MAR-20                                                             
+
+SQL> select sysdate,next_day(sysdate,5) from dual;
+
+SYSDATE   NEXT_DAY(                                                             
+--------- ---------                                                             
+05-OCT-19 10-OCT-19                                                             
+
+SQL> spool off;

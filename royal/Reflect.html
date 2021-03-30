@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background: black;
+        }
+    .main{
+        position: absolute;
+        top:10%;
+        left:10%;
+        /* transform: translate(-50%,-50%); */
+    }
+    .one{
+        float: left;
+        height:200px;
+        width: 200px;
+        background:cyan;
+        text-align: center;
+        line-height:150px;
+        letter-spacing: 3px;
+        box-shadow: 0px 0px 10px black,0px 0px 40px cyan;
+        -webkit-box-reflect: below 2px linear-gradient(transparent,#000);
+        transition: 1s;
+
+    }
+    .one:hover{
+        background: linear-gradient(75deg,blue,red);
+    }
+    .two{
+        float: left;
+        height:200px;
+        width: 200px;
+        background: rgb(71, 165, 87);
+        text-align: center;
+        margin-left:40px;
+        line-height:150px;
+        letter-spacing: 3px;
+        box-shadow: 0px 0px 10px black,0px 0px 40px rgb(71, 165, 87);
+        -webkit-box-reflect: below 1px linear-gradient(transparent,#000);
+        transition: 1s;
+    }
+    .two:hover{
+        background: linear-gradient(75deg,yellow,white);
+    }
+    </style>
+</head>
+<body>
+ <div class="main">
+<div class="one"><h1>Harsh</h1></div>
+<div class="two"><h1>Mankodiya</h1></div>
+</div> 
+
+</body>
+</html>

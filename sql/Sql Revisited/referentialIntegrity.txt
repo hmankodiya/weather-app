@@ -1,0 +1,30 @@
+create table student_add(
+roll_no number primary key,
+name varchar2(10),
+city varchar2(10),
+mobile varchar2(10),
+pin varchar2(6)
+);
+
+create table student_marks(
+roll_no number references student_add,
+subject varchar2(15),
+marks number(2)
+);
+
+insert into student_add values(
+5,'bruce','germany','334447','12345'		
+);
+
+insert into STUDENT_MARKS values(
+6,'py',13		
+);
+
+SQL> insert into STUDENT_MARKS values(
+  2  6,'py',13
+  3  );
+insert into STUDENT_MARKS values(
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (HR.SYS_C0023594) violated - parent key not
+found

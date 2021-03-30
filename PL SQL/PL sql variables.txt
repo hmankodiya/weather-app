@@ -1,0 +1,11 @@
+set serveroutput on;
+DECLARE
+	v_name varchar2(45);
+	v_no int(10);
+BEGIN
+	v_name:='Harsh Mankodiya';
+	v_no:=9328;
+	DBMS_OUTPUT.PUT_LINE(v_name);
+	DBMS_OUTPUT.PUT_LINE(v_no+10);
+END;
+/	

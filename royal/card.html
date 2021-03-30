@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CARD</title>
+<style>
+.card{width: 200px;height: 300px;float: left;}
+.head{width: 200px;height: 200px; background: blue; text-align: center;
+line-height: 200px;
+background: linear-gradient(45deg,yellow,red);
+
+
+}
+.content{width: 200px;height: 100px;background:linear-gradient(60deg,blue,green);text-align: center; color: white;
+line-height: 100px;opacity: 0;transform: translateY(400px); transition: 0.5s;
+}
+    {opacity:1;transform: translate(0px) rotate(360deg);}
+
+.card2{width: 200px;height: 300px;float: left; margin-left: 100px;}
+.head2{width: 200px;height: 200px; background: blue; text-align: center;
+line-height: 200px;
+background: linear-gradient(45deg,yellow,red);
+
+
+}
+.content2{width: 200px;height: 100px;background:linear-gradient(60deg,blue,green);text-align: center; color: white;
+line-height: 100px;opacity: 0;transform: translateZ(400px) scale(0); transition: 0.5s;
+}
+.head2:hover ~ .content2{opacity:1;transform: translateZ(0px) scale(1);}
+
+</style>
+
+</head>
+<body>
+<div class="card">
+<div class="head"><h1>01</h1></div>
+<div class="content" >14-09-2001</div>
+</div>
+
+<div class="card2">
+        <div class="head2"><h1>01</h1></div>
+        <div class="content2" >14-09-2001</div>
+        
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+ 
+
+set serveroutput on;
+create or replace trigger sh_audit
+before insert or delete or update on superhero
+for each row
+enable
+declare
+	v_user varchar2(30);
+	v_date varchar2(30);
+begin 
+	select user,to_char(sysdate,'DD/MM/YYYY HH24:MI:SS')into v_user,v_date 	from dual;
+if inserting then
+insert into sh_audit(new_name,old_name,user_name,entry_date,operation)
+values(:new.name,null,v_user,v_date,'Insert');
+elsif deleting then
+insert into sh_audit(new_name,old_name,user_name,entry_date,operation)
+values(null,:old.name,v_user,v_date,'delete');
+elsif updating then
+insert into sh_audit(new_name,old_name,user_name,entry_date,operation)
+values(:new.name,:old.name,v_user,v_date,'update');
+end if;
+end;
+/ 

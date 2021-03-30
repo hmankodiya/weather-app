@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+
+.screen{
+    border: solid 3px rgb(26, 24, 24);
+}
+.ad{
+    background: green;
+}
+</style>
+</head>
+
+<body>
+<input type="text"  id="tx" class="screen">
+<textarea id="tx1"></textarea>
+<button id="add" class="" onclick="add()">add</button>
+<button id="equalto" class="" onclick="equato()">=</button>    
+</body>
+<script>
+
+function add(){
+    // alert('sd');
+    // var e=document.getElementById('add');
+    // e.classList.add('ad');     
+    var a=parseInt(document.getElementById('tx').value);
+var b=parseInt(document.getElementById('tx').value);
+
+    var c=a+b;    
+    document.getElementById('tx1').innerHTML=c;
+}
+
+</script>
+</html>

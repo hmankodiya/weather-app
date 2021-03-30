@@ -1,0 +1,385 @@
+SQL> rem grp functions
+SQL> select first_name,salary from tab;
+select first_name,salary from tab
+                  *
+ERROR at line 1:
+ORA-00904: "SALARY": invalid identifier 
+
+
+SQL> select first_name,salary from employees;
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Donald                     2600                                                 
+Douglas                    2600                                                 
+Jennifer                   4400                                                 
+Michael                   13000                                                 
+Pat                        6000                                                 
+Susan                      6500                                                 
+Hermann                   10000                                                 
+Shelley                   12008                                                 
+William                    8300                                                 
+Steven                    24000                                                 
+Neena                     17000                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Lex                       17000                                                 
+Alexander                  9000                                                 
+Bruce                      6000                                                 
+David                      4800                                                 
+Valli                      4800                                                 
+Diana                      4200                                                 
+Nancy                     12008                                                 
+Daniel                     9000                                                 
+John                       8200                                                 
+Ismael                     7700                                                 
+Jose Manuel                7800                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Luis                       6900                                                 
+Den                       11000                                                 
+Alexander                  3100                                                 
+Shelli                     2900                                                 
+Sigal                      2800                                                 
+Guy                        2600                                                 
+Karen                      2500                                                 
+Matthew                    8000                                                 
+Adam                       8200                                                 
+Payam                      7900                                                 
+Shanta                     6500                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Kevin                      5800                                                 
+Julia                      3200                                                 
+Irene                      2700                                                 
+James                      2400                                                 
+Steven                     2200                                                 
+Laura                      3300                                                 
+Mozhe                      2800                                                 
+James                      2500                                                 
+TJ                         2100                                                 
+Jason                      3300                                                 
+Michael                    2900                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Ki                         2400                                                 
+Hazel                      2200                                                 
+Renske                     3600                                                 
+Stephen                    3200                                                 
+John                       2700                                                 
+Joshua                     2500                                                 
+Trenna                     3500                                                 
+Curtis                     3100                                                 
+Randall                    2600                                                 
+Peter                      2500                                                 
+John                      14000                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Karen                     13500                                                 
+Alberto                   12000                                                 
+Gerald                    11000                                                 
+Eleni                     10500                                                 
+Peter                     10000                                                 
+David                      9500                                                 
+Peter                      9000                                                 
+Christopher                8000                                                 
+Nanette                    7500                                                 
+Oliver                     7000                                                 
+Janette                   10000                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Patrick                    9500                                                 
+Allan                      9000                                                 
+Lindsey                    8000                                                 
+Louise                     7500                                                 
+Sarath                     7000                                                 
+Clara                     10500                                                 
+Danielle                   9500                                                 
+Mattea                     7200                                                 
+David                      6800                                                 
+Sundar                     6400                                                 
+Amit                       6200                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Lisa                      11500                                                 
+Harrison                  10000                                                 
+Tayler                     9600                                                 
+William                    7400                                                 
+Elizabeth                  7300                                                 
+Sundita                    6100                                                 
+Ellen                     11000                                                 
+Alyssa                     8800                                                 
+Jonathon                   8600                                                 
+Jack                       8400                                                 
+Kimberely                  7000                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Charles                    6200                                                 
+Winston                    3200                                                 
+Jean                       3100                                                 
+Martha                     2500                                                 
+Girard                     2800                                                 
+Nandita                    4200                                                 
+Alexis                     4100                                                 
+Julia                      3400                                                 
+Anthony                    3000                                                 
+Kelly                      3800                                                 
+Jennifer                   3600                                                 
+
+FIRST_NAME               SALARY                                                 
+-------------------- ----------                                                 
+Timothy                    2900                                                 
+Randall                    2500                                                 
+Sarah                      4000                                                 
+Britney                    3900                                                 
+Samuel                     3200                                                 
+Vance                      2800                                                 
+Alana                      3100                                                 
+Kevin                      3000                                                 
+
+107 rows selected.
+
+SQL> select sum(salary),min(salary),max(salary) from employees;
+
+SUM(SALARY) MIN(SALARY) MAX(SALARY)                                             
+----------- ----------- -----------                                             
+     691416        2100       24000                                             
+
+SQL> select min(first_name),max(first_name), min(hire_date),max(hire_date) from employees;
+
+MIN(FIRST_NAME)      MAX(FIRST_NAME)      MIN(HIRE_ MAX(HIRE_                   
+-------------------- -------------------- --------- ---------                   
+Adam                 Winston              13-JAN-01 21-APR-08                   
+
+SQL> rem this is done alphabatically
+SQL> rem group by
+SQL> 
+SQL> select department_id,salary from employees;
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           50       2600                                                        
+           50       2600                                                        
+           10       4400                                                        
+           20      13000                                                        
+           20       6000                                                        
+           40       6500                                                        
+           70      10000                                                        
+          110      12008                                                        
+          110       8300                                                        
+           90      24000                                                        
+           90      17000                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           90      17000                                                        
+           60       9000                                                        
+           60       6000                                                        
+           60       4800                                                        
+           60       4800                                                        
+           60       4200                                                        
+          100      12008                                                        
+          100       9000                                                        
+          100       8200                                                        
+          100       7700                                                        
+          100       7800                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+          100       6900                                                        
+           30      11000                                                        
+           30       3100                                                        
+           30       2900                                                        
+           30       2800                                                        
+           30       2600                                                        
+           30       2500                                                        
+           50       8000                                                        
+           50       8200                                                        
+           50       7900                                                        
+           50       6500                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           50       5800                                                        
+           50       3200                                                        
+           50       2700                                                        
+           50       2400                                                        
+           50       2200                                                        
+           50       3300                                                        
+           50       2800                                                        
+           50       2500                                                        
+           50       2100                                                        
+           50       3300                                                        
+           50       2900                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           50       2400                                                        
+           50       2200                                                        
+           50       3600                                                        
+           50       3200                                                        
+           50       2700                                                        
+           50       2500                                                        
+           50       3500                                                        
+           50       3100                                                        
+           50       2600                                                        
+           50       2500                                                        
+           80      14000                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           80      13500                                                        
+           80      12000                                                        
+           80      11000                                                        
+           80      10500                                                        
+           80      10000                                                        
+           80       9500                                                        
+           80       9000                                                        
+           80       8000                                                        
+           80       7500                                                        
+           80       7000                                                        
+           80      10000                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           80       9500                                                        
+           80       9000                                                        
+           80       8000                                                        
+           80       7500                                                        
+           80       7000                                                        
+           80      10500                                                        
+           80       9500                                                        
+           80       7200                                                        
+           80       6800                                                        
+           80       6400                                                        
+           80       6200                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           80      11500                                                        
+           80      10000                                                        
+           80       9600                                                        
+           80       7400                                                        
+           80       7300                                                        
+           80       6100                                                        
+           80      11000                                                        
+           80       8800                                                        
+           80       8600                                                        
+           80       8400                                                        
+                    7000                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           80       6200                                                        
+           50       3200                                                        
+           50       3100                                                        
+           50       2500                                                        
+           50       2800                                                        
+           50       4200                                                        
+           50       4100                                                        
+           50       3400                                                        
+           50       3000                                                        
+           50       3800                                                        
+           50       3600                                                        
+
+DEPARTMENT_ID     SALARY                                                        
+------------- ----------                                                        
+           50       2900                                                        
+           50       2500                                                        
+           50       4000                                                        
+           50       3900                                                        
+           50       3200                                                        
+           50       2800                                                        
+           50       3100                                                        
+           50       3000                                                        
+
+107 rows selected.
+
+SQL> select department_id,sum(salary) from employees group by department_id;
+
+DEPARTMENT_ID SUM(SALARY)                                                       
+------------- -----------                                                       
+          100       51608                                                       
+           30       24900                                                       
+                     7000                                                       
+           20       19000                                                       
+           70       10000                                                       
+           90       58000                                                       
+          110       20308                                                       
+           50      156400                                                       
+           40        6500                                                       
+           80      304500                                                       
+           10        4400                                                       
+
+DEPARTMENT_ID SUM(SALARY)                                                       
+------------- -----------                                                       
+           60       28800                                                       
+
+12 rows selected.
+
+SQL> select department_id,sum(salary),max(salary),min(salary) from employees group by department_id;
+
+DEPARTMENT_ID SUM(SALARY) MAX(SALARY) MIN(SALARY)                               
+------------- ----------- ----------- -----------                               
+          100       51608       12008        6900                               
+           30       24900       11000        2500                               
+                     7000        7000        7000                               
+           20       19000       13000        6000                               
+           70       10000       10000       10000                               
+           90       58000       24000       17000                               
+          110       20308       12008        8300                               
+           50      156400        8200        2100                               
+           40        6500        6500        6500                               
+           80      304500       14000        6100                               
+           10        4400        4400        4400                               
+
+DEPARTMENT_ID SUM(SALARY) MAX(SALARY) MIN(SALARY)                               
+------------- ----------- ----------- -----------                               
+           60       28800        9000        4200                               
+
+12 rows selected.
+
+SQL> rem where condi always starts by actual condi
+SQL> select department_id,sum(salary),max(salary),min(salary) from employees group by department_id having max(salary)>7000;
+
+DEPARTMENT_ID SUM(SALARY) MAX(SALARY) MIN(SALARY)                               
+------------- ----------- ----------- -----------                               
+          100       51608       12008        6900                               
+           30       24900       11000        2500                               
+           20       19000       13000        6000                               
+           70       10000       10000       10000                               
+           90       58000       24000       17000                               
+          110       20308       12008        8300                               
+           50      156400        8200        2100                               
+           80      304500       14000        6100                               
+           60       28800        9000        4200                               
+
+9 rows selected.
+
+SQL> rem selecting department wise
+SQL> select department_id,sum(salary),max(salary),min(salary) from employees where department_id in (30,90) group by department_id having max(salary)>7000;
+
+DEPARTMENT_ID SUM(SALARY) MAX(SALARY) MIN(SALARY)                               
+------------- ----------- ----------- -----------                               
+           30       24900       11000        2500                               
+           90       58000       24000       17000                               
+
+SQL> rem sequence
+SQL> select
+  2  col1,col2...
+  3  from
+  4  tables
+  5  where
+  6  condi
+  7  having
+  8  \
+  9  
+SQL> spool off;

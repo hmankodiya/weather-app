@@ -1,0 +1,16 @@
+insert into superhero values('Tony','21'); //dont use ""
+
+
+insert into superhero values('Steve');
+
+insert into superhero (id) values('1');
+
+update superhero set id=5 where name='Steve'; //all steve will be updated
+
+update superhero set id=5;/ updates all
+
+
+select * from superhero;
+
+
+insert into table_1(id,name,prof,gender) values(2,'nat','blackwidow','F');

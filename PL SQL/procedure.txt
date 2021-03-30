@@ -1,0 +1,15 @@
+create or replace procedure p is
+	name varchar2(20):='Tony Stark';
+	name1 varchar2(20):='Iron Man';
+begin
+dbms_output.put_line('Whats up students? i am'||name||'From'||name1);
+end p;
+/
+set serveroutput on;
+execute p; 
+ rem exec p;
+rem or
+rem begin
+rem p;
+end ;
+/

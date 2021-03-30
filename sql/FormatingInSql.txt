@@ -1,0 +1,2217 @@
+SQL> rem functions
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+COUNTRIES                      TABLE                                            
+DEPARTMENTS                    TABLE                                            
+EMPLOYEES                      TABLE                                            
+EMP_DETAILS_VIEW               VIEW                                             
+JOBS                           TABLE                                            
+JOB_HISTORY                    TABLE                                            
+LOCATIONS                      TABLE                                            
+REGIONS                        TABLE                                            
+
+8 rows selected.
+
+SQL> select upper(first_name),lower(last_name),initcap(first_name) from employees;
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+ELLEN                abel                      Ellen                            
+SUNDAR               ande                      Sundar                           
+MOZHE                atkinson                  Mozhe                            
+DAVID                austin                    David                            
+HERMANN              baer                      Hermann                          
+SHELLI               baida                     Shelli                           
+AMIT                 banda                     Amit                             
+ELIZABETH            bates                     Elizabeth                        
+SARAH                bell                      Sarah                            
+DAVID                bernstein                 David                            
+LAURA                bissot                    Laura                            
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+HARRISON             bloom                     Harrison                         
+ALEXIS               bull                      Alexis                           
+ANTHONY              cabrio                    Anthony                          
+GERALD               cambrault                 Gerald                           
+NANETTE              cambrault                 Nanette                          
+JOHN                 chen                      John                             
+KELLY                chung                     Kelly                            
+KAREN                colmenares                Karen                            
+CURTIS               davies                    Curtis                           
+LEX                  de haan                   Lex                              
+JULIA                dellinger                 Julia                            
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+JENNIFER             dilly                     Jennifer                         
+LOUISE               doran                     Louise                           
+BRUCE                ernst                     Bruce                            
+ALBERTO              errazuriz                 Alberto                          
+BRITNEY              everett                   Britney                          
+DANIEL               faviet                    Daniel                           
+PAT                  fay                       Pat                              
+KEVIN                feeney                    Kevin                            
+JEAN                 fleaur                    Jean                             
+TAYLER               fox                       Tayler                           
+ADAM                 fripp                     Adam                             
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+TIMOTHY              gates                     Timothy                          
+KI                   gee                       Ki                               
+GIRARD               geoni                     Girard                           
+WILLIAM              gietz                     William                          
+DOUGLAS              grant                     Douglas                          
+KIMBERELY            grant                     Kimberely                        
+NANCY                greenberg                 Nancy                            
+DANIELLE             greene                    Danielle                         
+PETER                hall                      Peter                            
+MICHAEL              hartstein                 Michael                          
+SHELLEY              higgins                   Shelley                          
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+GUY                  himuro                    Guy                              
+ALEXANDER            hunold                    Alexander                        
+ALYSSA               hutton                    Alyssa                           
+CHARLES              johnson                   Charles                          
+VANCE                jones                     Vance                            
+PAYAM                kaufling                  Payam                            
+ALEXANDER            khoo                      Alexander                        
+JANETTE              king                      Janette                          
+STEVEN               king                      Steven                           
+NEENA                kochhar                   Neena                            
+SUNDITA              kumar                     Sundita                          
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+RENSKE               ladwig                    Renske                           
+JAMES                landry                    James                            
+DAVID                lee                       David                            
+JACK                 livingston                Jack                             
+DIANA                lorentz                   Diana                            
+JASON                mallin                    Jason                            
+STEVEN               markle                    Steven                           
+JAMES                marlow                    James                            
+MATTEA               marvins                   Mattea                           
+RANDALL              matos                     Randall                          
+SUSAN                mavris                    Susan                            
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+SAMUEL               mccain                    Samuel                           
+ALLAN                mcewen                    Allan                            
+IRENE                mikkilineni               Irene                            
+KEVIN                mourgos                   Kevin                            
+JULIA                nayer                     Julia                            
+DONALD               oconnell                  Donald                           
+CHRISTOPHER          olsen                     Christopher                      
+TJ                   olson                     Tj                               
+LISA                 ozer                      Lisa                             
+KAREN                partners                  Karen                            
+VALLI                pataballa                 Valli                            
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+JOSHUA               patel                     Joshua                           
+RANDALL              perkins                   Randall                          
+HAZEL                philtanker                Hazel                            
+LUIS                 popp                      Luis                             
+TRENNA               rajs                      Trenna                           
+DEN                  raphaely                  Den                              
+MICHAEL              rogers                    Michael                          
+JOHN                 russell                   John                             
+NANDITA              sarchand                  Nandita                          
+ISMAEL               sciarra                   Ismael                           
+JOHN                 seo                       John                             
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+SARATH               sewall                    Sarath                           
+LINDSEY              smith                     Lindsey                          
+WILLIAM              smith                     William                          
+STEPHEN              stiles                    Stephen                          
+MARTHA               sullivan                  Martha                           
+PATRICK              sully                     Patrick                          
+JONATHON             taylor                    Jonathon                         
+WINSTON              taylor                    Winston                          
+SIGAL                tobias                    Sigal                            
+PETER                tucker                    Peter                            
+OLIVER               tuvault                   Oliver                           
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+JOSE MANUEL          urman                     Jose Manuel                      
+PETER                vargas                    Peter                            
+CLARA                vishney                   Clara                            
+SHANTA               vollman                   Shanta                           
+ALANA                walsh                     Alana                            
+MATTHEW              weiss                     Matthew                          
+JENNIFER             whalen                    Jennifer                         
+ELENI                zlotkey                   Eleni                            
+
+107 rows selected.
+
+SQL> select upper(first_name),lower(last_name),initcap(first_name) from employees;
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+ELLEN                abel                      Ellen                            
+SUNDAR               ande                      Sundar                           
+MOZHE                atkinson                  Mozhe                            
+DAVID                austin                    David                            
+HERMANN              baer                      Hermann                          
+SHELLI               baida                     Shelli                           
+AMIT                 banda                     Amit                             
+ELIZABETH            bates                     Elizabeth                        
+SARAH                bell                      Sarah                            
+DAVID                bernstein                 David                            
+LAURA                bissot                    Laura                            
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+HARRISON             bloom                     Harrison                         
+ALEXIS               bull                      Alexis                           
+ANTHONY              cabrio                    Anthony                          
+GERALD               cambrault                 Gerald                           
+NANETTE              cambrault                 Nanette                          
+JOHN                 chen                      John                             
+KELLY                chung                     Kelly                            
+KAREN                colmenares                Karen                            
+CURTIS               davies                    Curtis                           
+LEX                  de haan                   Lex                              
+JULIA                dellinger                 Julia                            
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+JENNIFER             dilly                     Jennifer                         
+LOUISE               doran                     Louise                           
+BRUCE                ernst                     Bruce                            
+ALBERTO              errazuriz                 Alberto                          
+BRITNEY              everett                   Britney                          
+DANIEL               faviet                    Daniel                           
+PAT                  fay                       Pat                              
+KEVIN                feeney                    Kevin                            
+JEAN                 fleaur                    Jean                             
+TAYLER               fox                       Tayler                           
+ADAM                 fripp                     Adam                             
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+TIMOTHY              gates                     Timothy                          
+KI                   gee                       Ki                               
+GIRARD               geoni                     Girard                           
+WILLIAM              gietz                     William                          
+DOUGLAS              grant                     Douglas                          
+KIMBERELY            grant                     Kimberely                        
+NANCY                greenberg                 Nancy                            
+DANIELLE             greene                    Danielle                         
+PETER                hall                      Peter                            
+MICHAEL              hartstein                 Michael                          
+SHELLEY              higgins                   Shelley                          
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+GUY                  himuro                    Guy                              
+ALEXANDER            hunold                    Alexander                        
+ALYSSA               hutton                    Alyssa                           
+CHARLES              johnson                   Charles                          
+VANCE                jones                     Vance                            
+PAYAM                kaufling                  Payam                            
+ALEXANDER            khoo                      Alexander                        
+JANETTE              king                      Janette                          
+STEVEN               king                      Steven                           
+NEENA                kochhar                   Neena                            
+SUNDITA              kumar                     Sundita                          
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+RENSKE               ladwig                    Renske                           
+JAMES                landry                    James                            
+DAVID                lee                       David                            
+JACK                 livingston                Jack                             
+DIANA                lorentz                   Diana                            
+JASON                mallin                    Jason                            
+STEVEN               markle                    Steven                           
+JAMES                marlow                    James                            
+MATTEA               marvins                   Mattea                           
+RANDALL              matos                     Randall                          
+SUSAN                mavris                    Susan                            
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+SAMUEL               mccain                    Samuel                           
+ALLAN                mcewen                    Allan                            
+IRENE                mikkilineni               Irene                            
+KEVIN                mourgos                   Kevin                            
+JULIA                nayer                     Julia                            
+DONALD               oconnell                  Donald                           
+CHRISTOPHER          olsen                     Christopher                      
+TJ                   olson                     Tj                               
+LISA                 ozer                      Lisa                             
+KAREN                partners                  Karen                            
+VALLI                pataballa                 Valli                            
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+JOSHUA               patel                     Joshua                           
+RANDALL              perkins                   Randall                          
+HAZEL                philtanker                Hazel                            
+LUIS                 popp                      Luis                             
+TRENNA               rajs                      Trenna                           
+DEN                  raphaely                  Den                              
+MICHAEL              rogers                    Michael                          
+JOHN                 russell                   John                             
+NANDITA              sarchand                  Nandita                          
+ISMAEL               sciarra                   Ismael                           
+JOHN                 seo                       John                             
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+SARATH               sewall                    Sarath                           
+LINDSEY              smith                     Lindsey                          
+WILLIAM              smith                     William                          
+STEPHEN              stiles                    Stephen                          
+MARTHA               sullivan                  Martha                           
+PATRICK              sully                     Patrick                          
+JONATHON             taylor                    Jonathon                         
+WINSTON              taylor                    Winston                          
+SIGAL                tobias                    Sigal                            
+PETER                tucker                    Peter                            
+OLIVER               tuvault                   Oliver                           
+
+UPPER(FIRST_NAME)    LOWER(LAST_NAME)          INITCAP(FIRST_NAME)              
+-------------------- ------------------------- --------------------             
+JOSE MANUEL          urman                     Jose Manuel                      
+PETER                vargas                    Peter                            
+CLARA                vishney                   Clara                            
+SHANTA               vollman                   Shanta                           
+ALANA                walsh                     Alana                            
+MATTHEW              weiss                     Matthew                          
+JENNIFER             whalen                    Jennifer                         
+ELENI                zlotkey                   Eleni                            
+
+107 rows selected.
+
+SQL> select upper(first_name) fn,lower(last_name) ln,initcap(first_name) fn from employees;
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+ELLEN                abel                      Ellen                            
+SUNDAR               ande                      Sundar                           
+MOZHE                atkinson                  Mozhe                            
+DAVID                austin                    David                            
+HERMANN              baer                      Hermann                          
+SHELLI               baida                     Shelli                           
+AMIT                 banda                     Amit                             
+ELIZABETH            bates                     Elizabeth                        
+SARAH                bell                      Sarah                            
+DAVID                bernstein                 David                            
+LAURA                bissot                    Laura                            
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+HARRISON             bloom                     Harrison                         
+ALEXIS               bull                      Alexis                           
+ANTHONY              cabrio                    Anthony                          
+GERALD               cambrault                 Gerald                           
+NANETTE              cambrault                 Nanette                          
+JOHN                 chen                      John                             
+KELLY                chung                     Kelly                            
+KAREN                colmenares                Karen                            
+CURTIS               davies                    Curtis                           
+LEX                  de haan                   Lex                              
+JULIA                dellinger                 Julia                            
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+JENNIFER             dilly                     Jennifer                         
+LOUISE               doran                     Louise                           
+BRUCE                ernst                     Bruce                            
+ALBERTO              errazuriz                 Alberto                          
+BRITNEY              everett                   Britney                          
+DANIEL               faviet                    Daniel                           
+PAT                  fay                       Pat                              
+KEVIN                feeney                    Kevin                            
+JEAN                 fleaur                    Jean                             
+TAYLER               fox                       Tayler                           
+ADAM                 fripp                     Adam                             
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+TIMOTHY              gates                     Timothy                          
+KI                   gee                       Ki                               
+GIRARD               geoni                     Girard                           
+WILLIAM              gietz                     William                          
+DOUGLAS              grant                     Douglas                          
+KIMBERELY            grant                     Kimberely                        
+NANCY                greenberg                 Nancy                            
+DANIELLE             greene                    Danielle                         
+PETER                hall                      Peter                            
+MICHAEL              hartstein                 Michael                          
+SHELLEY              higgins                   Shelley                          
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+GUY                  himuro                    Guy                              
+ALEXANDER            hunold                    Alexander                        
+ALYSSA               hutton                    Alyssa                           
+CHARLES              johnson                   Charles                          
+VANCE                jones                     Vance                            
+PAYAM                kaufling                  Payam                            
+ALEXANDER            khoo                      Alexander                        
+JANETTE              king                      Janette                          
+STEVEN               king                      Steven                           
+NEENA                kochhar                   Neena                            
+SUNDITA              kumar                     Sundita                          
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+RENSKE               ladwig                    Renske                           
+JAMES                landry                    James                            
+DAVID                lee                       David                            
+JACK                 livingston                Jack                             
+DIANA                lorentz                   Diana                            
+JASON                mallin                    Jason                            
+STEVEN               markle                    Steven                           
+JAMES                marlow                    James                            
+MATTEA               marvins                   Mattea                           
+RANDALL              matos                     Randall                          
+SUSAN                mavris                    Susan                            
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+SAMUEL               mccain                    Samuel                           
+ALLAN                mcewen                    Allan                            
+IRENE                mikkilineni               Irene                            
+KEVIN                mourgos                   Kevin                            
+JULIA                nayer                     Julia                            
+DONALD               oconnell                  Donald                           
+CHRISTOPHER          olsen                     Christopher                      
+TJ                   olson                     Tj                               
+LISA                 ozer                      Lisa                             
+KAREN                partners                  Karen                            
+VALLI                pataballa                 Valli                            
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+JOSHUA               patel                     Joshua                           
+RANDALL              perkins                   Randall                          
+HAZEL                philtanker                Hazel                            
+LUIS                 popp                      Luis                             
+TRENNA               rajs                      Trenna                           
+DEN                  raphaely                  Den                              
+MICHAEL              rogers                    Michael                          
+JOHN                 russell                   John                             
+NANDITA              sarchand                  Nandita                          
+ISMAEL               sciarra                   Ismael                           
+JOHN                 seo                       John                             
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+SARATH               sewall                    Sarath                           
+LINDSEY              smith                     Lindsey                          
+WILLIAM              smith                     William                          
+STEPHEN              stiles                    Stephen                          
+MARTHA               sullivan                  Martha                           
+PATRICK              sully                     Patrick                          
+JONATHON             taylor                    Jonathon                         
+WINSTON              taylor                    Winston                          
+SIGAL                tobias                    Sigal                            
+PETER                tucker                    Peter                            
+OLIVER               tuvault                   Oliver                           
+
+FN                   LN                        FN                               
+-------------------- ------------------------- --------------------             
+JOSE MANUEL          urman                     Jose Manuel                      
+PETER                vargas                    Peter                            
+CLARA                vishney                   Clara                            
+SHANTA               vollman                   Shanta                           
+ALANA                walsh                     Alana                            
+MATTHEW              weiss                     Matthew                          
+JENNIFER             whalen                    Jennifer                         
+ELENI                zlotkey                   Eleni                            
+
+107 rows selected.
+
+SQL> rem dual is temporary table
+SQL> select trim('z' from 'zzzzzaaaroafz')from dual;
+
+TRIM('Z                                                                         
+-------                                                                         
+aaaroaf                                                                         
+
+SQL> desc dual;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DUMMY                                              VARCHAR2(1)
+
+SQL> select 4+4 from dual;
+
+       4+4                                                                      
+----------                                                                      
+         8                                                                      
+
+SQL> select ltrim('z' from 'zzzzzaaaroafz')from dual;
+select ltrim('z' from 'zzzzzaaaroafz')from dual
+                 *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> ;
+  1* select ltrim('z' from 'zzzzzaaaroafz')from dual
+SQL> select ltrim('ahahahah','ah') from dual;
+
+L                                                                               
+-                                                                               
+                                                                                
+
+SQL> select ltrim('ahahahah','a') from dual;
+
+LTRIM('                                                                         
+-------                                                                         
+hahahah                                                                         
+
+SQL> select rtrim('ahahahah','a') from dual;
+
+RTRIM('A                                                                        
+--------                                                                        
+ahahahah                                                                        
+
+SQL> rem alter user hr identified by hr account unlock;
+SQL> rem to unlock the user;
+SQL> select salary,lpad(salary,10,'#') from employees;
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+      2600 ######2600                                                           
+      2600 ######2600                                                           
+      4400 ######4400                                                           
+     13000 #####13000                                                           
+      6000 ######6000                                                           
+      6500 ######6500                                                           
+     10000 #####10000                                                           
+     12008 #####12008                                                           
+      8300 ######8300                                                           
+     24000 #####24000                                                           
+     17000 #####17000                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+     17000 #####17000                                                           
+      9000 ######9000                                                           
+      6000 ######6000                                                           
+      4800 ######4800                                                           
+      4800 ######4800                                                           
+      4200 ######4200                                                           
+     12008 #####12008                                                           
+      9000 ######9000                                                           
+      8200 ######8200                                                           
+      7700 ######7700                                                           
+      7800 ######7800                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+      6900 ######6900                                                           
+     11000 #####11000                                                           
+      3100 ######3100                                                           
+      2900 ######2900                                                           
+      2800 ######2800                                                           
+      2600 ######2600                                                           
+      2500 ######2500                                                           
+      8000 ######8000                                                           
+      8200 ######8200                                                           
+      7900 ######7900                                                           
+      6500 ######6500                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+      5800 ######5800                                                           
+      3200 ######3200                                                           
+      2700 ######2700                                                           
+      2400 ######2400                                                           
+      2200 ######2200                                                           
+      3300 ######3300                                                           
+      2800 ######2800                                                           
+      2500 ######2500                                                           
+      2100 ######2100                                                           
+      3300 ######3300                                                           
+      2900 ######2900                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+      2400 ######2400                                                           
+      2200 ######2200                                                           
+      3600 ######3600                                                           
+      3200 ######3200                                                           
+      2700 ######2700                                                           
+      2500 ######2500                                                           
+      3500 ######3500                                                           
+      3100 ######3100                                                           
+      2600 ######2600                                                           
+      2500 ######2500                                                           
+     14000 #####14000                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+     13500 #####13500                                                           
+     12000 #####12000                                                           
+     11000 #####11000                                                           
+     10500 #####10500                                                           
+     10000 #####10000                                                           
+      9500 ######9500                                                           
+      9000 ######9000                                                           
+      8000 ######8000                                                           
+      7500 ######7500                                                           
+      7000 ######7000                                                           
+     10000 #####10000                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+      9500 ######9500                                                           
+      9000 ######9000                                                           
+      8000 ######8000                                                           
+      7500 ######7500                                                           
+      7000 ######7000                                                           
+     10500 #####10500                                                           
+      9500 ######9500                                                           
+      7200 ######7200                                                           
+      6800 ######6800                                                           
+      6400 ######6400                                                           
+      6200 ######6200                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+     11500 #####11500                                                           
+     10000 #####10000                                                           
+      9600 ######9600                                                           
+      7400 ######7400                                                           
+      7300 ######7300                                                           
+      6100 ######6100                                                           
+     11000 #####11000                                                           
+      8800 ######8800                                                           
+      8600 ######8600                                                           
+      8400 ######8400                                                           
+      7000 ######7000                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+      6200 ######6200                                                           
+      3200 ######3200                                                           
+      3100 ######3100                                                           
+      2500 ######2500                                                           
+      2800 ######2800                                                           
+      4200 ######4200                                                           
+      4100 ######4100                                                           
+      3400 ######3400                                                           
+      3000 ######3000                                                           
+      3800 ######3800                                                           
+      3600 ######3600                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+      2900 ######2900                                                           
+      2500 ######2500                                                           
+      4000 ######4000                                                           
+      3900 ######3900                                                           
+      3200 ######3200                                                           
+      2800 ######2800                                                           
+      3100 ######3100                                                           
+      3000 ######3000                                                           
+
+107 rows selected.
+
+SQL> select salary,lpad(salary,10,'#') from employees where salary>10000;
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+     13000 #####13000                                                           
+     12008 #####12008                                                           
+     24000 #####24000                                                           
+     17000 #####17000                                                           
+     17000 #####17000                                                           
+     12008 #####12008                                                           
+     11000 #####11000                                                           
+     14000 #####14000                                                           
+     13500 #####13500                                                           
+     12000 #####12000                                                           
+     11000 #####11000                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+     10500 #####10500                                                           
+     10500 #####10500                                                           
+     11500 #####11500                                                           
+     11000 #####11000                                                           
+
+15 rows selected.
+
+SQL> select salary,lpad(salary,10,'A') from employees where salary>10000;
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+     13000 AAAAA13000                                                           
+     12008 AAAAA12008                                                           
+     24000 AAAAA24000                                                           
+     17000 AAAAA17000                                                           
+     17000 AAAAA17000                                                           
+     12008 AAAAA12008                                                           
+     11000 AAAAA11000                                                           
+     14000 AAAAA14000                                                           
+     13500 AAAAA13500                                                           
+     12000 AAAAA12000                                                           
+     11000 AAAAA11000                                                           
+
+    SALARY LPAD(SALAR                                                           
+---------- ----------                                                           
+     10500 AAAAA10500                                                           
+     10500 AAAAA10500                                                           
+     11500 AAAAA11500                                                           
+     11000 AAAAA11000                                                           
+
+15 rows selected.
+
+SQL> select salary,rpad(salary,10,'A') from employees where salary>10000;
+
+    SALARY RPAD(SALAR                                                           
+---------- ----------                                                           
+     13000 13000AAAAA                                                           
+     12008 12008AAAAA                                                           
+     24000 24000AAAAA                                                           
+     17000 17000AAAAA                                                           
+     17000 17000AAAAA                                                           
+     12008 12008AAAAA                                                           
+     11000 11000AAAAA                                                           
+     14000 14000AAAAA                                                           
+     13500 13500AAAAA                                                           
+     12000 12000AAAAA                                                           
+     11000 11000AAAAA                                                           
+
+    SALARY RPAD(SALAR                                                           
+---------- ----------                                                           
+     10500 10500AAAAA                                                           
+     10500 10500AAAAA                                                           
+     11500 11500AAAAA                                                           
+     11000 11000AAAAA                                                           
+
+15 rows selected.
+
+SQL> select salary,rpad(salary,10,'A'),lpad(salary,10,'@') from employees where salary>10000;
+
+    SALARY RPAD(SALAR LPAD(SALAR                                                
+---------- ---------- ----------                                                
+     13000 13000AAAAA @@@@@13000                                                
+     12008 12008AAAAA @@@@@12008                                                
+     24000 24000AAAAA @@@@@24000                                                
+     17000 17000AAAAA @@@@@17000                                                
+     17000 17000AAAAA @@@@@17000                                                
+     12008 12008AAAAA @@@@@12008                                                
+     11000 11000AAAAA @@@@@11000                                                
+     14000 14000AAAAA @@@@@14000                                                
+     13500 13500AAAAA @@@@@13500                                                
+     12000 12000AAAAA @@@@@12000                                                
+     11000 11000AAAAA @@@@@11000                                                
+
+    SALARY RPAD(SALAR LPAD(SALAR                                                
+---------- ---------- ----------                                                
+     10500 10500AAAAA @@@@@10500                                                
+     10500 10500AAAAA @@@@@10500                                                
+     11500 11500AAAAA @@@@@11500                                                
+     11000 11000AAAAA @@@@@11000                                                
+
+15 rows selected.
+
+SQL> select first_name,substr(first_name,-1,2) from employees;
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Ellen                n                                                          
+Sundar               r                                                          
+Mozhe                e                                                          
+David                d                                                          
+Hermann              n                                                          
+Shelli               i                                                          
+Amit                 t                                                          
+Elizabeth            h                                                          
+Sarah                h                                                          
+David                d                                                          
+Laura                a                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Harrison             n                                                          
+Alexis               s                                                          
+Anthony              y                                                          
+Gerald               d                                                          
+Nanette              e                                                          
+John                 n                                                          
+Kelly                y                                                          
+Karen                n                                                          
+Curtis               s                                                          
+Lex                  x                                                          
+Julia                a                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Jennifer             r                                                          
+Louise               e                                                          
+Bruce                e                                                          
+Alberto              o                                                          
+Britney              y                                                          
+Daniel               l                                                          
+Pat                  t                                                          
+Kevin                n                                                          
+Jean                 n                                                          
+Tayler               r                                                          
+Adam                 m                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Timothy              y                                                          
+Ki                   i                                                          
+Girard               d                                                          
+William              m                                                          
+Douglas              s                                                          
+Kimberely            y                                                          
+Nancy                y                                                          
+Danielle             e                                                          
+Peter                r                                                          
+Michael              l                                                          
+Shelley              y                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Guy                  y                                                          
+Alexander            r                                                          
+Alyssa               a                                                          
+Charles              s                                                          
+Vance                e                                                          
+Payam                m                                                          
+Alexander            r                                                          
+Janette              e                                                          
+Steven               n                                                          
+Neena                a                                                          
+Sundita              a                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Renske               e                                                          
+James                s                                                          
+David                d                                                          
+Jack                 k                                                          
+Diana                a                                                          
+Jason                n                                                          
+Steven               n                                                          
+James                s                                                          
+Mattea               a                                                          
+Randall              l                                                          
+Susan                n                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Samuel               l                                                          
+Allan                n                                                          
+Irene                e                                                          
+Kevin                n                                                          
+Julia                a                                                          
+Donald               d                                                          
+Christopher          r                                                          
+TJ                   J                                                          
+Lisa                 a                                                          
+Karen                n                                                          
+Valli                i                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Joshua               a                                                          
+Randall              l                                                          
+Hazel                l                                                          
+Luis                 s                                                          
+Trenna               a                                                          
+Den                  n                                                          
+Michael              l                                                          
+John                 n                                                          
+Nandita              a                                                          
+Ismael               l                                                          
+John                 n                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Sarath               h                                                          
+Lindsey              y                                                          
+William              m                                                          
+Stephen              n                                                          
+Martha               a                                                          
+Patrick              k                                                          
+Jonathon             n                                                          
+Winston              n                                                          
+Sigal                l                                                          
+Peter                r                                                          
+Oliver               r                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Jose Manuel          l                                                          
+Peter                r                                                          
+Clara                a                                                          
+Shanta               a                                                          
+Alana                a                                                          
+Matthew              w                                                          
+Jennifer             r                                                          
+Eleni                i                                                          
+
+107 rows selected.
+
+SQL> select first_name,substr(first_name,-2,2) from employees;
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Ellen                en                                                         
+Sundar               ar                                                         
+Mozhe                he                                                         
+David                id                                                         
+Hermann              nn                                                         
+Shelli               li                                                         
+Amit                 it                                                         
+Elizabeth            th                                                         
+Sarah                ah                                                         
+David                id                                                         
+Laura                ra                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Harrison             on                                                         
+Alexis               is                                                         
+Anthony              ny                                                         
+Gerald               ld                                                         
+Nanette              te                                                         
+John                 hn                                                         
+Kelly                ly                                                         
+Karen                en                                                         
+Curtis               is                                                         
+Lex                  ex                                                         
+Julia                ia                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Jennifer             er                                                         
+Louise               se                                                         
+Bruce                ce                                                         
+Alberto              to                                                         
+Britney              ey                                                         
+Daniel               el                                                         
+Pat                  at                                                         
+Kevin                in                                                         
+Jean                 an                                                         
+Tayler               er                                                         
+Adam                 am                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Timothy              hy                                                         
+Ki                   Ki                                                         
+Girard               rd                                                         
+William              am                                                         
+Douglas              as                                                         
+Kimberely            ly                                                         
+Nancy                cy                                                         
+Danielle             le                                                         
+Peter                er                                                         
+Michael              el                                                         
+Shelley              ey                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Guy                  uy                                                         
+Alexander            er                                                         
+Alyssa               sa                                                         
+Charles              es                                                         
+Vance                ce                                                         
+Payam                am                                                         
+Alexander            er                                                         
+Janette              te                                                         
+Steven               en                                                         
+Neena                na                                                         
+Sundita              ta                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Renske               ke                                                         
+James                es                                                         
+David                id                                                         
+Jack                 ck                                                         
+Diana                na                                                         
+Jason                on                                                         
+Steven               en                                                         
+James                es                                                         
+Mattea               ea                                                         
+Randall              ll                                                         
+Susan                an                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Samuel               el                                                         
+Allan                an                                                         
+Irene                ne                                                         
+Kevin                in                                                         
+Julia                ia                                                         
+Donald               ld                                                         
+Christopher          er                                                         
+TJ                   TJ                                                         
+Lisa                 sa                                                         
+Karen                en                                                         
+Valli                li                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Joshua               ua                                                         
+Randall              ll                                                         
+Hazel                el                                                         
+Luis                 is                                                         
+Trenna               na                                                         
+Den                  en                                                         
+Michael              el                                                         
+John                 hn                                                         
+Nandita              ta                                                         
+Ismael               el                                                         
+John                 hn                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Sarath               th                                                         
+Lindsey              ey                                                         
+William              am                                                         
+Stephen              en                                                         
+Martha               ha                                                         
+Patrick              ck                                                         
+Jonathon             on                                                         
+Winston              on                                                         
+Sigal                al                                                         
+Peter                er                                                         
+Oliver               er                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Jose Manuel          el                                                         
+Peter                er                                                         
+Clara                ra                                                         
+Shanta               ta                                                         
+Alana                na                                                         
+Matthew              ew                                                         
+Jennifer             er                                                         
+Eleni                ni                                                         
+
+107 rows selected.
+
+SQL> select first_name,substr(first_name,-5,2) from employees;
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Ellen                El                                                         
+Sundar               un                                                         
+Mozhe                Mo                                                         
+David                Da                                                         
+Hermann              rm                                                         
+Shelli               he                                                         
+Amit                                                                            
+Elizabeth            ab                                                         
+Sarah                Sa                                                         
+David                Da                                                         
+Laura                La                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Harrison             ri                                                         
+Alexis               le                                                         
+Anthony              th                                                         
+Gerald               er                                                         
+Nanette              ne                                                         
+John                                                                            
+Kelly                Ke                                                         
+Karen                Ka                                                         
+Curtis               ur                                                         
+Lex                                                                             
+Julia                Ju                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Jennifer             ni                                                         
+Louise               ou                                                         
+Bruce                Br                                                         
+Alberto              be                                                         
+Britney              it                                                         
+Daniel               an                                                         
+Pat                                                                             
+Kevin                Ke                                                         
+Jean                                                                            
+Tayler               ay                                                         
+Adam                                                                            
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Timothy              mo                                                         
+Ki                                                                              
+Girard               ir                                                         
+William              ll                                                         
+Douglas              ug                                                         
+Kimberely            er                                                         
+Nancy                Na                                                         
+Danielle             ie                                                         
+Peter                Pe                                                         
+Michael              ch                                                         
+Shelley              el                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Guy                                                                             
+Alexander            an                                                         
+Alyssa               ly                                                         
+Charles              ar                                                         
+Vance                Va                                                         
+Payam                Pa                                                         
+Alexander            an                                                         
+Janette              ne                                                         
+Steven               te                                                         
+Neena                Ne                                                         
+Sundita              nd                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Renske               en                                                         
+James                Ja                                                         
+David                Da                                                         
+Jack                                                                            
+Diana                Di                                                         
+Jason                Ja                                                         
+Steven               te                                                         
+James                Ja                                                         
+Mattea               at                                                         
+Randall              nd                                                         
+Susan                Su                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Samuel               am                                                         
+Allan                Al                                                         
+Irene                Ir                                                         
+Kevin                Ke                                                         
+Julia                Ju                                                         
+Donald               on                                                         
+Christopher          op                                                         
+TJ                                                                              
+Lisa                                                                            
+Karen                Ka                                                         
+Valli                Va                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Joshua               os                                                         
+Randall              nd                                                         
+Hazel                Ha                                                         
+Luis                                                                            
+Trenna               re                                                         
+Den                                                                             
+Michael              ch                                                         
+John                                                                            
+Nandita              nd                                                         
+Ismael               sm                                                         
+John                                                                            
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Sarath               ar                                                         
+Lindsey              nd                                                         
+William              ll                                                         
+Stephen              ep                                                         
+Martha               ar                                                         
+Patrick              tr                                                         
+Jonathon             at                                                         
+Winston              ns                                                         
+Sigal                Si                                                         
+Peter                Pe                                                         
+Oliver               li                                                         
+
+FIRST_NAME           SU                                                         
+-------------------- --                                                         
+Jose Manuel          an                                                         
+Peter                Pe                                                         
+Clara                Cl                                                         
+Shanta               ha                                                         
+Alana                Al                                                         
+Matthew              tt                                                         
+Jennifer             ni                                                         
+Eleni                El                                                         
+
+107 rows selected.
+
+SQL> select first_name,substr(first_name,-3,3) from employees;
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Ellen                len                                                        
+Sundar               dar                                                        
+Mozhe                zhe                                                        
+David                vid                                                        
+Hermann              ann                                                        
+Shelli               lli                                                        
+Amit                 mit                                                        
+Elizabeth            eth                                                        
+Sarah                rah                                                        
+David                vid                                                        
+Laura                ura                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Harrison             son                                                        
+Alexis               xis                                                        
+Anthony              ony                                                        
+Gerald               ald                                                        
+Nanette              tte                                                        
+John                 ohn                                                        
+Kelly                lly                                                        
+Karen                ren                                                        
+Curtis               tis                                                        
+Lex                  Lex                                                        
+Julia                lia                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Jennifer             fer                                                        
+Louise               ise                                                        
+Bruce                uce                                                        
+Alberto              rto                                                        
+Britney              ney                                                        
+Daniel               iel                                                        
+Pat                  Pat                                                        
+Kevin                vin                                                        
+Jean                 ean                                                        
+Tayler               ler                                                        
+Adam                 dam                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Timothy              thy                                                        
+Ki                                                                              
+Girard               ard                                                        
+William              iam                                                        
+Douglas              las                                                        
+Kimberely            ely                                                        
+Nancy                ncy                                                        
+Danielle             lle                                                        
+Peter                ter                                                        
+Michael              ael                                                        
+Shelley              ley                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Guy                  Guy                                                        
+Alexander            der                                                        
+Alyssa               ssa                                                        
+Charles              les                                                        
+Vance                nce                                                        
+Payam                yam                                                        
+Alexander            der                                                        
+Janette              tte                                                        
+Steven               ven                                                        
+Neena                ena                                                        
+Sundita              ita                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Renske               ske                                                        
+James                mes                                                        
+David                vid                                                        
+Jack                 ack                                                        
+Diana                ana                                                        
+Jason                son                                                        
+Steven               ven                                                        
+James                mes                                                        
+Mattea               tea                                                        
+Randall              all                                                        
+Susan                san                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Samuel               uel                                                        
+Allan                lan                                                        
+Irene                ene                                                        
+Kevin                vin                                                        
+Julia                lia                                                        
+Donald               ald                                                        
+Christopher          her                                                        
+TJ                                                                              
+Lisa                 isa                                                        
+Karen                ren                                                        
+Valli                lli                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Joshua               hua                                                        
+Randall              all                                                        
+Hazel                zel                                                        
+Luis                 uis                                                        
+Trenna               nna                                                        
+Den                  Den                                                        
+Michael              ael                                                        
+John                 ohn                                                        
+Nandita              ita                                                        
+Ismael               ael                                                        
+John                 ohn                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Sarath               ath                                                        
+Lindsey              sey                                                        
+William              iam                                                        
+Stephen              hen                                                        
+Martha               tha                                                        
+Patrick              ick                                                        
+Jonathon             hon                                                        
+Winston              ton                                                        
+Sigal                gal                                                        
+Peter                ter                                                        
+Oliver               ver                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Jose Manuel          uel                                                        
+Peter                ter                                                        
+Clara                ara                                                        
+Shanta               nta                                                        
+Alana                ana                                                        
+Matthew              hew                                                        
+Jennifer             fer                                                        
+Eleni                eni                                                        
+
+107 rows selected.
+
+SQL> select first_name,substr(salary,-3,3) from employees;
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Donald               600                                                        
+Douglas              600                                                        
+Jennifer             400                                                        
+Michael              000                                                        
+Pat                  000                                                        
+Susan                500                                                        
+Hermann              000                                                        
+Shelley              008                                                        
+William              300                                                        
+Steven               000                                                        
+Neena                000                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Lex                  000                                                        
+Alexander            000                                                        
+Bruce                000                                                        
+David                800                                                        
+Valli                800                                                        
+Diana                200                                                        
+Nancy                008                                                        
+Daniel               000                                                        
+John                 200                                                        
+Ismael               700                                                        
+Jose Manuel          800                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Luis                 900                                                        
+Den                  000                                                        
+Alexander            100                                                        
+Shelli               900                                                        
+Sigal                800                                                        
+Guy                  600                                                        
+Karen                500                                                        
+Matthew              000                                                        
+Adam                 200                                                        
+Payam                900                                                        
+Shanta               500                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Kevin                800                                                        
+Julia                200                                                        
+Irene                700                                                        
+James                400                                                        
+Steven               200                                                        
+Laura                300                                                        
+Mozhe                800                                                        
+James                500                                                        
+TJ                   100                                                        
+Jason                300                                                        
+Michael              900                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Ki                   400                                                        
+Hazel                200                                                        
+Renske               600                                                        
+Stephen              200                                                        
+John                 700                                                        
+Joshua               500                                                        
+Trenna               500                                                        
+Curtis               100                                                        
+Randall              600                                                        
+Peter                500                                                        
+John                 000                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Karen                500                                                        
+Alberto              000                                                        
+Gerald               000                                                        
+Eleni                500                                                        
+Peter                000                                                        
+David                500                                                        
+Peter                000                                                        
+Christopher          000                                                        
+Nanette              500                                                        
+Oliver               000                                                        
+Janette              000                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Patrick              500                                                        
+Allan                000                                                        
+Lindsey              000                                                        
+Louise               500                                                        
+Sarath               000                                                        
+Clara                500                                                        
+Danielle             500                                                        
+Mattea               200                                                        
+David                800                                                        
+Sundar               400                                                        
+Amit                 200                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Lisa                 500                                                        
+Harrison             000                                                        
+Tayler               600                                                        
+William              400                                                        
+Elizabeth            300                                                        
+Sundita              100                                                        
+Ellen                000                                                        
+Alyssa               800                                                        
+Jonathon             600                                                        
+Jack                 400                                                        
+Kimberely            000                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Charles              200                                                        
+Winston              200                                                        
+Jean                 100                                                        
+Martha               500                                                        
+Girard               800                                                        
+Nandita              200                                                        
+Alexis               100                                                        
+Julia                400                                                        
+Anthony              000                                                        
+Kelly                800                                                        
+Jennifer             600                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Timothy              900                                                        
+Randall              500                                                        
+Sarah                000                                                        
+Britney              900                                                        
+Samuel               200                                                        
+Vance                800                                                        
+Alana                100                                                        
+Kevin                000                                                        
+
+107 rows selected.
+
+SQL> select first_name,substr(salary,-3,1) from employees;
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Donald               6                                                          
+Douglas              6                                                          
+Jennifer             4                                                          
+Michael              0                                                          
+Pat                  0                                                          
+Susan                5                                                          
+Hermann              0                                                          
+Shelley              0                                                          
+William              3                                                          
+Steven               0                                                          
+Neena                0                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Lex                  0                                                          
+Alexander            0                                                          
+Bruce                0                                                          
+David                8                                                          
+Valli                8                                                          
+Diana                2                                                          
+Nancy                0                                                          
+Daniel               0                                                          
+John                 2                                                          
+Ismael               7                                                          
+Jose Manuel          8                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Luis                 9                                                          
+Den                  0                                                          
+Alexander            1                                                          
+Shelli               9                                                          
+Sigal                8                                                          
+Guy                  6                                                          
+Karen                5                                                          
+Matthew              0                                                          
+Adam                 2                                                          
+Payam                9                                                          
+Shanta               5                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Kevin                8                                                          
+Julia                2                                                          
+Irene                7                                                          
+James                4                                                          
+Steven               2                                                          
+Laura                3                                                          
+Mozhe                8                                                          
+James                5                                                          
+TJ                   1                                                          
+Jason                3                                                          
+Michael              9                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Ki                   4                                                          
+Hazel                2                                                          
+Renske               6                                                          
+Stephen              2                                                          
+John                 7                                                          
+Joshua               5                                                          
+Trenna               5                                                          
+Curtis               1                                                          
+Randall              6                                                          
+Peter                5                                                          
+John                 0                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Karen                5                                                          
+Alberto              0                                                          
+Gerald               0                                                          
+Eleni                5                                                          
+Peter                0                                                          
+David                5                                                          
+Peter                0                                                          
+Christopher          0                                                          
+Nanette              5                                                          
+Oliver               0                                                          
+Janette              0                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Patrick              5                                                          
+Allan                0                                                          
+Lindsey              0                                                          
+Louise               5                                                          
+Sarath               0                                                          
+Clara                5                                                          
+Danielle             5                                                          
+Mattea               2                                                          
+David                8                                                          
+Sundar               4                                                          
+Amit                 2                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Lisa                 5                                                          
+Harrison             0                                                          
+Tayler               6                                                          
+William              4                                                          
+Elizabeth            3                                                          
+Sundita              1                                                          
+Ellen                0                                                          
+Alyssa               8                                                          
+Jonathon             6                                                          
+Jack                 4                                                          
+Kimberely            0                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Charles              2                                                          
+Winston              2                                                          
+Jean                 1                                                          
+Martha               5                                                          
+Girard               8                                                          
+Nandita              2                                                          
+Alexis               1                                                          
+Julia                4                                                          
+Anthony              0                                                          
+Kelly                8                                                          
+Jennifer             6                                                          
+
+FIRST_NAME           S                                                          
+-------------------- -                                                          
+Timothy              9                                                          
+Randall              5                                                          
+Sarah                0                                                          
+Britney              9                                                          
+Samuel               2                                                          
+Vance                8                                                          
+Alana                1                                                          
+Kevin                0                                                          
+
+107 rows selected.
+
+SQL> select first_name ,substr(salary,-3,3) from employees;
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Donald               600                                                        
+Douglas              600                                                        
+Jennifer             400                                                        
+Michael              000                                                        
+Pat                  000                                                        
+Susan                500                                                        
+Hermann              000                                                        
+Shelley              008                                                        
+William              300                                                        
+Steven               000                                                        
+Neena                000                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Lex                  000                                                        
+Alexander            000                                                        
+Bruce                000                                                        
+David                800                                                        
+Valli                800                                                        
+Diana                200                                                        
+Nancy                008                                                        
+Daniel               000                                                        
+John                 200                                                        
+Ismael               700                                                        
+Jose Manuel          800                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Luis                 900                                                        
+Den                  000                                                        
+Alexander            100                                                        
+Shelli               900                                                        
+Sigal                800                                                        
+Guy                  600                                                        
+Karen                500                                                        
+Matthew              000                                                        
+Adam                 200                                                        
+Payam                900                                                        
+Shanta               500                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Kevin                800                                                        
+Julia                200                                                        
+Irene                700                                                        
+James                400                                                        
+Steven               200                                                        
+Laura                300                                                        
+Mozhe                800                                                        
+James                500                                                        
+TJ                   100                                                        
+Jason                300                                                        
+Michael              900                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Ki                   400                                                        
+Hazel                200                                                        
+Renske               600                                                        
+Stephen              200                                                        
+John                 700                                                        
+Joshua               500                                                        
+Trenna               500                                                        
+Curtis               100                                                        
+Randall              600                                                        
+Peter                500                                                        
+John                 000                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Karen                500                                                        
+Alberto              000                                                        
+Gerald               000                                                        
+Eleni                500                                                        
+Peter                000                                                        
+David                500                                                        
+Peter                000                                                        
+Christopher          000                                                        
+Nanette              500                                                        
+Oliver               000                                                        
+Janette              000                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Patrick              500                                                        
+Allan                000                                                        
+Lindsey              000                                                        
+Louise               500                                                        
+Sarath               000                                                        
+Clara                500                                                        
+Danielle             500                                                        
+Mattea               200                                                        
+David                800                                                        
+Sundar               400                                                        
+Amit                 200                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Lisa                 500                                                        
+Harrison             000                                                        
+Tayler               600                                                        
+William              400                                                        
+Elizabeth            300                                                        
+Sundita              100                                                        
+Ellen                000                                                        
+Alyssa               800                                                        
+Jonathon             600                                                        
+Jack                 400                                                        
+Kimberely            000                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Charles              200                                                        
+Winston              200                                                        
+Jean                 100                                                        
+Martha               500                                                        
+Girard               800                                                        
+Nandita              200                                                        
+Alexis               100                                                        
+Julia                400                                                        
+Anthony              000                                                        
+Kelly                800                                                        
+Jennifer             600                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Timothy              900                                                        
+Randall              500                                                        
+Sarah                000                                                        
+Britney              900                                                        
+Samuel               200                                                        
+Vance                800                                                        
+Alana                100                                                        
+Kevin                000                                                        
+
+107 rows selected.
+
+SQL> select first_name, hire_date from employees where month='feb';
+select first_name, hire_date from employees where month='feb'
+                                                  *
+ERROR at line 1:
+ORA-00904: "MONTH": invalid identifier 
+
+
+SQL> ;
+  1* select first_name, hire_date from employees where month='feb'
+SQL> select first_name,substr(hire_data,3,3) from employees;
+select first_name,substr(hire_data,3,3) from employees
+                         *
+ERROR at line 1:
+ORA-00904: "HIRE_DATA": invalid identifier 
+
+
+SQL> select first_name,substr(hire_date,3,3) from employees;
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Donald               -JU                                                        
+Douglas              -JA                                                        
+Jennifer             -SE                                                        
+Michael              -FE                                                        
+Pat                  -AU                                                        
+Susan                -JU                                                        
+Hermann              -JU                                                        
+Shelley              -JU                                                        
+William              -JU                                                        
+Steven               -JU                                                        
+Neena                -SE                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Lex                  -JA                                                        
+Alexander            -JA                                                        
+Bruce                -MA                                                        
+David                -JU                                                        
+Valli                -FE                                                        
+Diana                -FE                                                        
+Nancy                -AU                                                        
+Daniel               -AU                                                        
+John                 -SE                                                        
+Ismael               -SE                                                        
+Jose Manuel          -MA                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Luis                 -DE                                                        
+Den                  -DE                                                        
+Alexander            -MA                                                        
+Shelli               -DE                                                        
+Sigal                -JU                                                        
+Guy                  -NO                                                        
+Karen                -AU                                                        
+Matthew              -JU                                                        
+Adam                 -AP                                                        
+Payam                -MA                                                        
+Shanta               -OC                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Kevin                -NO                                                        
+Julia                -JU                                                        
+Irene                -SE                                                        
+James                -JA                                                        
+Steven               -MA                                                        
+Laura                -AU                                                        
+Mozhe                -OC                                                        
+James                -FE                                                        
+TJ                   -AP                                                        
+Jason                -JU                                                        
+Michael              -AU                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Ki                   -DE                                                        
+Hazel                -FE                                                        
+Renske               -JU                                                        
+Stephen              -OC                                                        
+John                 -FE                                                        
+Joshua               -AP                                                        
+Trenna               -OC                                                        
+Curtis               -JA                                                        
+Randall              -MA                                                        
+Peter                -JU                                                        
+John                 -OC                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Karen                -JA                                                        
+Alberto              -MA                                                        
+Gerald               -OC                                                        
+Eleni                -JA                                                        
+Peter                -JA                                                        
+David                -MA                                                        
+Peter                -AU                                                        
+Christopher          -MA                                                        
+Nanette              -DE                                                        
+Oliver               -NO                                                        
+Janette              -JA                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Patrick              -MA                                                        
+Allan                -AU                                                        
+Lindsey              -MA                                                        
+Louise               -DE                                                        
+Sarath               -NO                                                        
+Clara                -NO                                                        
+Danielle             -MA                                                        
+Mattea               -JA                                                        
+David                -FE                                                        
+Sundar               -MA                                                        
+Amit                 -AP                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Lisa                 -MA                                                        
+Harrison             -MA                                                        
+Tayler               -JA                                                        
+William              -FE                                                        
+Elizabeth            -MA                                                        
+Sundita              -AP                                                        
+Ellen                -MA                                                        
+Alyssa               -MA                                                        
+Jonathon             -MA                                                        
+Jack                 -AP                                                        
+Kimberely            -MA                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Charles              -JA                                                        
+Winston              -JA                                                        
+Jean                 -FE                                                        
+Martha               -JU                                                        
+Girard               -FE                                                        
+Nandita              -JA                                                        
+Alexis               -FE                                                        
+Julia                -JU                                                        
+Anthony              -FE                                                        
+Kelly                -JU                                                        
+Jennifer             -AU                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Timothy              -JU                                                        
+Randall              -DE                                                        
+Sarah                -FE                                                        
+Britney              -MA                                                        
+Samuel               -JU                                                        
+Vance                -MA                                                        
+Alana                -AP                                                        
+Kevin                -MA                                                        
+
+107 rows selected.
+
+SQL> select first_name,substr(hire_date,4,3) from employees;
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Donald               JUN                                                        
+Douglas              JAN                                                        
+Jennifer             SEP                                                        
+Michael              FEB                                                        
+Pat                  AUG                                                        
+Susan                JUN                                                        
+Hermann              JUN                                                        
+Shelley              JUN                                                        
+William              JUN                                                        
+Steven               JUN                                                        
+Neena                SEP                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Lex                  JAN                                                        
+Alexander            JAN                                                        
+Bruce                MAY                                                        
+David                JUN                                                        
+Valli                FEB                                                        
+Diana                FEB                                                        
+Nancy                AUG                                                        
+Daniel               AUG                                                        
+John                 SEP                                                        
+Ismael               SEP                                                        
+Jose Manuel          MAR                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Luis                 DEC                                                        
+Den                  DEC                                                        
+Alexander            MAY                                                        
+Shelli               DEC                                                        
+Sigal                JUL                                                        
+Guy                  NOV                                                        
+Karen                AUG                                                        
+Matthew              JUL                                                        
+Adam                 APR                                                        
+Payam                MAY                                                        
+Shanta               OCT                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Kevin                NOV                                                        
+Julia                JUL                                                        
+Irene                SEP                                                        
+James                JAN                                                        
+Steven               MAR                                                        
+Laura                AUG                                                        
+Mozhe                OCT                                                        
+James                FEB                                                        
+TJ                   APR                                                        
+Jason                JUN                                                        
+Michael              AUG                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Ki                   DEC                                                        
+Hazel                FEB                                                        
+Renske               JUL                                                        
+Stephen              OCT                                                        
+John                 FEB                                                        
+Joshua               APR                                                        
+Trenna               OCT                                                        
+Curtis               JAN                                                        
+Randall              MAR                                                        
+Peter                JUL                                                        
+John                 OCT                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Karen                JAN                                                        
+Alberto              MAR                                                        
+Gerald               OCT                                                        
+Eleni                JAN                                                        
+Peter                JAN                                                        
+David                MAR                                                        
+Peter                AUG                                                        
+Christopher          MAR                                                        
+Nanette              DEC                                                        
+Oliver               NOV                                                        
+Janette              JAN                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Patrick              MAR                                                        
+Allan                AUG                                                        
+Lindsey              MAR                                                        
+Louise               DEC                                                        
+Sarath               NOV                                                        
+Clara                NOV                                                        
+Danielle             MAR                                                        
+Mattea               JAN                                                        
+David                FEB                                                        
+Sundar               MAR                                                        
+Amit                 APR                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Lisa                 MAR                                                        
+Harrison             MAR                                                        
+Tayler               JAN                                                        
+William              FEB                                                        
+Elizabeth            MAR                                                        
+Sundita              APR                                                        
+Ellen                MAY                                                        
+Alyssa               MAR                                                        
+Jonathon             MAR                                                        
+Jack                 APR                                                        
+Kimberely            MAY                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Charles              JAN                                                        
+Winston              JAN                                                        
+Jean                 FEB                                                        
+Martha               JUN                                                        
+Girard               FEB                                                        
+Nandita              JAN                                                        
+Alexis               FEB                                                        
+Julia                JUN                                                        
+Anthony              FEB                                                        
+Kelly                JUN                                                        
+Jennifer             AUG                                                        
+
+FIRST_NAME           SUB                                                        
+-------------------- ---                                                        
+Timothy              JUL                                                        
+Randall              DEC                                                        
+Sarah                FEB                                                        
+Britney              MAR                                                        
+Samuel               JUL                                                        
+Vance                MAR                                                        
+Alana                APR                                                        
+Kevin                MAY                                                        
+
+107 rows selected.
+
+SQL> select first_name,substr(hire_date,3,3)='feb' from employees;
+select first_name,substr(hire_date,3,3)='feb' from employees
+                                       *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select first_name,substr(hire_date,3,3)='FEB' from employees;
+select first_name,substr(hire_date,3,3)='FEB' from employees
+                                       *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select first_name,substr(hire_date,4,3)='FEB' from employees;
+select first_name,substr(hire_date,4,3)='FEB' from employees
+                                       *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select first_name,hire_date from employees substr(hire_date,4,3)='FEB' ;
+select first_name,hire_date from employees substr(hire_date,4,3)='FEB' 
+                                                 *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select first_name,hire_date from employees where  substr(hire_date,4,3)='FEB' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Michael              17-FEB-04                                                  
+Valli                05-FEB-06                                                  
+Diana                07-FEB-07                                                  
+James                16-FEB-05                                                  
+Hazel                06-FEB-08                                                  
+John                 12-FEB-06                                                  
+David                23-FEB-08                                                  
+William              23-FEB-07                                                  
+Jean                 23-FEB-06                                                  
+Girard               03-FEB-08                                                  
+Alexis               20-FEB-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Anthony              07-FEB-07                                                  
+Sarah                04-FEB-04                                                  
+
+13 rows selected.
+
+SQL> select first_name,hire_date from employees where  substr(hire_date,4,3)='MAR' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Jose Manuel          07-MAR-06                                                  
+Steven               08-MAR-08                                                  
+Randall              15-MAR-06                                                  
+Alberto              10-MAR-05                                                  
+David                24-MAR-05                                                  
+Christopher          30-MAR-06                                                  
+Patrick              04-MAR-04                                                  
+Lindsey              10-MAR-05                                                  
+Danielle             19-MAR-07                                                  
+Sundar               24-MAR-08                                                  
+Lisa                 11-MAR-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Harrison             23-MAR-06                                                  
+Elizabeth            24-MAR-07                                                  
+Alyssa               19-MAR-05                                                  
+Jonathon             24-MAR-06                                                  
+Britney              03-MAR-05                                                  
+Vance                17-MAR-07                                                  
+
+17 rows selected.
+
+SQL> select first_name,hire_date from employees where  substr(hire_date,8,2)='05' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Pat                  17-AUG-05                                                  
+Neena                21-SEP-05                                                  
+David                25-JUN-05                                                  
+John                 28-SEP-05                                                  
+Ismael               30-SEP-05                                                  
+Shelli               24-DEC-05                                                  
+Sigal                24-JUL-05                                                  
+Adam                 10-APR-05                                                  
+Shanta               10-OCT-05                                                  
+Julia                16-JUL-05                                                  
+Laura                20-AUG-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Mozhe                30-OCT-05                                                  
+James                16-FEB-05                                                  
+Stephen              26-OCT-05                                                  
+Curtis               29-JAN-05                                                  
+Karen                05-JAN-05                                                  
+Alberto              10-MAR-05                                                  
+Peter                30-JAN-05                                                  
+David                24-MAR-05                                                  
+Peter                20-AUG-05                                                  
+Lindsey              10-MAR-05                                                  
+Louise               15-DEC-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Clara                11-NOV-05                                                  
+Lisa                 11-MAR-05                                                  
+Alyssa               19-MAR-05                                                  
+Alexis               20-FEB-05                                                  
+Kelly                14-JUN-05                                                  
+Jennifer             13-AUG-05                                                  
+Britney              03-MAR-05                                                  
+
+29 rows selected.
+
+SQL> select first_name,hire_date from employees where  substr(hire_date,-2,2)='05' ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Pat                  17-AUG-05                                                  
+Neena                21-SEP-05                                                  
+David                25-JUN-05                                                  
+John                 28-SEP-05                                                  
+Ismael               30-SEP-05                                                  
+Shelli               24-DEC-05                                                  
+Sigal                24-JUL-05                                                  
+Adam                 10-APR-05                                                  
+Shanta               10-OCT-05                                                  
+Julia                16-JUL-05                                                  
+Laura                20-AUG-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Mozhe                30-OCT-05                                                  
+James                16-FEB-05                                                  
+Stephen              26-OCT-05                                                  
+Curtis               29-JAN-05                                                  
+Karen                05-JAN-05                                                  
+Alberto              10-MAR-05                                                  
+Peter                30-JAN-05                                                  
+David                24-MAR-05                                                  
+Peter                20-AUG-05                                                  
+Lindsey              10-MAR-05                                                  
+Louise               15-DEC-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Clara                11-NOV-05                                                  
+Lisa                 11-MAR-05                                                  
+Alyssa               19-MAR-05                                                  
+Alexis               20-FEB-05                                                  
+Kelly                14-JUN-05                                                  
+Jennifer             13-AUG-05                                                  
+Britney              03-MAR-05                                                  
+
+29 rows selected.
+
+SQL> select first_name,hire_date from employees where  substr(hire_date,-2,2)=05 ;
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Pat                  17-AUG-05                                                  
+Neena                21-SEP-05                                                  
+David                25-JUN-05                                                  
+John                 28-SEP-05                                                  
+Ismael               30-SEP-05                                                  
+Shelli               24-DEC-05                                                  
+Sigal                24-JUL-05                                                  
+Adam                 10-APR-05                                                  
+Shanta               10-OCT-05                                                  
+Julia                16-JUL-05                                                  
+Laura                20-AUG-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Mozhe                30-OCT-05                                                  
+James                16-FEB-05                                                  
+Stephen              26-OCT-05                                                  
+Curtis               29-JAN-05                                                  
+Karen                05-JAN-05                                                  
+Alberto              10-MAR-05                                                  
+Peter                30-JAN-05                                                  
+David                24-MAR-05                                                  
+Peter                20-AUG-05                                                  
+Lindsey              10-MAR-05                                                  
+Louise               15-DEC-05                                                  
+
+FIRST_NAME           HIRE_DATE                                                  
+-------------------- ---------                                                  
+Clara                11-NOV-05                                                  
+Lisa                 11-MAR-05                                                  
+Alyssa               19-MAR-05                                                  
+Alexis               20-FEB-05                                                  
+Kelly                14-JUN-05                                                  
+Jennifer             13-AUG-05                                                  
+Britney              03-MAR-05                                                  
+
+29 rows selected.
+
+SQL> spool off;

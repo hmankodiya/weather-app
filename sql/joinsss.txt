@@ -1,0 +1,10 @@
+emp				dept
+fn				dn 
+did(fk)10,20,30			did(pk) 10,20,30,40,50
+mid 101 102 			mid 101 102 103 104
+
+
+
+inner join 10 20 30
+natural join 10 20 
+		101 102

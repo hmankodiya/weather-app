@@ -1,0 +1,32 @@
+select first_name,salary from employees where salary between 1000 and 9000 ;
+
+select first_name as F_N from employees;
+
+select first_name,department_name from employees join departments using (department_id);// without on clause inner join (105)
+
+
+select department_name,first_name from employees join departments using (department_id);
+
+select country_name,country_id,city from countries join locations using (country_id); // parenthesis is necessary
+
+select first_name,department_name,city from employees join departments using (department_id) join locations using (loaction_id);
+
+select first_name,department_name,city,country_name from employees join departments using(department_id) join locations using (location_id) join countries using (country_id);
+
+ select first_name,department_name from employees inner join departments using(department_id); // same columns repeat depending upon the repeatition 
+
+
+select first_name,department_name from employees natural join departments [using optional]; // natural join
+// - The associated tables have one or more pairs of identically named columns.
+// - The columns must be the same data type.
+// - Don’t use ON clause in a natural join.
+// recommanded not to use
+// it is a inner type of inner join.
+
+select first_name fn,department_id did, department_name dn from employees right join departments using (department_id) order by did;
+
+elect first_name fn,department_id did, department_name dn from employees left join departments using (department_id) minus ( select first_name fn,department_id did, department_name dn from employees join departments using (department_id));
+
+select first_name fn,department_id did, department_name dn from employees left join departments using (department_id) order by did;                                     
+
+SQL> select first_name,department_name from employees inner join departments on employees.department_id=departments.department_id;                                 

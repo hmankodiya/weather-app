@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS position:static(default),absolute,relative,fixed,sticky */
+        .box{
+            display: inline-block;
+            height:150px;
+            width:150px;
+            border:2px solid red;
+            margin: 2px;
+        }
+        .container1{
+            border: 2px solid blue;
+            background:khaki;
+            /* changing box height for testing fixed*/
+            position: absolute;
+            height:1000px;
+            width:800px;
+        }
+        .container2{
+            /* position: relative; */
+            /* position: absolute; */
+            border: 3px solid green; 
+            background:orange;
+        }
+        #box1{
+            position:static;
+            /* default*/
+        }
+        #box3{
+            /* position:relative means it is relative to its normal postion  
+                can use top bottom left right
+                leave gap to is normal postion
+            */
+            /* spacing of 100px below the normal posi */
+            /* position: relative;
+            top: 100px; 
+            left:340px; */
+
+            /* absolute means relative to the parent or the nearest container1 of the div/the box*/
+            /*here the parent is container1*/
+            /* no gap at normal postion*/
+            position: absolute;
+            top:0px;
+            left:34px;
+        }
+        #box2{
+            /* remains fixed relative to the browser window*/
+            position: fixed;
+            right:6px;
+            bottom:10px;
+            /* to check its effect we increase  the height of the  container1 drastically*/
+        }
+        #box1{
+            position:sticky;
+            top:800px;
+            left:100px
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container2">
+        <div class="container1">
+            <div class="box" id="box1">
+                Box1
+            </div>
+            <div class="box" id="box2">
+                Box2
+                ChatWithUs
+            </div>
+            <div class="box" id="box3">
+                Box3
+            </div>
+            <div class="box" id="box4">
+                Box4
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+SQL> set serveroutput on;
+SQL> declare
+  2  num number(8):=&enter_num;
+  3  begin
+  4  if mod(num,2)=0 then
+  5  dbms_output.put_line(num||'Is Even')
+  6  else
+  7  dbms_output.put_line(num||'Is odd')
+  8  end if;
+  9  dbms_output.put_line('If else construct complete')
+ 10  end;
+ 11  /
+Enter value for enter_num: 45
+old   2: num number(8):=&enter_num;
+new   2: num number(8):=45;
+else
+*
+ERROR at line 6:
+ORA-06550: line 6, column 1: 
+PLS-00103: Encountered the symbol "ELSE" when expecting one of the following: 
+:= . ( % ; 
+The symbol ";" was substituted for "ELSE" to continue. 
+ORA-06550: line 8, column 1: 
+PLS-00103: Encountered the symbol "END" when expecting one of the following: 
+:= . ( % ; 
+The symbol ";" was substituted for "END" to continue. 
+ORA-06550: line 10, column 1: 
+PLS-00103: Encountered the symbol "END" when expecting one of the following: 
+:= . ( % ; 
+The symbol ";" was substituted for "END" to continue. 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  num number(8):=&enter_num;
+  3  begin
+  4  if mod(num,2)=0 then
+  5  dbms_output.put_line(num||'Is Even');
+  6  else
+  7  dbms_output.put_line(num||'Is odd');
+  8  end if;
+  9  dbms_output.put_line('If else construct complete');
+ 10  end;
+ 11  /
+Enter value for enter_num: 45
+old   2: num number(8):=&enter_num;
+new   2: num number(8):=45;
+45Is odd                                                                        
+If else construct complete                                                      
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off
+SQL> set serveroutput on;
+SQL> declare
+  2  place varchar2(30):='&enterPlace'
+  3  begin
+  4  if place='MetroPolis' then
+  5  dbms_output.put_line('Superman');
+  6  elsif place='Gotham' then
+  7  dbms_output.put_line('Batman');
+  8  elsif place='California' then
+  9  dbms_output.put_line('IronMan');
+ 10  else
+ 11  dbms_output.put_line('Pls Call Avengers');
+ 12  end if;
+ 13  dbms_output.put_line('Thanks');
+ 14  end;
+ 15  /
+Enter value for enterplace: California
+old   2: place varchar2(30):='&enterPlace'
+new   2: place varchar2(30):='California'
+begin
+*
+ERROR at line 3:
+ORA-06550: line 3, column 1: 
+PLS-00103: Encountered the symbol "BEGIN" when expecting one of the following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol ";" was substituted for "BEGIN" to continue. 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  place varchar2(30):='&enterPlace'
+  3  begin
+  4  if place='MetroPolis' then
+  5  dbms_output.put_line('Superman');
+  6  elsif place='Gotham' then
+  7  dbms_output.put_line('Batman');
+  8  elsif place='California' then
+  9  dbms_output.put_line('IronMan');
+ 10  else
+ 11  dbms_output.put_line('Pls Call Avengers');
+ 12  end if;
+ 13  dbms_output.put_line('Thanks');
+ 14  end;
+ 15  /
+Enter value for enterplace: Gotham
+old   2: place varchar2(30):='&enterPlace'
+new   2: place varchar2(30):='Gotham'
+begin
+*
+ERROR at line 3:
+ORA-06550: line 3, column 1: 
+PLS-00103: Encountered the symbol "BEGIN" when expecting one of the following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol ";" was substituted for "BEGIN" to continue. 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  place varchar2(30):='&enterPlace';
+  3  begin
+  4  if place='MetroPolis' then
+  5  dbms_output.put_line('Superman');
+  6  elsif place='Gotham' then
+  7  dbms_output.put_line('Batman');
+  8  elsif place='California' then
+  9  dbms_output.put_line('IronMan');
+ 10  else
+ 11  dbms_output.put_line('Pls Call Avengers');
+ 12  end if;
+ 13  dbms_output.put_line('Thanks');
+ 14  end;
+ 15  /
+Enter value for enterplace: Gotham
+old   2: place varchar2(30):='&enterPlace';
+new   2: place varchar2(30):='Gotham';
+Batman                                                                          
+Thanks                                                                          
+
+PL/SQL procedure successfully completed.
+
+SQL> spool "C:\Users\harsh\Desktop\royal sql and html\PL SQL\Elseif if" append

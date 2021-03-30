@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .one{
+        width: 200px;height: 200px;
+        background: black;
+        transition: 1s;
+    }
+    .two{
+        width:300px;
+        height: 200px;
+        background: red;
+        /* transform: rotate(45deg); */
+
+    }
+    
+    
+    
+    </style>
+</head>
+<body>
+    <!-- <p id="abc">Royal<span id="xyz"></span></p> -->
+    <!-- <p></p> -->
+     <!-- <input type="button" value="click" ondblclick="change()" > -->
+     <div class="one" id="divid"></div>
+     <button id="abc" onclick="hidediv()">Hide</button>
+     <button id="abc" onclick="showdiv()">show</button>
+     <button id="abc" onclick="chang()">change</button>
+          <!-- <input type="button" value="click" onclick="change()"> -->
+     <script>
+// console.log("hello world");
+// document.write("hello world");
+// alert('ahdahgd');
+// confirm("welcome");
+// function change(){
+//     document.getElementById('xyz').innerHTML=" technosoft";
+//     document.getElementById('xyz').style.color='red';   //both "  and '  is allowed
+//     // document.getElementById('xyz').innerHTML="";
+// }
+
+function hidediv(){
+    document.getElementById('divid').style.width = '0px';
+    var e = document.getElementById('divid');
+    e.classList.remove('two');
+}
+function showdiv(){
+    document.getElementById('divid').style.width = '200px';
+    var e = document.getElementById('divid');
+    e.classList.remove('two');
+}
+function chang(){
+ 
+ var e = document.getElementById('divid');
+ e.classList.add('two');
+//  e.classList.add('roa');
+ 
+}
+
+
+    </script>    
+</body>
+</html>

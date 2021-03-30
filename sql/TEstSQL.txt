@@ -1,0 +1,81 @@
+1)create any four table with primary key,not null and default constraint
+
+create table t1 (name varchar2(20),id number(20) primary key,city varchar2(20));
+
+Table created.
+
+SQL> desc t1
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(20)
+ ID                                        NOT NULL NUMBER(20)
+ CITY                                               VARCHAR2(20)
+
+SQL> create table t1 (name varchar2(20) not null,id number(20) primary key,city varchar2(20) default('ahmedabad'));
+
+Table created.
+
+SQL> desc t1
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                      NOT NULL VARCHAR2(20)
+ ID                                        NOT NULL NUMBER(20)
+ CITY                                               VARCHAR2(20)
+
+SQL> select * from t1
+  2  ;
+
+no rows selected
+
+SQL> create table t2 (c_name varchar2(20) not null,id varchar2(20) primary key ,state varchar2(20) default('gujarat'));
+
+Table created.
+
+desc t2
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ C_NAME                                    NOT NULL VARCHAR2(20)
+ ID                                        NOT NULL VARCHAR2(20)
+ STATE                                              VARCHAR2(20)
+
+SQL> create table t3 (reg_name varchar2(20) not null,country_name varchar2(20) primary key ,state varchar2(20) default('gujarat'));
+
+Table created.
+SQL> desc t3;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REG_NAME                                  NOT NULL VARCHAR2(20)
+ COUNTRY_NAME                              NOT NULL VARCHAR2(20)
+ STATE                                              VARCHAR2(20)
+
+SQL> create table t4 (country_name varchar2(20) primary key ,continent varchar2(20) default('asia'));
+
+Table created.
+SQL> desc t4;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COUNTRY_NAME                              NOT NULL VARCHAR2(20)
+ CONTINENT                                          VARCHAR2(20)
+
+2) Rename two columns
+
+3) how to change column datatype??
+
+4) drop column from table
+
+5) how to empty a table??
+
+6) Types of joins?
+A)inner join,outer join,left inner,left outer,right inner,right outer,full joins
+7) give example of all joins.    
+8) How many types of key??
+A) Primary Key ,Foreign key.
+
+9)add new data  into 1 of four tables?
+insert into t1 values('tonystark',2,'ahmedabad')
+  2  ;
+NAME                         ID CITY
+-------------------- ---------- --------------------
+harsh                         1
+tonystark                     2 ahmedabad
+

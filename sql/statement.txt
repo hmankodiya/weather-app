@@ -1,0 +1,4 @@
+
+DML  select insert delete update
+DDL alter create drop truncate rename
+DCL grant revoke

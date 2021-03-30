@@ -1,0 +1,1454 @@
+SQL> select first_name,departments from employees join department using(department_id);
+select first_name,departments from employees join department using(department_id)
+                                                  *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select first_name,departments from employees join departments using(department_id);
+select first_name,departments from employees join departments using(department_id)
+                  *
+ERROR at line 1:
+ORA-00904: "DEPARTMENTS": invalid identifier 
+
+
+SQL> select first_name,department_name from employees join departments using(department_id);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jennifer             Administration                                             
+Pat                  Marketing                                                  
+Michael              Marketing                                                  
+Sigal                Purchasing                                                 
+Karen                Purchasing                                                 
+Shelli               Purchasing                                                 
+Den                  Purchasing                                                 
+Alexander            Purchasing                                                 
+Guy                  Purchasing                                                 
+Susan                Human Resources                                            
+Kevin                Shipping                                                   
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jean                 Shipping                                                   
+Adam                 Shipping                                                   
+Timothy              Shipping                                                   
+Ki                   Shipping                                                   
+Girard               Shipping                                                   
+Douglas              Shipping                                                   
+Vance                Shipping                                                   
+Payam                Shipping                                                   
+Renske               Shipping                                                   
+Britney              Shipping                                                   
+Jennifer             Shipping                                                   
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Julia                Shipping                                                   
+Curtis               Shipping                                                   
+Kelly                Shipping                                                   
+Anthony              Shipping                                                   
+Alexis               Shipping                                                   
+Laura                Shipping                                                   
+Sarah                Shipping                                                   
+Mozhe                Shipping                                                   
+James                Shipping                                                   
+Matthew              Shipping                                                   
+Alana                Shipping                                                   
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Shanta               Shipping                                                   
+Peter                Shipping                                                   
+Winston              Shipping                                                   
+Jason                Shipping                                                   
+Steven               Shipping                                                   
+James                Shipping                                                   
+Randall              Shipping                                                   
+Samuel               Shipping                                                   
+Irene                Shipping                                                   
+Kevin                Shipping                                                   
+Julia                Shipping                                                   
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Donald               Shipping                                                   
+TJ                   Shipping                                                   
+Joshua               Shipping                                                   
+Randall              Shipping                                                   
+Hazel                Shipping                                                   
+Trenna               Shipping                                                   
+Michael              Shipping                                                   
+Nandita              Shipping                                                   
+John                 Shipping                                                   
+Stephen              Shipping                                                   
+Martha               Shipping                                                   
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+David                IT                                                         
+Valli                IT                                                         
+Bruce                IT                                                         
+Diana                IT                                                         
+Alexander            IT                                                         
+Hermann              Public Relations                                           
+Ellen                Sales                                                      
+Sundar               Sales                                                      
+Amit                 Sales                                                      
+Elizabeth            Sales                                                      
+David                Sales                                                      
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Harrison             Sales                                                      
+Gerald               Sales                                                      
+Nanette              Sales                                                      
+Louise               Sales                                                      
+Alberto              Sales                                                      
+Tayler               Sales                                                      
+Danielle             Sales                                                      
+Peter                Sales                                                      
+Alyssa               Sales                               	  	                     
+Charles              Sales                                                      
+Janette              Sales                                                      
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Sundita              Sales                                                      
+David                Sales                                                      
+Jack                 Sales                                                      
+Mattea               Sales                                                      
+Allan                Sales                                                      
+Christopher          Sales                                                      
+Lisa                 Sales                                                      
+Karen                Sales                                                      
+John                 Sales                                                      
+Sarath               Sales                                                      
+Lindsey              Sales                                                      
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+William              Sales                                                      
+Patrick              Sales                                                      
+Jonathon             Sales                                                      
+Peter                Sales                                                      
+Oliver               Sales                                                      
+Clara                Sales                                                      
+Eleni                Sales                                                      
+Neena                Executive                                                  
+Steven               Executive                                                  
+Lex                  Executive                                                  
+Luis                 Finance                                                    
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+Jose Manuel          Finance                                                    
+John                 Finance                                                    
+Daniel               Finance                                                    
+Ismael               Finance                                                    
+Nancy                Finance                                                    
+William              Accounting                                                 
+Shelley              Accounting                                                 
+
+106 rows selected.
+
+SQL> select department_name,city from employees using(location_id);
+select department_name,city from employees using(location_id)
+                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select department_name,city from employees join departments using(location_id);
+select department_name,city from employees join departments using(location_id)
+                                                                  *
+ERROR at line 1:
+ORA-00904: "EMPLOYEES"."LOCATION_ID": invalid identifier 
+
+
+SQL> select department_name,city from departments from employees join departments using(location_id);
+select department_name,city from departments from employees join departments using(location_id)
+                                             *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> 
+SQL> 
+SQL> desc locations
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOCATION_ID                               NOT NULL NUMBER(4)
+ STREET_ADDRESS                                     VARCHAR2(40)
+ POSTAL_CODE                                        VARCHAR2(12)
+ CITY                                      NOT NULL VARCHAR2(30)
+ STATE_PROVINCE                                     VARCHAR2(25)
+ COUNTRY_ID                                         CHAR(2)
+
+SQL> desc countries
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COUNTRY_ID                                NOT NULL CHAR(2)
+ COUNTRY_NAME                                       VARCHAR2(40)
+ REGION_ID                                          NUMBER
+
+SQL> select city,country_name from countries join using(country_id);
+select city,country_name from countries join using(country_id)
+                                                  *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+SQL> select city,country_name from countries join locations  using(country_id);
+
+CITY                           COUNTRY_NAME                                     
+------------------------------ ----------------------------------------         
+Sydney                         Australia                                        
+Sao Paulo                      Brazil                                           
+Toronto                        Canada                                           
+Whitehorse                     Canada                                           
+Geneva                         Switzerland                                      
+Bern                           Switzerland                                      
+Beijing                        China                                            
+Munich                         Germany                                          
+Bombay                         India                                            
+Roma                           Italy                                            
+Venice                         Italy                                            
+
+CITY                           COUNTRY_NAME                                     
+------------------------------ ----------------------------------------         
+Tokyo                          Japan                                            
+Hiroshima                      Japan                                            
+Mexico City                    Mexico                                           
+Utrecht                        Netherlands                                      
+Singapore                      Singapore                                        
+London                         United Kingdom                                   
+Oxford                         United Kingdom                                   
+Stretford                      United Kingdom                                   
+Southlake                      United States of America                         
+South San Francisco            United States of America                         
+South Brunswick                United States of America                         
+
+CITY                           COUNTRY_NAME                                     
+------------------------------ ----------------------------------------         
+Seattle                        United States of America                         
+
+23 rows selected.
+
+SQL> select city,region_id from locations join countries  using(country_id);
+
+CITY                            REGION_ID                                       
+------------------------------ ----------                                       
+Sydney                                  3                                       
+Sao Paulo                               2                                       
+Toronto                                 2                                       
+Whitehorse                              2                                       
+Geneva                                  1                                       
+Bern                                    1                                       
+Beijing                                 3                                       
+Munich                                  1                                       
+Bombay                                  3                                       
+Roma                                    1                                       
+Venice                                  1                                       
+
+CITY                            REGION_ID                                       
+------------------------------ ----------                                       
+Tokyo                                   3                                       
+Hiroshima                               3                                       
+Mexico City                             2                                       
+Utrecht                                 1                                       
+Singapore                               3                                       
+London                                  1                                       
+Oxford                                  1                                       
+Stretford                               1                                       
+Southlake                               2                                       
+South San Francisco                     2                                       
+South Brunswick                         2                                       
+
+CITY                            REGION_ID                                       
+------------------------------ ----------                                       
+Seattle                                 2                                       
+
+23 rows selected.
+
+SQL> desc employees
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+
+SQL> desc locations
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ LOCATION_ID                               NOT NULL NUMBER(4)
+ STREET_ADDRESS                                     VARCHAR2(40)
+ POSTAL_CODE                                        VARCHAR2(12)
+ CITY                                      NOT NULL VARCHAR2(30)
+ STATE_PROVINCE                                     VARCHAR2(25)
+ COUNTRY_ID                                         CHAR(2)
+
+SQL> desc country
+ERROR:
+ORA-04043: object country does not exist 
+
+
+SQL> desc departments
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPARTMENT_ID                             NOT NULL NUMBER(4)
+ DEPARTMENT_NAME                           NOT NULL VARCHAR2(30)
+ MANAGER_ID                                         NUMBER(6)
+ LOCATION_ID                                        NUMBER(4)
+
+SQL> select first_name,department_name,city from employees join departments using(location_id);
+select first_name,department_name,city from employees join departments using(location_id)
+                                                                             *
+ERROR at line 1:
+ORA-00904: "EMPLOYEES"."LOCATION_ID": invalid identifier 
+
+
+SQL> select first_name,department_name,city from employees join departments using(departments_id);
+select first_name,department_name,city from employees join departments using(departments_id)
+                                                                             *
+ERROR at line 1:
+ORA-00904: "DEPARTMENTS"."DEPARTMENTS_ID": invalid identifier 
+
+
+SQL> select first_name,department_name,city from employees join departments using(location_id);
+select first_name,department_name,city from employees join departments using(location_id)
+                                                                             *
+ERROR at line 1:
+ORA-00904: "EMPLOYEES"."LOCATION_ID": invalid identifier 
+
+
+SQL> select first_name,department_name,city from employees join locations using(location_id);
+select first_name,department_name,city from employees join locations using(location_id)
+                                                                           *
+ERROR at line 1:
+ORA-00904: "EMPLOYEES"."LOCATION_ID": invalid identifier 
+
+
+SQL> select first_name,department_name,city from employees join locations using(department_id);
+select first_name,department_name,city from employees join locations using(department_id)
+                                                                           *
+ERROR at line 1:
+ORA-00904: "LOCATIONS"."DEPARTMENT_ID": invalid identifier 
+
+
+SQL> select first_name,department_name,city from employees join departments using(departments_id) join locations using(location_id);
+select first_name,department_name,city from employees join departments using(departments_id) join locations using(location_id)
+                                                                             *
+ERROR at line 1:
+ORA-00904: "DEPARTMENTS"."DEPARTMENTS_ID": invalid identifier 
+
+
+SQL> select first_name,department_name,city from employees join departments using(department_id) join locations using(location_id);
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Ellen                Sales                                                      
+Oxford                                                                          
+                                                                                
+Sundar               Sales                                                      
+Oxford                                                                          
+                                                                                
+Mozhe                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+David                IT                                                         
+Southlake                                                                       
+                                                                                
+Hermann              Public Relations                                           
+Munich                                                                          
+                                                                                
+Shelli               Purchasing                                                 
+Seattle                                                                         
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Amit                 Sales                                                      
+Oxford                                                                          
+                                                                                
+Elizabeth            Sales                                                      
+Oxford                                                                          
+                                                                                
+Sarah                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+David                Sales                                                      
+Oxford                                                                          
+                                                                                
+Laura                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Harrison             Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Alexis               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Anthony              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Gerald               Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Nanette              Sales                                                      
+Oxford                                                                          
+                                                                                
+John                 Finance                                                    
+Seattle                                                                         
+                                                                                
+Kelly                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Karen                Purchasing                                                 
+Seattle                                                                         
+                                                                                
+Curtis               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Lex                  Executive                                                  
+Seattle                                                                         
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Julia                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Jennifer             Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Louise               Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Bruce                IT                                                         
+Southlake                                                                       
+                                                                                
+Alberto              Sales                                                      
+Oxford                                                                          
+                                                                                
+Britney              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Daniel               Finance                                                    
+Seattle                                                                         
+                                                                                
+Pat                  Marketing                                                  
+Toronto                                                                         
+                                                                                
+Kevin                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Jean                 Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Tayler               Sales                                                      
+Oxford                                                                          
+                                                                                
+Adam                 Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Timothy              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Ki                   Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Girard               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+William              Accounting                                                 
+Seattle                                                                         
+                                                                                
+Douglas              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Nancy                Finance                                                    
+Seattle                                                                         
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Danielle             Sales                                                      
+Oxford                                                                          
+                                                                                
+Peter                Sales                                                      
+Oxford                                                                          
+                                                                                
+Michael              Marketing                                                  
+Toronto                                                                         
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Shelley              Accounting                                                 
+Seattle                                                                         
+                                                                                
+Guy                  Purchasing                                                 
+Seattle                                                                         
+                                                                                
+Alexander            IT                                                         
+Southlake                                                                       
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Alyssa               Sales                                                      
+Oxford                                                                          
+                                                                                
+Charles              Sales                                                      
+Oxford                                                                          
+                                                                                
+Vance                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Payam                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Alexander            Purchasing                                                 
+Seattle                                                                         
+                                                                                
+Janette              Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Steven               Executive                                                  
+Seattle                                                                         
+                                                                                
+Neena                Executive                                                  
+Seattle                                                                         
+                                                                                
+Sundita              Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Renske               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+James                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+David                Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Jack                 Sales                                                      
+Oxford                                                                          
+                                                                                
+Diana                IT                                                         
+Southlake                                                                       
+                                                                                
+Jason                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Steven               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+James                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Mattea               Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Randall              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Susan                Human Resources                                            
+London                                                                          
+                                                                                
+Samuel               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Allan                Sales                                                      
+Oxford                                                                          
+                                                                                
+Irene                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Kevin                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Julia                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Donald               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Christopher          Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+TJ                   Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Lisa                 Sales                                                      
+Oxford                                                                          
+                                                                                
+Karen                Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Valli                IT                                                         
+Southlake                                                                       
+                                                                                
+Joshua               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Randall              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Hazel                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Luis                 Finance                                                    
+Seattle                                                                         
+                                                                                
+Trenna               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Den                  Purchasing                                                 
+Seattle                                                                         
+                                                                                
+Michael              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+John                 Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Nandita              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Ismael               Finance                                                    
+Seattle                                                                         
+                                                                                
+John                 Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Sarath               Sales                                                      
+Oxford                                                                          
+                                                                                
+Lindsey              Sales                                                      
+Oxford                                                                          
+                                                                                
+William              Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Stephen              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Martha               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Patrick              Sales                                                      
+Oxford                                                                          
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Jonathon             Sales                                                      
+Oxford                                                                          
+                                                                                
+Winston              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Sigal                Purchasing                                                 
+Seattle                                                                         
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Peter                Sales                                                      
+Oxford                                                                          
+                                                                                
+Oliver               Sales                                                      
+Oxford                                                                          
+                                                                                
+Jose Manuel          Finance                                                    
+Seattle                                                                         
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Peter                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Clara                Sales                                                      
+Oxford                                                                          
+                                                                                
+Shanta               Shipping                                                   
+South San Francisco                                                             
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Alana                Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Matthew              Shipping                                                   
+South San Francisco                                                             
+                                                                                
+Jennifer             Administration                                             
+Seattle                                                                         
+                                                                                
+
+FIRST_NAME           DEPARTMENT_NAME                                            
+-------------------- ------------------------------                             
+CITY                                                                            
+------------------------------                                                  
+Eleni                Sales                                                      
+Oxford                                                                          
+                                                                                
+
+106 rows selected.
+
+SQL> set lines 180
+SQL> /
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Ellen                Sales                          Oxford                                                                                                                          
+Sundar               Sales                          Oxford                                                                                                                          
+Mozhe                Shipping                       South San Francisco                                                                                                             
+David                IT                             Southlake                                                                                                                       
+Hermann              Public Relations               Munich                                                                                                                          
+Shelli               Purchasing                     Seattle                                                                                                                         
+Amit                 Sales                          Oxford                                                                                                                          
+Elizabeth            Sales                          Oxford                                                                                                                          
+Sarah                Shipping                       South San Francisco                                                                                                             
+David                Sales                          Oxford                                                                                                                          
+Laura                Shipping                       South San Francisco                                                                                                             
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Harrison             Sales                          Oxford                                                                                                                          
+Alexis               Shipping                       South San Francisco                                                                                                             
+Anthony              Shipping                       South San Francisco                                                                                                             
+Gerald               Sales                          Oxford                                                                                                                          
+Nanette              Sales                          Oxford                                                                                                                          
+John                 Finance                        Seattle                                                                                                                         
+Kelly                Shipping                       South San Francisco                                                                                                             
+Karen                Purchasing                     Seattle                                                                                                                         
+Curtis               Shipping                       South San Francisco                                                                                                             
+Lex                  Executive                      Seattle                                                                                                                         
+Julia                Shipping                       South San Francisco                                                                                                             
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Jennifer             Shipping                       South San Francisco                                                                                                             
+Louise               Sales                          Oxford                                                                                                                          
+Bruce                IT                             Southlake                                                                                                                       
+Alberto              Sales                          Oxford                                                                                                                          
+Britney              Shipping                       South San Francisco                                                                                                             
+Daniel               Finance                        Seattle                                                                                                                         
+Pat                  Marketing                      Toronto                                                                                                                         
+Kevin                Shipping                       South San Francisco                                                                                                             
+Jean                 Shipping                       South San Francisco                                                                                                             
+Tayler               Sales                          Oxford                                                                                                                          
+Adam                 Shipping                       South San Francisco                                                                                                             
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Timothy              Shipping                       South San Francisco                                                                                                             
+Ki                   Shipping                       South San Francisco                                                                                                             
+Girard               Shipping                       South San Francisco                                                                                                             
+William              Accounting                     Seattle                                                                                                                         
+Douglas              Shipping                       South San Francisco                                                                                                             
+Nancy                Finance                        Seattle                                                                                                                         
+Danielle             Sales                          Oxford                                                                                                                          
+Peter                Sales                          Oxford                                                                                                                          
+Michael              Marketing                      Toronto                                                                                                                         
+Shelley              Accounting                     Seattle                                                                                                                         
+Guy                  Purchasing                     Seattle                                                                                                                         
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Alexander            IT                             Southlake                                                                                                                       
+Alyssa               Sales                          Oxford                                                                                                                          
+Charles              Sales                          Oxford                                                                                                                          
+Vance                Shipping                       South San Francisco                                                                                                             
+Payam                Shipping                       South San Francisco                                                                                                             
+Alexander            Purchasing                     Seattle                                                                                                                         
+Janette              Sales                          Oxford                                                                                                                          
+Steven               Executive                      Seattle                                                                                                                         
+Neena                Executive                      Seattle                                                                                                                         
+Sundita              Sales                          Oxford                                                                                                                          
+Renske               Shipping                       South San Francisco                                                                                                             
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+James                Shipping                       South San Francisco                                                                                                             
+David                Sales                          Oxford                                                                                                                          
+Jack                 Sales                          Oxford                                                                                                                          
+Diana                IT                             Southlake                                                                                                                       
+Jason                Shipping                       South San Francisco                                                                                                             
+Steven               Shipping                       South San Francisco                                                                                                             
+James                Shipping                       South San Francisco                                                                                                             
+Mattea               Sales                          Oxford                                                                                                                          
+Randall              Shipping                       South San Francisco                                                                                                             
+Susan                Human Resources                London                                                                                                                          
+Samuel               Shipping                       South San Francisco                                                                                                             
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Allan                Sales                          Oxford                                                                                                                          
+Irene                Shipping                       South San Francisco                                                                                                             
+Kevin                Shipping                       South San Francisco                                                                                                             
+Julia                Shipping                       South San Francisco                                                                                                             
+Donald               Shipping                       South San Francisco                                                                                                             
+Christopher          Sales                          Oxford                                                                                                                          
+TJ                   Shipping                       South San Francisco                                                                                                             
+Lisa                 Sales                          Oxford                                                                                                                          
+Karen                Sales                          Oxford                                                                                                                          
+Valli                IT                             Southlake                                                                                                                       
+Joshua               Shipping                       South San Francisco                                                                                                             
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Randall              Shipping                       South San Francisco                                                                                                             
+Hazel                Shipping                       South San Francisco                                                                                                             
+Luis                 Finance                        Seattle                                                                                                                         
+Trenna               Shipping                       South San Francisco                                                                                                             
+Den                  Purchasing                     Seattle                                                                                                                         
+Michael              Shipping                       South San Francisco                                                                                                             
+John                 Sales                          Oxford                                                                                                                          
+Nandita              Shipping                       South San Francisco                                                                                                             
+Ismael               Finance                        Seattle                                                                                                                         
+John                 Shipping                       South San Francisco                                                                                                             
+Sarath               Sales                          Oxford                                                                                                                          
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Lindsey              Sales                          Oxford                                                                                                                          
+William              Sales                          Oxford                                                                                                                          
+Stephen              Shipping                       South San Francisco                                                                                                             
+Martha               Shipping                       South San Francisco                                                                                                             
+Patrick              Sales                          Oxford                                                                                                                          
+Jonathon             Sales                          Oxford                                                                                                                          
+Winston              Shipping                       South San Francisco                                                                                                             
+Sigal                Purchasing                     Seattle                                                                                                                         
+Peter                Sales                          Oxford                                                                                                                          
+Oliver               Sales                          Oxford                                                                                                                          
+Jose Manuel          Finance                        Seattle                                                                                                                         
+
+FIRST_NAME           DEPARTMENT_NAME                CITY                                                                                                                            
+-------------------- ------------------------------ ------------------------------                                                                                                  
+Peter                Shipping                       South San Francisco                                                                                                             
+Clara                Sales                          Oxford                                                                                                                          
+Shanta               Shipping                       South San Francisco                                                                                                             
+Alana                Shipping                       South San Francisco                                                                                                             
+Matthew              Shipping                       South San Francisco                                                                                                             
+Jennifer             Administration                 Seattle                                                                                                                         
+Eleni                Sales                          Oxford                                                                                                                          
+
+106 rows selected.
+
+SQL> desc employees
+ Name                                                                                                  Null?    Type
+ ----------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------
+ EMPLOYEE_ID                                                                                           NOT NULL NUMBER(6)
+ FIRST_NAME                                                                                                     VARCHAR2(20)
+ LAST_NAME                                                                                             NOT NULL VARCHAR2(25)
+ EMAIL                                                                                                 NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                                                                                   VARCHAR2(20)
+ HIRE_DATE                                                                                             NOT NULL DATE
+ JOB_ID                                                                                                NOT NULL VARCHAR2(10)
+ SALARY                                                                                                         NUMBER(8,2)
+ COMMISSION_PCT                                                                                                 NUMBER(2,2)
+ MANAGER_ID                                                                                                     NUMBER(6)
+ DEPARTMENT_ID                                                                                                  NUMBER(4)
+
+SQL> desc regions
+ Name                                                                                                  Null?    Type
+ ----------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------
+ REGION_ID                                                                                             NOT NULL NUMBER
+ REGION_NAME                                                                                                    VARCHAR2(25)
+
+SQL> desc locations
+ Name                                                                                                  Null?    Type
+ ----------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------
+ LOCATION_ID                                                                                           NOT NULL NUMBER(4)
+ STREET_ADDRESS                                                                                                 VARCHAR2(40)
+ POSTAL_CODE                                                                                                    VARCHAR2(12)
+ CITY                                                                                                  NOT NULL VARCHAR2(30)
+ STATE_PROVINCE                                                                                                 VARCHAR2(25)
+ COUNTRY_ID                                                                                                     CHAR(2)
+
+SQL> desc countries
+ Name                                                                                                  Null?    Type
+ ----------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------
+ COUNTRY_ID                                                                                            NOT NULL CHAR(2)
+ COUNTRY_NAME                                                                                                   VARCHAR2(40)
+ REGION_ID                                                                                                      NUMBER
+
+SQL> select first_name,region_id from employees join using departments join using(department_id) join countries using(country_id);
+select first_name,region_id from employees join using departments join using(department_id) join countries using(country_id)
+                                                                            *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+SQL> select first_name,region_id from employees join using departments join using(department_id) join countries using(country_id) join regions using(region_id);
+select first_name,region_id from employees join using departments join using(department_id) join countries using(country_id) join regions using(region_id)
+                                                                            *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+SQL> select first_name,region_id from employees join departments using(department_id) join countries using(country_id) join regions using(region_id);
+select first_name,region_id from employees join departments using(department_id) join countries using(country_id) join regions using(region_id)
+                                                                                                      *
+ERROR at line 1:
+ORA-00904: "from$_subquery$_003"."COUNTRY_ID": invalid identifier 
+
+
+SQL> select first_name,region_name from employees join departments using(department_id) join locations using(location_id
+  2  ) join countires using(country_id) join regions using(region_id);
+) join countires using(country_id) join regions using(region_id)
+       *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join regions using(region_id);
+select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join regions using(region_id)
+                                                                                                                                        *
+ERROR at line 1:
+ORA-00904: "from$_subquery$_005"."REGION_ID": invalid identifier 
+
+
+SQL> select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join regions using(region_id);
+select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join regions using(region_id)
+                                                                                                                                        *
+ERROR at line 1:
+ORA-00904: "from$_subquery$_005"."REGION_ID": invalid identifier 
+
+
+SQL> select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join countires using(country_id) regions using(region_id);
+select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join countires using(country_id) regions using(region_id)
+                                                                                                                                                      *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join countires using(country_id) join regions using(region_id);
+select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join countires using(country_id) join regions using(region_id)
+                                                                                                                          *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join contries using(country_id) join regions using(region_id);
+select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join contries using(country_id) join regions using(region_id)
+                                                                                                                          *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> 
+SQL> select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join countires using(country_id) join regions using(region_id);
+select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join countires using(country_id) join regions using(region_id)
+                                                                                                                          *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select first_name,region_name from employees join departments using(department_id) join locations using(location_id) join countries using(country_id) join regions using(region_id);
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Ellen                Europe                                                                                                                                                         
+Sundar               Europe                                                                                                                                                         
+Mozhe                Americas                                                                                                                                                       
+David                Americas                                                                                                                                                       
+Hermann              Europe                                                                                                                                                         
+Shelli               Americas                                                                                                                                                       
+Amit                 Europe                                                                                                                                                         
+Elizabeth            Europe                                                                                                                                                         
+Sarah                Americas                                                                                                                                                       
+David                Europe                                                                                                                                                         
+Laura                Americas                                                                                                                                                       
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Harrison             Europe                                                                                                                                                         
+Alexis               Americas                                                                                                                                                       
+Anthony              Americas                                                                                                                                                       
+Gerald               Europe                                                                                                                                                         
+Nanette              Europe                                                                                                                                                         
+John                 Americas                                                                                                                                                       
+Kelly                Americas                                                                                                                                                       
+Karen                Americas                                                                                                                                                       
+Curtis               Americas                                                                                                                                                       
+Lex                  Americas                                                                                                                                                       
+Julia                Americas                                                                                                                                                       
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Jennifer             Americas                                                                                                                                                       
+Louise               Europe                                                                                                                                                         
+Bruce                Americas                                                                                                                                                       
+Alberto              Europe                                                                                                                                                         
+Britney              Americas                                                                                                                                                       
+Daniel               Americas                                                                                                                                                       
+Pat                  Americas                                                                                                                                                       
+Kevin                Americas                                                                                                                                                       
+Jean                 Americas                                                                                                                                                       
+Tayler               Europe                                                                                                                                                         
+Adam                 Americas                                                                                                                                                       
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Timothy              Americas                                                                                                                                                       
+Ki                   Americas                                                                                                                                                       
+Girard               Americas                                                                                                                                                       
+William              Americas                                                                                                                                                       
+Douglas              Americas                                                                                                                                                       
+Nancy                Americas                                                                                                                                                       
+Danielle             Europe                                                                                                                                                         
+Peter                Europe                                                                                                                                                         
+Michael              Americas                                                                                                                                                       
+Shelley              Americas                                                                                                                                                       
+Guy                  Americas                                                                                                                                                       
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Alexander            Americas                                                                                                                                                       
+Alyssa               Europe                                                                                                                                                         
+Charles              Europe                                                                                                                                                         
+Vance                Americas                                                                                                                                                       
+Payam                Americas                                                                                                                                                       
+Alexander            Americas                                                                                                                                                       
+Janette              Europe                                                                                                                                                         
+Steven               Americas                                                                                                                                                       
+Neena                Americas                                                                                                                                                       
+Sundita              Europe                                                                                                                                                         
+Renske               Americas                                                                                                                                                       
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+James                Americas                                                                                                                                                       
+David                Europe                                                                                                                                                         
+Jack                 Europe                                                                                                                                                         
+Diana                Americas                                                                                                                                                       
+Jason                Americas                                                                                                                                                       
+Steven               Americas                                                                                                                                                       
+James                Americas                                                                                                                                                       
+Mattea               Europe                                                                                                                                                         
+Randall              Americas                                                                                                                                                       
+Susan                Europe                                                                                                                                                         
+Samuel               Americas                                                                                                                                                       
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Allan                Europe                                                                                                                                                         
+Irene                Americas                                                                                                                                                       
+Kevin                Americas                                                                                                                                                       
+Julia                Americas                                                                                                                                                       
+Donald               Americas                                                                                                                                                       
+Christopher          Europe                                                                                                                                                         
+TJ                   Americas                                                                                                                                                       
+Lisa                 Europe                                                                                                                                                         
+Karen                Europe                                                                                                                                                         
+Valli                Americas                                                                                                                                                       
+Joshua               Americas                                                                                                                                                       
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Randall              Americas                                                                                                                                                       
+Hazel                Americas                                                                                                                                                       
+Luis                 Americas                                                                                                                                                       
+Trenna               Americas                                                                                                                                                       
+Den                  Americas                                                                                                                                                       
+Michael              Americas                                                                                                                                                       
+John                 Europe                                                                                                                                                         
+Nandita              Americas                                                                                                                                                       
+Ismael               Americas                                                                                                                                                       
+John                 Americas                                                                                                                                                       
+Sarath               Europe                                                                                                                                                         
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Lindsey              Europe                                                                                                                                                         
+William              Europe                                                                                                                                                         
+Stephen              Americas                                                                                                                                                       
+Martha               Americas                                                                                                                                                       
+Patrick              Europe                                                                                                                                                         
+Jonathon             Europe                                                                                                                                                         
+Winston              Americas                                                                                                                                                       
+Sigal                Americas                                                                                                                                                       
+Peter                Europe                                                                                                                                                         
+Oliver               Europe                                                                                                                                                         
+Jose Manuel          Americas                                                                                                                                                       
+
+FIRST_NAME           REGION_NAME                                                                                                                                                    
+-------------------- -------------------------                                                                                                                                      
+Peter                Americas                                                                                                                                                       
+Clara                Europe                                                                                                                                                         
+Shanta               Americas                                                                                                                                                       
+Alana                Americas                                                                                                                                                       
+Matthew              Americas                                                                                                                                                       
+Jennifer             Americas                                                                                                                                                       
+Eleni                Europe                                                                                                                                                         
+
+106 rows selected.
+
+SQL> select first_name,last_name,country_name from employees join departments using(deparrtment_id) join countries using(country_id);
+select first_name,last_name,country_name from employees join departments using(deparrtment_id) join countries using(country_id)
+                                                                               *
+ERROR at line 1:
+ORA-00904: "DEPARTMENTS"."DEPARRTMENT_ID": invalid identifier 
+
+
+SQL> desc employees
+ Name                                                                                                  Null?    Type
+ ----------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------
+ EMPLOYEE_ID                                                                                           NOT NULL NUMBER(6)
+ FIRST_NAME                                                                                                     VARCHAR2(20)
+ LAST_NAME                                                                                             NOT NULL VARCHAR2(25)
+ EMAIL                                                                                                 NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                                                                                   VARCHAR2(20)
+ HIRE_DATE                                                                                             NOT NULL DATE
+ JOB_ID                                                                                                NOT NULL VARCHAR2(10)
+ SALARY                                                                                                         NUMBER(8,2)
+ COMMISSION_PCT                                                                                                 NUMBER(2,2)
+ MANAGER_ID                                                                                                     NUMBER(6)
+ DEPARTMENT_ID                                                                                                  NUMBER(4)
+
+SQL> desc departments
+ Name                                                                                                  Null?    Type
+ ----------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------
+ DEPARTMENT_ID                                                                                         NOT NULL NUMBER(4)
+ DEPARTMENT_NAME                                                                                       NOT NULL VARCHAR2(30)
+ MANAGER_ID                                                                                                     NUMBER(6)
+ LOCATION_ID                                                                                                    NUMBER(4)
+
+SQL> desc countries
+ Name                                                                                                  Null?    Type
+ ----------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------
+ COUNTRY_ID                                                                                            NOT NULL CHAR(2)
+ COUNTRY_NAME                                                                                                   VARCHAR2(40)
+ REGION_ID                                                                                                      NUMBER
+
+SQL> desc loaction
+ERROR:
+ORA-04043: object loaction does not exist 
+
+
+SQL> desc location
+ERROR:
+ORA-04043: object location does not exist 
+
+
+SQL> desc loactions
+ERROR:
+ORA-04043: object loactions does not exist 
+
+
+SQL> desc locaions
+ERROR:
+ORA-04043: object locaions does not exist 
+
+
+SQL> desc locations
+ Name                                                                                                  Null?    Type
+ ----------------------------------------------------------------------------------------------------- -------- --------------------------------------------------------------------
+ LOCATION_ID                                                                                           NOT NULL NUMBER(4)
+ STREET_ADDRESS                                                                                                 VARCHAR2(40)
+ POSTAL_CODE                                                                                                    VARCHAR2(12)
+ CITY                                                                                                  NOT NULL VARCHAR2(30)
+ STATE_PROVINCE                                                                                                 VARCHAR2(25)
+ COUNTRY_ID                                                                                                     CHAR(2)
+
+SQL> select first_name,last_name,country_name from employees join departments using(department_id) join locations using(location_id) join countries using(country_id);
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Ellen                Abel                      United Kingdom                                                                                                                       
+Sundar               Ande                      United Kingdom                                                                                                                       
+Mozhe                Atkinson                  United States of America                                                                                                             
+David                Austin                    United States of America                                                                                                             
+Hermann              Baer                      Germany                                                                                                                              
+Shelli               Baida                     United States of America                                                                                                             
+Amit                 Banda                     United Kingdom                                                                                                                       
+Elizabeth            Bates                     United Kingdom                                                                                                                       
+Sarah                Bell                      United States of America                                                                                                             
+David                Bernstein                 United Kingdom                                                                                                                       
+Laura                Bissot                    United States of America                                                                                                             
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Harrison             Bloom                     United Kingdom                                                                                                                       
+Alexis               Bull                      United States of America                                                                                                             
+Anthony              Cabrio                    United States of America                                                                                                             
+Gerald               Cambrault                 United Kingdom                                                                                                                       
+Nanette              Cambrault                 United Kingdom                                                                                                                       
+John                 Chen                      United States of America                                                                                                             
+Kelly                Chung                     United States of America                                                                                                             
+Karen                Colmenares                United States of America                                                                                                             
+Curtis               Davies                    United States of America                                                                                                             
+Lex                  De Haan                   United States of America                                                                                                             
+Julia                Dellinger                 United States of America                                                                                                             
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Jennifer             Dilly                     United States of America                                                                                                             
+Louise               Doran                     United Kingdom                                                                                                                       
+Bruce                Ernst                     United States of America                                                                                                             
+Alberto              Errazuriz                 United Kingdom                                                                                                                       
+Britney              Everett                   United States of America                                                                                                             
+Daniel               Faviet                    United States of America                                                                                                             
+Pat                  Fay                       Canada                                                                                                                               
+Kevin                Feeney                    United States of America                                                                                                             
+Jean                 Fleaur                    United States of America                                                                                                             
+Tayler               Fox                       United Kingdom                                                                                                                       
+Adam                 Fripp                     United States of America                                                                                                             
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Timothy              Gates                     United States of America                                                                                                             
+Ki                   Gee                       United States of America                                                                                                             
+Girard               Geoni                     United States of America                                                                                                             
+William              Gietz                     United States of America                                                                                                             
+Douglas              Grant                     United States of America                                                                                                             
+Nancy                Greenberg                 United States of America                                                                                                             
+Danielle             Greene                    United Kingdom                                                                                                                       
+Peter                Hall                      United Kingdom                                                                                                                       
+Michael              Hartstein                 Canada                                                                                                                               
+Shelley              Higgins                   United States of America                                                                                                             
+Guy                  Himuro                    United States of America                                                                                                             
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Alexander            Hunold                    United States of America                                                                                                             
+Alyssa               Hutton                    United Kingdom                                                                                                                       
+Charles              Johnson                   United Kingdom                                                                                                                       
+Vance                Jones                     United States of America                                                                                                             
+Payam                Kaufling                  United States of America                                                                                                             
+Alexander            Khoo                      United States of America                                                                                                             
+Janette              King                      United Kingdom                                                                                                                       
+Steven               King                      United States of America                                                                                                             
+Neena                Kochhar                   United States of America                                                                                                             
+Sundita              Kumar                     United Kingdom                                                                                                                       
+Renske               Ladwig                    United States of America                                                                                                             
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+James                Landry                    United States of America                                                                                                             
+David                Lee                       United Kingdom                                                                                                                       
+Jack                 Livingston                United Kingdom                                                                                                                       
+Diana                Lorentz                   United States of America                                                                                                             
+Jason                Mallin                    United States of America                                                                                                             
+Steven               Markle                    United States of America                                                                                                             
+James                Marlow                    United States of America                                                                                                             
+Mattea               Marvins                   United Kingdom                                                                                                                       
+Randall              Matos                     United States of America                                                                                                             
+Susan                Mavris                    United Kingdom                                                                                                                       
+Samuel               McCain                    United States of America                                                                                                             
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Allan                McEwen                    United Kingdom                                                                                                                       
+Irene                Mikkilineni               United States of America                                                                                                             
+Kevin                Mourgos                   United States of America                                                                                                             
+Julia                Nayer                     United States of America                                                                                                             
+Donald               OConnell                  United States of America                                                                                                             
+Christopher          Olsen                     United Kingdom                                                                                                                       
+TJ                   Olson                     United States of America                                                                                                             
+Lisa                 Ozer                      United Kingdom                                                                                                                       
+Karen                Partners                  United Kingdom                                                                                                                       
+Valli                Pataballa                 United States of America                                                                                                             
+Joshua               Patel                     United States of America                                                                                                             
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Randall              Perkins                   United States of America                                                                                                             
+Hazel                Philtanker                United States of America                                                                                                             
+Luis                 Popp                      United States of America                                                                                                             
+Trenna               Rajs                      United States of America                                                                                                             
+Den                  Raphaely                  United States of America                                                                                                             
+Michael              Rogers                    United States of America                                                                                                             
+John                 Russell                   United Kingdom                                                                                                                       
+Nandita              Sarchand                  United States of America                                                                                                             
+Ismael               Sciarra                   United States of America                                                                                                             
+John                 Seo                       United States of America                                                                                                             
+Sarath               Sewall                    United Kingdom                                                                                                                       
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Lindsey              Smith                     United Kingdom                                                                                                                       
+William              Smith                     United Kingdom                                                                                                                       
+Stephen              Stiles                    United States of America                                                                                                             
+Martha               Sullivan                  United States of America                                                                                                             
+Patrick              Sully                     United Kingdom                                                                                                                       
+Jonathon             Taylor                    United Kingdom                                                                                                                       
+Winston              Taylor                    United States of America                                                                                                             
+Sigal                Tobias                    United States of America                                                                                                             
+Peter                Tucker                    United Kingdom                                                                                                                       
+Oliver               Tuvault                   United Kingdom                                                                                                                       
+Jose Manuel          Urman                     United States of America                                                                                                             
+
+FIRST_NAME           LAST_NAME                 COUNTRY_NAME                                                                                                                         
+-------------------- ------------------------- ----------------------------------------                                                                                             
+Peter                Vargas                    United States of America                                                                                                             
+Clara                Vishney                   United Kingdom                                                                                                                       
+Shanta               Vollman                   United States of America                                                                                                             
+Alana                Walsh                     United States of America                                                                                                             
+Matthew              Weiss                     United States of America                                                                                                             
+Jennifer             Whalen                    United States of America                                                                                                             
+Eleni                Zlotkey                   United Kingdom                                                                                                                       
+
+106 rows selected.
+
+SQL> spool off

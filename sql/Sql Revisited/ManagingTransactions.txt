@@ -1,0 +1,14 @@
+MANAGING TRANSACTIONS
+
+
+COMMIT
+rollback;
+savepoint updation;
+savepoint insertion;
+savepoint deletion;
+
+
+
+
+
+

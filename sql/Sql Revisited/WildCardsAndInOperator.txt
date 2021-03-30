@@ -1,0 +1,17 @@
+select first_name from employees where first_name like 'A%';
+
+select first_name from employees where first_name like 'A___a';
+
+select first_name from employees where first_name like 'Am%i%__';
+
+select first_name from employees where first_name like 'Am%i%_';
+
+select first_name from employees where first_name like 'Ada%m%';
+
+select first_name from employees where first_name like '%mi%';
+
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+
+SELECT * FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);

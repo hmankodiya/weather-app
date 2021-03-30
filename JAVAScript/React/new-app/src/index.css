@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.harsh{
+  list-style-type: square;
+  color: green;
+}
+.divClass{
+  background:red;
+  height:150px;
+  width:100px;
+}
+.Task1{
+  color:royalblue;
+}
+.contact-card{
+  width: 300px;
+}
+/* .Ans{
+  background:red;
+}
+.Que{
+  background:rebeccapurple;
+} */
+.appHead{
+  height:100%;
+  width:100%;
+  background:rgb(42, 27, 95);
+}
+.bodyClass{
+  height:fit-content ;
+  width:100%;
+  background:green;
+}
+.jokeClass{
+  background-color:royalblue;
+  justify-content: center;
+  display:flex;
+}
+.jokeDiv{
+  height:fit-content;
+  width:fit-content;
+  background:hotpink
+}

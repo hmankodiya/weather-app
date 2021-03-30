@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Effect</title>
+    <style>
+    .sq1{
+        position: absolute;
+        margin-top:100px;
+        margin-left: 200px;
+        height:100px;
+        width: 100px;
+        border:solid 10px thistle;
+        animation-name: rot;
+        /* animation-delay:s; */
+        animation-duration:5s;
+        animation-timing-function:linear;
+        animation-iteration-count: infinite;
+    }
+    .sq2{
+        position: absolute;
+        margin-top:500px;
+        margin-left:100px;
+        height:100px;
+        width: 100px;
+        background:black;
+        animation-name: rot;
+        animation-delay:1s;
+        animation-duration:3s;
+        animation-timing-function:linear;
+        animation-iteration-count: infinite;
+    }
+    .sq3{
+        position: absolute;
+        margin-top:600px;
+        margin-left:1400px;
+        height:100px;
+        width: 100px;
+        background:black;
+        animation-name: rot;
+        animation-delay:0.5s;
+        animation-duration:3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+         }
+    .sq4{
+        position: absolute;
+        margin-top:50px;
+        margin-left: 1000px;
+        height:250px;
+        width: 250px;
+        background:black;
+        animation-name: rot;
+        animation-delay:0.6s;
+        animation-duration:5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    .sq5{
+        position: absolute;
+        margin-top:500px;
+        margin-left:800px;
+        height:200px;
+        width: 200px;
+        border: solid 10px rgb(31, 30, 30);
+        /* background:black; */
+        animation-name: rot;
+        animation-delay:0.6s;
+        animation-duration:3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    
+    .main{
+        position: absolute;
+        background:rgb(32, 32, 32);   
+        color:white;
+        transform:translateX(-400px) translateY(-50px);
+        height:150px;
+        line-height:150px;
+        font-family: sans-serif;
+        width:800px;
+        border-top-left-radius: 50px;
+        border: solid 10px;
+        text-align: center;
+        letter-spacing: 5px;
+        font-size: 60px;
+        top: 50%;
+        left: 50%;
+        animation-name:bord;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    body{
+        background: black;
+        animation-name: bod;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+    }
+    @keyframes bod {
+        0%{
+            background: black;
+        }
+        25%{
+            background: chartreuse;
+        }
+        50%{
+            background: blue;
+        }
+        75%{
+            background: darkviolet;
+        }
+        100%{
+            background: chocolate;
+        }
+        
+    }
+    @keyframes bord {
+        0%{
+           border-color: blue;
+           background: white;
+           color: black;
+        }
+
+        50%{
+            border-color: darkgoldenrod;
+            background: black;
+            color: white;
+        }
+        100%{
+            border-color: deepskyblue;
+            background: white;
+            color: black;
+        }
+    
+    }
+    @keyframes rot{
+
+0%{
+transform:scale(0) rotate(0deg) translateY(100px);
+
+}
+
+100%{
+    transform:scale(1) rotate(360deg) translateY(-100px);
+    opacity: 0;
+}
+
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">Harsh Mankodiya</div>
+    <div class="sq1"></div>
+    <div class="sq2"></div>
+    <div class="sq3"></div>
+    <div class="sq4"></div>
+    <div class="sq5"></div>
+</body>
+</html>

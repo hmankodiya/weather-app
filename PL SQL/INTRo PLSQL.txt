@@ -1,0 +1,6 @@
+rem PL SQL procedural Language/struccture query Language
+
+sql query
+| | | | |
+Physical IO ---
+Logical IO-----

@@ -1,0 +1,37 @@
+DML-> data manipulation language
+
+insert,update, delete
+
+SQL> insert into testtab values(101,'ironman','stark','email','M','8989',sysdate,123,sysdate);
+
+SQL> /
+
+SQL> column  first_name a10;
+
+UPDATE:
+
+SQL> update testtab set deptid=30;
+
+SQL> update testtab set deptid=80 where id=101;
+
+
+DELETE:
+
+
+SQL> delete from testtab where id=101;
+
+
+SQL> commit
+  2  ;
+
+SQL> roll back;
+
+
+MERGE:
+ MERGES two tables.
+
+merge into table2 using table1 on (fieldx from table1 = fieldy from table2) when 
+matched then 
+update set attributes
+when not matched then insert;
+

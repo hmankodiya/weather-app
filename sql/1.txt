@@ -1,0 +1,9 @@
+
+
+
+
+*=all columns and rows from table
+every error in rdbms of oracal has its own error  no
+
+NAME OF TABLE IS NOT CASE SENSETIVE
+

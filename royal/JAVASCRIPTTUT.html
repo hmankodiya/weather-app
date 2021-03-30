@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" name="" id="a" onkeyup="show()">
+    <textarea name="" id="b"  rows="1"></textarea>
+    <button id="sub" >Submit</button>
+<script>
+// document.write("HARSH <br>");
+// var name="harsh";
+// document.write(name);
+// console.log(x);
+// document.write(x);
+// document.getElementById('b').innerHTML='x';
+// document.write(x);
+function show(){
+    // alert('dasd');
+    var x=document.getElementById('a').value;
+
+    // x=5;
+    // document.write(x);
+    document.getElementById('b').value=document.getElementById('a').value;
+}
+</script>   
+</body>
+</html>

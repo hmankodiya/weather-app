@@ -1,0 +1,136 @@
+SQL> create table superheroes_backup AS select * from superheroes where 1=2;
+
+Table created.
+
+SQL> create or replace trigger sh_backup
+  2  before insert or update or delete on superheroes
+  3  for each row
+  4  enable
+  5  begin
+  6  if INSERTING then
+  7  dbms_output.put_line('You just inserted a line MR.'||v_user);
+  8  elsif UPDATING then
+  9  dbms_output.put_line('You just updated a line MR.'||v_user);
+ 10  elsif DELETING then
+ 11  dbms_output.put_line('You just deleted a line MR.'||v_user);
+ 12  END IF;
+ 13  end;
+ 14  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> show error
+Errors for TRIGGER SH_BACKUP:
+
+LINE/COL ERROR                                                                  
+-------- -----------------------------------------------------------------      
+3/1      PL/SQL: Statement ignored                                              
+3/54     PLS-00201: identifier 'V_USER' must be declared                        
+5/1      PL/SQL: Statement ignored                                              
+5/53     PLS-00201: identifier 'V_USER' must be declared                        
+7/1      PL/SQL: Statement ignored                                              
+7/53     PLS-00201: identifier 'V_USER' must be declared                        
+SQL> create table superheroes_backup AS select * from superheroes where 1=2;
+create table superheroes_backup AS select * from superheroes where 1=2
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> create or replace trigger sh_backup
+  2  before insert or update or delete on superheroes
+  3  for each row
+  4  enable
+  5  begin
+  6  if INSERTING then
+  7  insert into superheroes_backup (sh_name) values(:NEW.sh_name);
+  8  elsif UPDATING then
+  9  update superheroes_backup set sh_name=:NEW.sh_name where sh_name=:OLD.sh_name;
+ 10  elsif DELETING then
+ 11  delete from superheroes_backup where sh_name:=OLD>sh_name;
+ 12  END IF;
+ 13  end;
+ 14  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> show error
+Errors for TRIGGER SH_BACKUP:
+
+LINE/COL ERROR                                                                  
+-------- -----------------------------------------------------------------      
+7/1      PL/SQL: SQL Statement ignored                                          
+7/45     PL/SQL: ORA-00920: invalid relational operator                         
+SQL> create table superheroes_backup as select * from superheroes where 1=2;
+create table superheroes_backup as select * from superheroes where 1=2
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> create table superheroes_backup as select * from superheroes where 1=2;
+create table superheroes_backup as select * from superheroes where 1=2
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> create table superheroes_backup AS select * from superheroes where 1=2;
+create table superheroes_backup AS select * from superheroes where 1=2
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> create or replace trigger sh_backup
+  2  before insert or update or delete on superheroes
+  3  for each row
+  4  enable
+  5  begin
+  6  if INSERTING then
+  7  insert into superheroes_backup (sh_name) values(:NEW.sh_name);
+  8  elsif UPDATING then
+  9  update superheroes_backup set sh_name=:NEW.sh_name where sh_name=:OLD.sh_name;
+ 10  elsif DELETING then
+ 11  delete from superheroes_backup where sh_name:=OLD>sh_name;
+ 12  END IF;
+ 13  end;
+ 14  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> create table superheroes_backup AS select * from superheroes where 1=2;
+create table superheroes_backup AS select * from superheroes where 1=2
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> create or replace trigger sh_backup
+  2  before insert or update or delete on superheroes
+  3  for each row
+  4  enable
+  5  begin
+  6  if INSERTING then
+  7  insert into superheroes_backup (sh_name) values(:NEW.sh_name);
+  8  elsif UPDATING then
+  9  update superheroes_backup set sh_name=:NEW.sh_name where sh_name=:OLD.sh_name;
+ 10  elsif DELETING then
+ 11  delete from superheroes_backup where sh_name:=OLD.sh_name;
+ 12  END IF;
+ 13  end;
+ 14  /
+
+Warning: Trigger created with compilation errors.
+
+SQL> show error
+Errors for TRIGGER SH_BACKUP:
+
+LINE/COL ERROR                                                                  
+-------- -----------------------------------------------------------------      
+7/1      PL/SQL: SQL Statement ignored                                          
+7/45     PL/SQL: ORA-00920: invalid relational operator                         
+SQL> 
+SQL> spoll off
+SP2-0042: unknown command "spoll off" - rest of line ignored.
+SQL> spool off

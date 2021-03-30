@@ -1,0 +1,200 @@
+SQL> variable v_bind varchar2(10);
+SQL> exec :v_bind:='harsh';
+
+PL/SQL procedure successfully completed.
+
+SQL> variable v_bind varchar2(10);
+SQL> exec :v_bind:='harsh';
+
+PL/SQL procedure successfully completed.
+
+SQL> print:v_bind;
+
+V_BIND                                                                          
+--------------------------------                                                
+harsh                                                                           
+
+SQL> 	variable v_bind varchar2(10);
+SQL> exec :v_bind:='harsh';
+
+PL/SQL procedure successfully completed.
+
+SQL> begin
+  2  v_bind:='Tony';
+  3  end;
+  4  /
+v_bind:='Tony';
+*
+ERROR at line 2:
+ORA-06550: line 2, column 1: 
+PLS-00201: identifier 'V_BIND' must be declared 
+ORA-06550: line 2, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> print:v_bind;variable v_bind varchar2(10);
+ERROR:
+ORA-00911: invalid character 
+
+
+
+V_BIND                                                                          
+--------------------------------                                                
+harsh                                                                           
+
+SP2-0552: Bind variable "VARCHAR2" not declared.
+Usage: PRINT [:<variable> ...]
+SQL> exec :v_bind:='harsh';
+
+PL/SQL procedure successfully completed.
+
+SQL> begin
+  2  :v_bind:='Tony';
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> print:v_bind;variable v_bind varchar2(10);
+ERROR:
+ORA-00911: invalid character 
+
+
+
+V_BIND                                                                          
+--------------------------------                                                
+Tony                                                                            
+
+SP2-0552: Bind variable "VARCHAR2" not declared.
+Usage: PRINT [:<variable> ...]
+SQL> exec :v_bind:='harsh';
+
+PL/SQL procedure successfully completed.
+
+SQL> begin
+  2  :v_bind:='Tony';
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+SQL> print:v_bind;
+
+V_BIND                                                                          
+--------------------------------                                                
+Tony                                                                            
+
+SQL> set autoprint on;   rem just like set server output on
+SP2-0158: unknown SET option ";"
+SQL> ;
+  1  begin
+  2  :v_bind:='Tony';
+  3* end;
+SQL> variable v_bind varchar2(10);
+SQL> exec :v_bind:='harsh';
+
+PL/SQL procedure successfully completed.
+
+
+V_BIND                                                                          
+--------------------------------                                                
+harsh                                                                           
+
+SQL> begin
+  2  :v_bind:='Tony';
+  3  end;
+  4  /
+
+PL/SQL procedure successfully completed.
+
+
+V_BIND                                                                          
+--------------------------------                                                
+Tony                                                                            
+
+SQL> print:v_bind;
+
+V_BIND                                                                          
+--------------------------------                                                
+Tony                                                                            
+
+SQL> declare
+  2  num number:=&Enter number;
+  3  begin
+  4  if num<10 then
+  5  dbms_output.put_line('inside the if');
+  6  end if;
+  7  dbms_output.put_line('outside the if');
+  8  end;/
+  9  
+ 10  
+ 11  
+ 12  
+ 13  
+ 14  
+ 15  
+ 16  
+ 17  end if;//
+ 18  //
+ 19  
+ 20  
+ 21  ;
+ 22  
+ 23  sdafghj
+ 24  /
+Enter value for enter: 10
+old   2: num number:=&Enter number;
+new   2: num number:=10 number;
+num number:=10 number;
+               *
+ERROR at line 2:
+ORA-06550: line 2, column 16: 
+PLS-00103: Encountered the symbol "NUMBER" when expecting one of the following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol "*" was substituted for "NUMBER" to continue. 
+ORA-06550: line 8, column 5: 
+PLS-00103: Encountered the symbol "/"  
+
+
+SQL> declare
+  2  num number:=&Enter number;
+  3  begin
+  4  if num<10 then
+  5  dbms_output.put_line('inside the if');
+  6  end if;
+  7  dbms_output.put_line('outside the if');
+  8  end;
+  9  /
+Enter value for enter: 10
+old   2: num number:=&Enter number;
+new   2: num number:=10 number;
+num number:=10 number;
+               *
+ERROR at line 2:
+ORA-06550: line 2, column 16: 
+PLS-00103: Encountered the symbol "NUMBER" when expecting one of the following: 
+* & = - + ; < / > at in is mod remainder not rem 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec between || multiset member submultiset 
+The symbol "*" was substituted for "NUMBER" to continue. 
+
+
+SQL> declare
+  2  num number:=&Enternumber;
+  3  begin
+  4  if num<10 then
+  5  dbms_output.put_line('inside the if');
+  6  end if;
+  7  dbms_output.put_line('outside the if');
+  8  end;
+  9  /
+Enter value for enternumber: 10
+old   2: num number:=&Enternumber;
+new   2: num number:=10;
+outside the if                                                                  
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off

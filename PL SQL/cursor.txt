@@ -1,0 +1,1133 @@
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  eid number(5);
+  4  cursor cur is select first_name,employee_id from employees
+  5  where employee_id<105;
+  6  begin
+  7  open cur;
+  8  loop
+  9  fetch cur into name,eid;
+ 10  exit when cur%notfound;
+ 11  dbms_output.put_line(name||eid);
+ 12  end loop;
+ 13  close cur;
+ 14  end;
+ 15  /
+Steven100                                                                       
+Neena101                                                                        
+Lex102                                                                          
+Alexander103                                                                    
+Bruce104                                                                        
+
+PL/SQL procedure successfully completed.
+
+SQL> select employee_id from employee
+  2  ;
+select employee_id from employee
+                        *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select employee_id from employees
+  2  ;
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        100                                                                     
+        101                                                                     
+        102                                                                     
+        103                                                                     
+        104                                                                     
+        105                                                                     
+        106                                                                     
+        107                                                                     
+        108                                                                     
+        109                                                                     
+        111                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        112                                                                     
+        113                                                                     
+        114                                                                     
+        115                                                                     
+        116                                                                     
+        117                                                                     
+        118                                                                     
+        119                                                                     
+        120                                                                     
+        121                                                                     
+        122                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        123                                                                     
+        124                                                                     
+        125                                                                     
+        126                                                                     
+        127                                                                     
+        128                                                                     
+        129                                                                     
+        130                                                                     
+        131                                                                     
+        132                                                                     
+        133                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        134                                                                     
+        135                                                                     
+        136                                                                     
+        137                                                                     
+        138                                                                     
+        139                                                                     
+        140                                                                     
+        141                                                                     
+        142                                                                     
+        143                                                                     
+        144                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        145                                                                     
+        146                                                                     
+        147                                                                     
+        148                                                                     
+        149                                                                     
+        150                                                                     
+        151                                                                     
+        152                                                                     
+        153                                                                     
+        154                                                                     
+        155                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        156                                                                     
+        157                                                                     
+        158                                                                     
+        159                                                                     
+        160                                                                     
+        161                                                                     
+        162                                                                     
+        163                                                                     
+        164                                                                     
+        165                                                                     
+        166                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        167                                                                     
+        168                                                                     
+        169                                                                     
+        170                                                                     
+        171                                                                     
+        172                                                                     
+        173                                                                     
+        174                                                                     
+        175                                                                     
+        176                                                                     
+        177                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        178                                                                     
+        179                                                                     
+        180                                                                     
+        181                                                                     
+        182                                                                     
+        183                                                                     
+        184                                                                     
+        185                                                                     
+        186                                                                     
+        187                                                                     
+        188                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        189                                                                     
+        190                                                                     
+        191                                                                     
+        192                                                                     
+        193                                                                     
+        194                                                                     
+        195                                                                     
+        196                                                                     
+        197                                                                     
+        198                                                                     
+        199                                                                     
+
+EMPLOYEE_ID                                                                     
+-----------                                                                     
+        200                                                                     
+        201                                                                     
+        202                                                                     
+        203                                                                     
+        204                                                                     
+        205                                                                     
+        206                                                                     
+
+106 rows selected.
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  eid number(5);
+  4  cursor cur is select first_name,employee_id from employees
+  5  where employee_id<=206;
+  6  begin
+  7  open cur;
+  8  loop
+  9  fetch cur into name,eid;
+ 10  exit when cur%notfound;
+ 11  dbms_output.put_line(name||eid);
+ 12  end loop;
+ 13  close cur;
+ 14  end;
+ 15  /
+Ellen174                                                                        
+Sundar166                                                                       
+Mozhe130                                                                        
+David105                                                                        
+Hermann204                                                                      
+Shelli116                                                                       
+Amit167                                                                         
+Elizabeth172                                                                    
+Sarah192                                                                        
+David151                                                                        
+Laura129                                                                        
+Harrison169                                                                     
+Alexis185                                                                       
+Anthony187                                                                      
+Gerald148                                                                       
+Nanette154                                                                      
+Kelly188                                                                        
+Karen119                                                                        
+Curtis142                                                                       
+Lex102                                                                          
+Julia186                                                                        
+Jennifer189                                                                     
+Louise160                                                                       
+Bruce104                                                                        
+Alberto147                                                                      
+Britney193                                                                      
+Daniel109                                                                       
+Pat202                                                                          
+Kevin197                                                                        
+Jean181                                                                         
+Tayler170                                                                       
+Adam121                                                                         
+Timothy190                                                                      
+Ki135                                                                           
+Girard183                                                                       
+William206                                                                      
+Douglas199                                                                      
+Kimberely178                                                                    
+Nancy108                                                                        
+Danielle163                                                                     
+Peter152                                                                        
+Michael201                                                                      
+Shelley205                                                                      
+Guy118                                                                          
+Alexander103                                                                    
+Alyssa175                                                                       
+Charles179                                                                      
+Vance195                                                                        
+Payam122                                                                        
+Alexander115                                                                    
+Janette156                                                                      
+Steven100                                                                       
+Neena101                                                                        
+Sundita173                                                                      
+Renske137                                                                       
+James127                                                                        
+David165                                                                        
+Jack177                                                                         
+Diana107                                                                        
+Jason133                                                                        
+Steven128                                                                       
+James131                                                                        
+Mattea164                                                                       
+Randall143                                                                      
+Susan203                                                                        
+Samuel194                                                                       
+Allan158                                                                        
+Irene126                                                                        
+Kevin124                                                                        
+Julia125                                                                        
+Donald198                                                                       
+Christopher153                                                                  
+TJ132                                                                           
+Lisa168                                                                         
+Karen146                                                                        
+Valli106                                                                        
+Joshua140                                                                       
+Randall191                                                                      
+Hazel136                                                                        
+Luis113                                                                         
+Trenna141                                                                       
+Den114                                                                          
+Michael134                                                                      
+John145                                                                         
+Nandita184                                                                      
+Ismael111                                                                       
+John139                                                                         
+Sarath161                                                                       
+Lindsey159                                                                      
+William171                                                                      
+Stephen138                                                                      
+Martha182                                                                       
+Patrick157                                                                      
+Jonathon176                                                                     
+Winston180                                                                      
+Sigal117                                                                        
+Peter150                                                                        
+Oliver155                                                                       
+Jose Manuel112                                                                  
+Peter144                                                                        
+Clara162                                                                        
+Shanta123                                                                       
+Alana196                                                                        
+Matthew120                                                                      
+Jennifer200                                                                     
+Eleni149                                                                        
+
+PL/SQL procedure successfully completed.
+
+SQL> 	set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  eid number(5);
+  4  cursor cur is select first_name,employee_id from employees
+  5  where employee_id<207;
+  6  begin
+  7  open cur;
+  8  loop
+  9  fetch cur into name,eid;
+ 10  exit when cur%notfound;
+ 11  dbms_output.put_line(name||eid);
+ 12  end loop;
+ 13  close cur;
+ 14  end;
+ 15  /
+Ellen174                                                                        
+Sundar166                                                                       
+Mozhe130                                                                        
+David105                                                                        
+Hermann204                                                                      
+Shelli116                                                                       
+Amit167                                                                         
+Elizabeth172                                                                    
+Sarah192                                                                        
+David151                                                                        
+Laura129                                                                        
+Harrison169                                                                     
+Alexis185                                                                       
+Anthony187                                                                      
+Gerald148                                                                       
+Nanette154                                                                      
+Kelly188                                                                        
+Karen119                                                                        
+Curtis142                                                                       
+Lex102                                                                          
+Julia186                                                                        
+Jennifer189                                                                     
+Louise160                                                                       
+Bruce104                                                                        
+Alberto147                                                                      
+Britney193                                                                      
+Daniel109                                                                       
+Pat202                                                                          
+Kevin197                                                                        
+Jean181                                                                         
+Tayler170                                                                       
+Adam121                                                                         
+Timothy190                                                                      
+Ki135                                                                           
+Girard183                                                                       
+William206                                                                      
+Douglas199                                                                      
+Kimberely178                                                                    
+Nancy108                                                                        
+Danielle163                                                                     
+Peter152                                                                        
+Michael201                                                                      
+Shelley205                                                                      
+Guy118                                                                          
+Alexander103                                                                    
+Alyssa175                                                                       
+Charles179                                                                      
+Vance195                                                                        
+Payam122                                                                        
+Alexander115                                                                    
+Janette156                                                                      
+Steven100                                                                       
+Neena101                                                                        
+Sundita173                                                                      
+Renske137                                                                       
+James127                                                                        
+David165                                                                        
+Jack177                                                                         
+Diana107                                                                        
+Jason133                                                                        
+Steven128                                                                       
+James131                                                                        
+Mattea164                                                                       
+Randall143                                                                      
+Susan203                                                                        
+Samuel194                                                                       
+Allan158                                                                        
+Irene126                                                                        
+Kevin124                                                                        
+Julia125                                                                        
+Donald198                                                                       
+Christopher153                                                                  
+TJ132                                                                           
+Lisa168                                                                         
+Karen146                                                                        
+Valli106                                                                        
+Joshua140                                                                       
+Randall191                                                                      
+Hazel136                                                                        
+Luis113                                                                         
+Trenna141                                                                       
+Den114                                                                          
+Michael134                                                                      
+John145                                                                         
+Nandita184                                                                      
+Ismael111                                                                       
+John139                                                                         
+Sarath161                                                                       
+Lindsey159                                                                      
+William171                                                                      
+Stephen138                                                                      
+Martha182                                                                       
+Patrick157                                                                      
+Jonathon176                                                                     
+Winston180                                                                      
+Sigal117                                                                        
+Peter150                                                                        
+Oliver155                                                                       
+Jose Manuel112                                                                  
+Peter144                                                                        
+Clara162                                                                        
+Shanta123                                                                       
+Alana196                                                                        
+Matthew120                                                                      
+Jennifer200                                                                     
+Eleni149                                                                        
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  cursor cur(eid number) is select first_name,employee_id from employees
+  4  where employee_id<eid;
+  5  begin
+  6  open cur(207);
+  7  loop
+  8  fetch cur into name;
+  9  exit when cur%notfound;
+ 10  dbms_output.put_line(name||eid);
+ 11  end loop;
+ 12  close cur;
+ 13  end;
+ 14  /
+fetch cur into name;
+*
+ERROR at line 8:
+ORA-06550: line 8, column 1: 
+PLS-00394: wrong number of values in the INTO list of a FETCH statement 
+ORA-06550: line 8, column 1: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 10, column 28: 
+PLS-00201: identifier 'EID' must be declared 
+ORA-06550: line 10, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  cursor cur(eid number) is select first_name,employee_id from employees
+  4  where employee_id<eid;
+  5  begin
+  6  open cur(205);
+  7  loop
+  8  fetch cur into name;
+  9  exit when cur%notfound;
+ 10  dbms_output.put_line(name||eid);
+ 11  end loop;
+ 12  close cur;
+ 13  end;
+ 14  /
+fetch cur into name;
+*
+ERROR at line 8:
+ORA-06550: line 8, column 1: 
+PLS-00394: wrong number of values in the INTO list of a FETCH statement 
+ORA-06550: line 8, column 1: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 10, column 28: 
+PLS-00201: identifier 'EID' must be declared 
+ORA-06550: line 10, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  cursor cur(eid number) is select first_name,employee_id from employees
+  4  where employee_id<eid;
+  5  begin
+  6  open cur(205);
+  7  loop
+  8  fetch cur into name;
+  9  exit when cur(205)%notfound;
+ 10  dbms_output.put_line(name||eid);
+ 11  end loop;
+ 12  close cur;
+ 13  end;
+ 14  /
+fetch cur into name;
+*
+ERROR at line 8:
+ORA-06550: line 8, column 1: 
+PLS-00394: wrong number of values in the INTO list of a FETCH statement 
+ORA-06550: line 8, column 1: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 9, column 11: 
+PLS-00222: no function with name 'CUR' exists in this scope 
+ORA-06550: line 9, column 1: 
+PL/SQL: Statement ignored 
+ORA-06550: line 10, column 28: 
+PLS-00201: identifier 'EID' must be declared 
+ORA-06550: line 10, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  cursor cur(eid number(1) is select first_name from employees
+  4  where employee_id<eid;
+  5  begin
+  6  open cur(205);
+  7  loop
+  8  fetch cur into name;
+  9  exit when cur%notfound;
+ 10  dbms_output.put_line(name||eid);
+ 11  end loop;
+ 12  close cur;
+ 13  end;
+ 14  /
+cursor cur(eid number(1) is select first_name from employees
+                     *
+ERROR at line 3:
+ORA-06550: line 3, column 22: 
+PLS-00103: Encountered the symbol "(" when expecting one of the following: 
+:= . ) , @ % default character 
+The symbol ":=" was substituted for "(" to continue. 
+ORA-06550: line 3, column 29: 
+PLS-00103: Encountered the symbol "SELECT" when expecting one of the following: 
+not null of nan infinite dangling a empty 
+ORA-06550: line 5, column 1: 
+PLS-00103: Encountered the symbol "BEGIN"  
+ORA-06550: line 13, column 4: 
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the 
+following: 
+end not pragma final instantiable order overriding static 
+member constructor map 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  cursor cur(eid number) is select first_name from employees
+  4  where employee_id<eid;
+  5  begin
+  6  open cur(205);
+  7  loop
+  8  fetch cur into name;
+  9  exit when cur%notfound;
+ 10  dbms_output.put_line(name||eid);
+ 11  end loop;
+ 12  close cur;
+ 13  end;
+ 14  /
+dbms_output.put_line(name||eid);
+                           *
+ERROR at line 10:
+ORA-06550: line 10, column 28: 
+PLS-00201: identifier 'EID' must be declared 
+ORA-06550: line 10, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  cursor cur(eid number) is select first_name from employees
+  4  where employee_id<eid;
+  5  begin
+  6  open cur(205);
+  7  loop
+  8  fetch cur into name;
+  9  exit when cur%notfound;
+ 10  dbms_output.put_line(name);
+ 11  end loop;
+ 12  close cur;
+ 13  end;
+ 14  /
+Ellen                                                                           
+Sundar                                                                          
+Mozhe                                                                           
+David                                                                           
+Hermann                                                                         
+Shelli                                                                          
+Amit                                                                            
+Elizabeth                                                                       
+Sarah                                                                           
+David                                                                           
+Laura                                                                           
+Harrison                                                                        
+Alexis                                                                          
+Anthony                                                                         
+Gerald                                                                          
+Nanette                                                                         
+Kelly                                                                           
+Karen                                                                           
+Curtis                                                                          
+Lex                                                                             
+Julia                                                                           
+Jennifer                                                                        
+Louise                                                                          
+Bruce                                                                           
+Alberto                                                                         
+Britney                                                                         
+Daniel                                                                          
+Pat                                                                             
+Kevin                                                                           
+Jean                                                                            
+Tayler                                                                          
+Adam                                                                            
+Timothy                                                                         
+Ki                                                                              
+Girard                                                                          
+Douglas                                                                         
+Kimberely                                                                       
+Nancy                                                                           
+Danielle                                                                        
+Peter                                                                           
+Michael                                                                         
+Guy                                                                             
+Alexander                                                                       
+Alyssa                                                                          
+Charles                                                                         
+Vance                                                                           
+Payam                                                                           
+Alexander                                                                       
+Janette                                                                         
+Steven                                                                          
+Neena                                                                           
+Sundita                                                                         
+Renske                                                                          
+James                                                                           
+David                                                                           
+Jack                                                                            
+Diana                                                                           
+Jason                                                                           
+Steven                                                                          
+James                                                                           
+Mattea                                                                          
+Randall                                                                         
+Susan                                                                           
+Samuel                                                                          
+Allan                                                                           
+Irene                                                                           
+Kevin                                                                           
+Julia                                                                           
+Donald                                                                          
+Christopher                                                                     
+TJ                                                                              
+Lisa                                                                            
+Karen                                                                           
+Valli                                                                           
+Joshua                                                                          
+Randall                                                                         
+Hazel                                                                           
+Luis                                                                            
+Trenna                                                                          
+Den                                                                             
+Michael                                                                         
+John                                                                            
+Nandita                                                                         
+Ismael                                                                          
+John                                                                            
+Sarath                                                                          
+Lindsey                                                                         
+William                                                                         
+Stephen                                                                         
+Martha                                                                          
+Patrick                                                                         
+Jonathon                                                                        
+Winston                                                                         
+Sigal                                                                           
+Peter                                                                           
+Oliver                                                                          
+Jose Manuel                                                                     
+Peter                                                                           
+Clara                                                                           
+Shanta                                                                          
+Alana                                                                           
+Matthew                                                                         
+Jennifer                                                                        
+Eleni                                                                           
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  cursor cur(eid number) is select first_name from employees
+  4  where employee_id<eid;
+  5  begin
+  6  open cur(205);
+  7  loop
+  8  fetch cur into name,eid;
+  9  exit when cur%notfound;
+ 10  dbms_output.put_line(name||eid);
+ 11  end loop;
+ 12  close cur;
+ 13  end;
+ 14  /
+fetch cur into name,eid;
+                    *
+ERROR at line 8:
+ORA-06550: line 8, column 21: 
+PLS-00201: identifier 'EID' must be declared 
+ORA-06550: line 8, column 1: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 10, column 28: 
+PLS-00201: identifier 'EID' must be declared 
+ORA-06550: line 10, column 1: 
+PL/SQL: Statement ignored 
+
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  cursor cur(eid number) is select first_name from employees
+  4  where employee_id<eid;
+  5  begin
+  6  open cur(205);
+  7  loop
+  8  fetch cur into name;
+  9  exit when cur%notfound;
+ 10  dbms_output.put_line(name);
+ 11  end loop;
+ 12  close cur;
+ 13  end;
+ 14  /
+Ellen                                                                           
+Sundar                                                                          
+Mozhe                                                                           
+David                                                                           
+Hermann                                                                         
+Shelli                                                                          
+Amit                                                                            
+Elizabeth                                                                       
+Sarah                                                                           
+David                                                                           
+Laura                                                                           
+Harrison                                                                        
+Alexis                                                                          
+Anthony                                                                         
+Gerald                                                                          
+Nanette                                                                         
+Kelly                                                                           
+Karen                                                                           
+Curtis                                                                          
+Lex                                                                             
+Julia                                                                           
+Jennifer                                                                        
+Louise                                                                          
+Bruce                                                                           
+Alberto                                                                         
+Britney                                                                         
+Daniel                                                                          
+Pat                                                                             
+Kevin                                                                           
+Jean                                                                            
+Tayler                                                                          
+Adam                                                                            
+Timothy                                                                         
+Ki                                                                              
+Girard                                                                          
+Douglas                                                                         
+Kimberely                                                                       
+Nancy                                                                           
+Danielle                                                                        
+Peter                                                                           
+Michael                                                                         
+Guy                                                                             
+Alexander                                                                       
+Alyssa                                                                          
+Charles                                                                         
+Vance                                                                           
+Payam                                                                           
+Alexander                                                                       
+Janette                                                                         
+Steven                                                                          
+Neena                                                                           
+Sundita                                                                         
+Renske                                                                          
+James                                                                           
+David                                                                           
+Jack                                                                            
+Diana                                                                           
+Jason                                                                           
+Steven                                                                          
+James                                                                           
+Mattea                                                                          
+Randall                                                                         
+Susan                                                                           
+Samuel                                                                          
+Allan                                                                           
+Irene                                                                           
+Kevin                                                                           
+Julia                                                                           
+Donald                                                                          
+Christopher                                                                     
+TJ                                                                              
+Lisa                                                                            
+Karen                                                                           
+Valli                                                                           
+Joshua                                                                          
+Randall                                                                         
+Hazel                                                                           
+Luis                                                                            
+Trenna                                                                          
+Den                                                                             
+Michael                                                                         
+John                                                                            
+Nandita                                                                         
+Ismael                                                                          
+John                                                                            
+Sarath                                                                          
+Lindsey                                                                         
+William                                                                         
+Stephen                                                                         
+Martha                                                                          
+Patrick                                                                         
+Jonathon                                                                        
+Winston                                                                         
+Sigal                                                                           
+Peter                                                                           
+Oliver                                                                          
+Jose Manuel                                                                     
+Peter                                                                           
+Clara                                                                           
+Shanta                                                                          
+Alana                                                                           
+Matthew                                                                         
+Jennifer                                                                        
+Eleni                                                                           
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  eid number;
+  4  cursor cur(id number:=190) is select first_name from employees
+  5  where employee_id<id;
+  6  begin
+  7  open cur;
+  8  loop
+  9  fetch cur into name;
+ 10  exit when cur%notfound;
+ 11  dbms_output.put_line(name);
+ 12  end loop;
+ 13  close cur;
+ 14  end;
+ 15  /
+Ellen                                                                           
+Sundar                                                                          
+Mozhe                                                                           
+David                                                                           
+Shelli                                                                          
+Amit                                                                            
+Elizabeth                                                                       
+David                                                                           
+Laura                                                                           
+Harrison                                                                        
+Alexis                                                                          
+Anthony                                                                         
+Gerald                                                                          
+Nanette                                                                         
+Kelly                                                                           
+Karen                                                                           
+Curtis                                                                          
+Lex                                                                             
+Julia                                                                           
+Jennifer                                                                        
+Louise                                                                          
+Bruce                                                                           
+Alberto                                                                         
+Daniel                                                                          
+Jean                                                                            
+Tayler                                                                          
+Adam                                                                            
+Ki                                                                              
+Girard                                                                          
+Kimberely                                                                       
+Nancy                                                                           
+Danielle                                                                        
+Peter                                                                           
+Guy                                                                             
+Alexander                                                                       
+Alyssa                                                                          
+Charles                                                                         
+Payam                                                                           
+Alexander                                                                       
+Janette                                                                         
+Steven                                                                          
+Neena                                                                           
+Sundita                                                                         
+Renske                                                                          
+James                                                                           
+David                                                                           
+Jack                                                                            
+Diana                                                                           
+Jason                                                                           
+Steven                                                                          
+James                                                                           
+Mattea                                                                          
+Randall                                                                         
+Allan                                                                           
+Irene                                                                           
+Kevin                                                                           
+Julia                                                                           
+Christopher                                                                     
+TJ                                                                              
+Lisa                                                                            
+Karen                                                                           
+Valli                                                                           
+Joshua                                                                          
+Hazel                                                                           
+Luis                                                                            
+Trenna                                                                          
+Den                                                                             
+Michael                                                                         
+John                                                                            
+Nandita                                                                         
+Ismael                                                                          
+John                                                                            
+Sarath                                                                          
+Lindsey                                                                         
+William                                                                         
+Stephen                                                                         
+Martha                                                                          
+Patrick                                                                         
+Jonathon                                                                        
+Winston                                                                         
+Sigal                                                                           
+Peter                                                                           
+Oliver                                                                          
+Jose Manuel                                                                     
+Peter                                                                           
+Clara                                                                           
+Shanta                                                                          
+Matthew                                                                         
+Eleni                                                                           
+
+PL/SQL procedure successfully completed.
+
+SQL> rem default
+SQL> set serveroutput on;
+SQL> declare
+  2  name varchar2(20);
+  3  eid number;
+  4  cursor cur(id number:=190) is select first_name from employees
+  5  where employee_id<id;
+  6  begin
+  7  open cur(200);
+  8  loop
+  9  fetch cur into name;
+ 10  exit when cur%notfound;
+ 11  dbms_output.put_line(name);
+ 12  end loop;
+ 13  close cur;
+ 14  end;
+ 15  /
+Ellen                                                                           
+Sundar                                                                          
+Mozhe                                                                           
+David                                                                           
+Shelli                                                                          
+Amit                                                                            
+Elizabeth                                                                       
+Sarah                                                                           
+David                                                                           
+Laura                                                                           
+Harrison                                                                        
+Alexis                                                                          
+Anthony                                                                         
+Gerald                                                                          
+Nanette                                                                         
+Kelly                                                                           
+Karen                                                                           
+Curtis                                                                          
+Lex                                                                             
+Julia                                                                           
+Jennifer                                                                        
+Louise                                                                          
+Bruce                                                                           
+Alberto                                                                         
+Britney                                                                         
+Daniel                                                                          
+Kevin                                                                           
+Jean                                                                            
+Tayler                                                                          
+Adam                                                                            
+Timothy                                                                         
+Ki                                                                              
+Girard                                                                          
+Douglas                                                                         
+Kimberely                                                                       
+Nancy                                                                           
+Danielle                                                                        
+Peter                                                                           
+Guy                                                                             
+Alexander                                                                       
+Alyssa                                                                          
+Charles                                                                         
+Vance                                                                           
+Payam                                                                           
+Alexander                                                                       
+Janette                                                                         
+Steven                                                                          
+Neena                                                                           
+Sundita                                                                         
+Renske                                                                          
+James                                                                           
+David                                                                           
+Jack                                                                            
+Diana                                                                           
+Jason                                                                           
+Steven                                                                          
+James                                                                           
+Mattea                                                                          
+Randall                                                                         
+Samuel                                                                          
+Allan                                                                           
+Irene                                                                           
+Kevin                                                                           
+Julia                                                                           
+Donald                                                                          
+Christopher                                                                     
+TJ                                                                              
+Lisa                                                                            
+Karen                                                                           
+Valli                                                                           
+Joshua                                                                          
+Randall                                                                         
+Hazel                                                                           
+Luis                                                                            
+Trenna                                                                          
+Den                                                                             
+Michael                                                                         
+John                                                                            
+Nandita                                                                         
+Ismael                                                                          
+John                                                                            
+Sarath                                                                          
+Lindsey                                                                         
+William                                                                         
+Stephen                                                                         
+Martha                                                                          
+Patrick                                                                         
+Jonathon                                                                        
+Winston                                                                         
+Sigal                                                                           
+Peter                                                                           
+Oliver                                                                          
+Jose Manuel                                                                     
+Peter                                                                           
+Clara                                                                           
+Shanta                                                                          
+Alana                                                                           
+Matthew                                                                         
+Eleni                                                                           
+
+PL/SQL procedure successfully completed.
+
+SQL> -- cursor for loop
+SQL> declare
+  2  cursor cur is
+  3  select first_name,last_name from employees where employee_id>200;
+  4  begin
+  5  for i in cur
+  6  loop
+  7  dbms_output.put_line(i.first_name|" "|i.last_name);
+  8  end loop;
+  9  end;
+ 10  /
+dbms_output.put_line(i.first_name|" "|i.last_name);
+                                 *
+ERROR at line 7:
+ORA-06550: line 7, column 34: 
+PLS-00103: Encountered the symbol "|" when expecting one of the following: 
+. ( ) , * @ % & = - + < / > at in is mod remainder not rem => 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec as between from using || multiset member 
+submultiset 
+
+
+SQL> -- cursor for loop
+SQL> declare
+  2  cursor cur is
+  3  select first_name,last_name from employees where employee_id>200;
+  4  begin
+  5  for i in cur
+  6  loop
+  7  dbms_output.put_line(i.first_name|' '|i.last_name);
+  8  end loop;
+  9  end;
+ 10  /
+dbms_output.put_line(i.first_name|' '|i.last_name);
+                                 *
+ERROR at line 7:
+ORA-06550: line 7, column 34: 
+PLS-00103: Encountered the symbol "|" when expecting one of the following: 
+. ( ) , * @ % & = - + < / > at in is mod remainder not rem => 
+<an exponent (**)> <> or != or ~= >= <= <> and or like like2 
+like4 likec as between from using || multiset member 
+submultiset 
+
+
+SQL> -- cursor for loop
+SQL> declare
+  2  cursor cur is
+  3  select first_name,last_name from employees where employee_id>200;
+  4  begin
+  5  for i in cur
+  6  loop
+  7  dbms_output.put_line(i.first_name||' '||i.last_name);
+  8  end loop;
+  9  end;
+ 10  /
+Michael Hartstein                                                               
+Pat Fay                                                                         
+Susan Mavris                                                                    
+Hermann Baer                                                                    
+Shelley Higgins                                                                 
+William Gietz                                                                   
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off

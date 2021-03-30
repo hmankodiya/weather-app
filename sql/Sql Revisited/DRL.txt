@@ -1,0 +1,332 @@
+xDATA RETRIVAL LANGUAGE
+---------------------------------------------------------------
+LIKE ()
+% and _ are wild cards
+
+% represents any value of any length
+
+_ represents one unknown characters
+
+__ twice represents two unknown characters
+
+---------------------------------------------------------------
+select statement
+---------------------------------------------------------------
+
+       (pseudo columns)
+select rowid,rownum from table_name;
+rowid-> unique for every table row
+rowid-> indexing of rows
+---------------------------------------------------------------
+
+SQL> select first_name,last_name from employees;
+
+SQL> select concat(first_name,last_name) from employees;
+
+SQL> select first_name||' '||last_name from employees;
+
+SQL> select first_name||' '||last_name fullName from employees;
+
+SQL> select first_name||' '||last_name "full Name" from employees;
+
+SQL> select distinct First_name from employees;
+
+SQL> select first_name from employess order by('first_name');
+
+SQL> select first_name from employees order by('first_name') desc;
+
+SQL> select first_name,last_name from employees order by 2 desc;
+
+SQL> select first_name from employees order by first_name,last_name;
+
+SQL> select first_name,salary from employees where salary=9000 ;
+
+SQL> select first_name,salary from employees where salary=9000  order by first_name;
+
+SQL> select first_name,salary from employees where salary>=9000 ;
+
+SQL> select first_name,salary from employees where department_id=20 and salary>=20 ;
+
+SQL> select first_name,last_name,salary from employees where salary in 8000;
+
+SQL> select first_name,last_name,salary from employees where salary not in 9000;
+
+SQL> select first_name,last_name,salary from employees where salary between 5000 and 10000;
+
+SQL> select first_name,last_name,salary from employees where first_name like 'A%_';
+
+SQL> select first_name,last_name,salary from employees where first_name like '_%a';
+
+SQL> select first_name,last_name,salary from employees where first_name like '___%t';
+
+SQL> select first_name,last_name,salary from employees where department_id is null;
+
+SQL> select first_name,last_name,salary from employees where department_id is not null;
+
+SQL> select first_name,last_name from employees where lower(last_name )='king';
+
+SQL> select initcap(first_name),last_name from employees;
+
+SQL> select first_name from employees where Length(first_name)=5;
+
+SQL> select first_name,substr(salary,0,3) from employees ;
+
+SQL> select first_name,lpad(substr(salary,0,3),7,'*') from employees;
+
+SQL> select first_name,rpad(substr(salary,0,3),7,'*') from employees;
+
+SQL> select mod(7,2) from dual;
+
+SQL> select mod(7,2) from dual;
+
+SQL> select round(7.23923123,2) from dual;
+
+SQL> select trunc(7.23923123,2) from dual;
+
+SQL> select sysdate from dual;
+
+SQL> select sysdate+14/24 from dual;
+
+SQL> select to_date('31-Dec-16') - to_date(sysdate) from dual;
+
+SQL> select months_between('14-aug-2020','14-nov-2020') from dual;
+
+SQL> select next_day('06-nov-2020','thursday') from dual;
+
+select add_months('31-dec-2020',15) from dual;
+
+select round(sysdate,'month') from dual;
+
+SQL> select round(sysdate,'year') from dual;
+
+SQL> select round(to_date('01-mar-2020'),'year') from dual;
+
+select to_char(sysdate) from dual;
+
+SQL> select to_char(sysdate,'dd-Month-yyyy') from dual;
+
+
+SQL> select first_name ,last_name,hire_date from employees where lower(to_char(hire_date,'day'))='wednesday';
+
+SQL> select to_char(sysdate,'ddsp mon yyyy') from dual;
+
+SQL> select to_char(sysdate,'ddspth mon yyyy') from dual;
+
+SQL> select to_char(sysdate,'ddspth month yyyy') from dual;
+
+SQL> select to_char(sysdate,'ddspth month year') from dual;
+
+SQL> select to_char(sysdate,'day month year') from dual;
+
+SQL> select to_char(sysdate,'HH:MM:SS') from dual;
+
+SQL> select to_char(sysdate,'HH:mi:SS') from dual;
+
+SQL> select to_char(sysdate,'HH:mi:SS AM') from dual;
+
+SQL> select to_char(sysdate,'HH24:mi:SS') from dual;
+
+
+general functions 
+
+SQL> select first_name,salary,commission_pct from employees;
+
+SQL> select first_name,salary+commission_pct*salary finalSal from employees;
+
+SQL> select first_name,commission_pct,salary+nvl(commission_pct,0)*salary finalSal from employees;
+
+SQL> select first_name,commission_pct,salary+coalesce(commission_pct,salary,5000)*salary finalSal from employees;
+
+
+JOINS
+
+
+EQUI JOINS// inner joins
+
+SQL> select employee_id,first_name,department_name
+SQL> from employees,departments where Employees.department_id=departments.department_id;
+
+
+SQL> select e.employee_id,e.first_name ,d.department_name from employees e,departments d ;
+
+// outer joins
+
+SQL> select employee_id,first_name,department_name
+  2  from employees,departments where Employees.department_id=departments.department_id(+); left outer
+
+
+
+SQL> select employee_id,first_name,department_name from employees,departments where Employees.department_id(+)=departments.department_id; right outer
+
+
+
+SQL> select m.first_name as Manager,w.first_name as Worker from employees m,employees w where w.manager_id=m.employee_id;
+
+SQL> select m.first_name as Manager,w.first_name as Worker from employees m,employees w where w.manager_id=m.employee_id order by m.first_name;
+
+
+cross joins
+
+
+
+SQL> select first_name ,department_name from employees cross join departments;
+
+
+natural joins
+
+SQL> select department_name,city from
+  2  departments natural join locations;
+
+
+
+SQL> select first_name,department_name from employees natural join departments;
+
+
+SQL> employees join departments using (department_id);
+
+
+
+SQL> on employees.department_id=departments.department_id;
+
+
+SQL> select first_name,department_name,city from
+employees join departments
+on employees.department_id=departments.department_id
+join locations
+on departments.location_id=locations.location_id;
+
+
+
+SQL> select sum(salary) from employees;
+
+
+SQL> select avg(salary) from employees;
+
+
+SQL> select count(salary) from employees;
+
+SQL>  select avg(salary),max(salary),min(salary) from employees;
+
+
+SQL> select sum(salary) from employees group by department_id;
+
+
+SQL> select sum(salary),department_id from employees group by department_id;
+
+SQL> select sum(salary),department_id,job_id from employees group by department_id,job_id;
+
+SQL> select sum(salary),department_id from employees group by department_id having sum(salary)>=10000 order by 1;
+
+
+select department_id,job_id,sum(salary) from
+employees group by rollup(department_id,job_id)
+order by 1,2;
+
+SQL> select salary from employees where first_name='Nancy';
+
+L> salary> (select salary from employees where first_name='Nancy');
+
+
+SQL> select first_name,last_name from employees 
+SQL> where salary>all(select salary from employees where first_name='John');
+
+SQL> where salary>all(select salary from employees where first_name='John');
+
+select first_name,last_name,salary from employees
+  2  where salary>any(select salary from employees where first_name='John');
+
+SQL> select first_name,salary,department_id from employees empouter
+  2  where 1 = (
+  3  select count(distinct salary) from employees emp_inner
+  4  where empouter.department_id = emp_inner.department_id
+  5  and empouter.salary <= emp_inner.salary )
+  6  order by 3;
+
+
+SQL> select first_name, salary,department_id from employees
+  2  where (department_id,manager_id) in (
+  3  select department_id,manager_id from employees where salary >=10000);
+
+SQL> select first_name,salary from (
+  2  select first_name , last_name ,salary, department_id from employees emp_outer
+  3  where 1 =(
+  4  select count(distinct salary) from employees emp_inner
+  5  where emp_outer.department_id = emp_inner.department_id and
+  6  emp_outer.salary <= emp_inner.salary)
+  7  )
+  8  where department_id = 60;
+
+
+
+create sequence sample_col1_gen
+start with 100
+increment by 1
+maxvalue 1000
+cycle
+cache 10
+;
+
+
+select distinct city from station where lower(substr(reverse(city),1,1)) not in ('a','e','i','o','u');
+
+select distinct city from station where (left(city,1) not in ('a','e','i','o','u') and  right(city,1) not in ('a','e','i','o','u'));
+
+
+
+SQL> select first_name,last_name from employees order by substr(first_name,-3),last_name;
+
+SQL> select first_name,last_name from employees order by first_name,last_name;
+
+SQL> select first_name,substr(first_name,3,3) from employees;
+
+SQL> select first_name from employees order by first_name,last_name;
+
+SQL> select first_name,last_name from employees order by substr(first_name,-3),last_name;
+
+SQL> select first_name,substr(first_name,-3) from employees;
+ 
+SQL> select salary from employees order by salary DESC;
+
+SQL> SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0',''))) FROM EMPLOYEES;
+
+SQL> SELECT MAX(months * salary) ||' '|| COUNT(*) FROM employee GROUP BY salary HAVING MAX(months * salary) = (SELECT MAX(months * salary) from employee);
+
+SQL> SELECT * FROM (SELECT MAX(MONTHS*SALARY), COUNT(EMPLOYEE_ID) FROM EMPLOYEE GROUP BY MONTHS*SALARY ORDER BY MONTHS*SALARY DESC) WHERE ROWNUM = 1;
+
+SQL> SELECT * FROM all_users;
+
+
+SQL> select round(median(lat_n),4) from station;
+
+select constraint_name,constraint_type from user_constraints where table_name='LOCATIONS';
+
+SELECT CASE WHEN A + B > C AND A+C>B AND B+C>A THEN CASE WHEN A = B AND B = C THEN 'Equilateral' WHEN A = B OR B = C OR A = C THEN 'Isosceles' WHEN A != B OR B != C OR A != C THEN 'Scalene' END ELSE 'Not A Triangle' END FROM TRIANGLES;
+
+
+SQL> select 'harsh',first_name from employees;
+
+
+select first_name||'('||substr(last_name,1,1)||')' from employees order by first_name
+
+select 'the count of '||salary||' is '||count(salary) from employees group by salary order by count(salary) asc;
+
+select name||'('||substr(occupation,1,1)||')' from occupations order by name;
+select 'The are a total of '||count(occupation)||' '||lower(occupation)||'s.' from occupations group by occupation order by count(name),occupation;
+
+
+SELECT salary,commission_pct,(SALARY+SALARY* (nvl(COMMISSION_PCT,0))) as TOTAL_SALARY FROM EMPLOYEES;
+
+SELECT
+    ID,
+    name,
+    result,
+    CASE
+        WHEN result = 1 THEN 100
+        WHEN result = 2 THEN 80
+        ELSE NULL
+    END AS NewColumn
+FROM YourTable
+
+
+SQL> SELECT   SUBSTR(JOB_ID,   1,   INSTR(JOB_ID,' ') -1)   FROM employees_new;
+

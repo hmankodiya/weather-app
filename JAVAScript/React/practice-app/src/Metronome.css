@@ -1,0 +1,22 @@
+.metronome{
+    padding: 50px;
+    text-align:center;
+    background:greenyellow;
+}
+.slider{
+    background: none;
+}
+.slider input {
+    width: 100%;
+    margin: 10px;
+}
+.metronome button {
+    margin: 30px 30px;
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    background: hotpink;
+    border: 1px solid gray;
+    outline:none;
+    color:white;
+}

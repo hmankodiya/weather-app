@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Category</title>
+
+        <style>
+        .one{
+            width: 100%;
+            height: 800px;
+            background:sandybrown;
+        }
+        ul{width: 100%;
+    height: 50px;
+    background: black;
+    list-style: none;
+    opacity:0.7;
+    }
+    .c1{
+        display: block;
+        width: 100%;height: 200px;
+        background:linear-gradient(70deg,blue,yellow);
+
+        text-align: center;
+        line-height: 200px;
+        color:white;
+        font-size: 15px;
+    }
+    .c2{
+        display: block;
+        width: 100%;height: 200px;
+        background: linear-gradient(45deg,red,yellow);
+        text-align: center;
+        line-height: 200px;
+        color: white;
+        font-size: 15px;
+
+    }
+    .c3{
+        display: block;
+        width: 100%;height: 200px;
+        background: linear-gradient(60deg,white,black);
+        text-align: center;
+        line-height: 200px;
+        color: aliceblue;
+        font-size: 15px;v
+    }
+    .c4{
+        display: block;
+        width: 100%;height: 200px;
+        background:linear-gradient(50deg,red,green);
+        text-align: center;
+        line-height: 200px;
+        color: white;
+      font-size: 15px;
+       
+    }
+    .content{
+        text-align: center;
+        opacity: 0;
+        width: 100%;
+        height: 50px;
+        line-height: 10px;
+        background:yellow;
+        transform: translateY(1000px) scale(0);
+        color:black;
+        transition: 0.5s;
+        border: solid black 5px;
+    }
+    .a1{}
+    .a2{}
+    .c1:hover{
+    transform:scale(1.1) translateX(50px); 
+    }
+    
+    .c2:hover{
+    transform:scale(1.1) translateX(50px);
+    }
+    .c3:hover{
+    transform:scale(1.1) translateX(50px);
+    
+
+    }
+    .c4:hover{
+    transform:scale(1.1) translateX(50px);
+    
+    }
+    /* .c1:hover ~.content{opacity: 1;transform: translateY(-650px);}
+    .c2:hover ~.content{opacity: 1;transform: translateY(-450px);}
+    .c3:hover ~.content{opacity: 1;transform: translateY(-250px);}
+    .c4:hover ~.content{opacity: 1;transform: translateY(-50px);}
+    */
+    li a{
+        display: block;
+        float: left;
+        color: white;
+        text-decoration: none;
+        padding: 12px 100px;
+        font-size: 20px;
+
+    }
+    li a:hover{
+    background:white;
+    color:black;
+        transform: scale(1.2) ;
+
+    }
+    div a{
+        color: white;
+    }
+   /* jis bhi part me a hai idhhar it is in div */
+        
+        </style>
+</head>
+<body>
+    <div class="one"> 
+    <ul>
+            <li><a href="menu.html">Home</a></li>
+            <li><a href="about me.html" class="a1">About me</a></li>
+            <li><a href="" class="a2">Services</a></li>
+            <li><a href="category.html">Category</a></li>
+            <li><a href="login.html">Login</a></li>
+                </ul>
+                <div class="c1"><a href="https://www.amazon.in/electronics/b?ie=UTF8&node=976419031&ref_=sd_allcat_sbc_tvelec_all_elec" ><h1> ELECTRONICS & ENTERTAINMENT </h1></a></div>
+                <div class="c2"><a href="https://www.amazon.in/Mens-Clothing/b?ie=UTF8&node=1968024031&ref_=sd_allcat_sbc_mfashion_clothing"><h1>CLOTHING AND FASHION</h1></a></div>
+                <div class="c3"><a href="https://www.amazon.in/music/b?ie=UTF8&node=976445031&ref_=sd_allcat_sbc_mmvg_music_all"><h1>MUSIC</h1></a></div>
+                <div class="c4"><a href="https://www.amazon.in/Toys-Games/b?ie=UTF8&node=1350380031&ref_=sd_allcat_sbc_tbk_toys_games"><h1>TOYS & MORE</h1></a></div>
+                <!-- <div class="content" ><h2>The site is under development</h2></div> -->
+
+            </div>
+           
+
+
+</body>
+</html>

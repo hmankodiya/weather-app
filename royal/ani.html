@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation1</title>
+    <style>
+    .obj{
+        /* border-radius: 50%; */
+        width: 200px;height: 200px;
+        margin-left: 200px;
+        margin-top: 100px;
+        background: black;
+        border: whitesmoke solid 16px;
+        /* border-top: 16px solid red; */
+        transition:1s;
+        background: url("amazon.jpg");
+    }
+    .obj:hover{
+        border-radius: 50%;
+        /* background: blue; */
+        border-top: 16px solid red;
+        transform:rotate(360deg);       
+        animation-duration: 1s;
+        animation-name: ani1;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    @keyframes ani1 {
+        0%{transform: rotate(0deg);}
+      
+        100%{transform: rotate(360deg);}
+        
+    }
+    
+    
+    </style>
+</head>
+<body>
+   <div class="obj"></div> 
+</body>
+</html>
